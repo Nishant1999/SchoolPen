@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestion_multipleFillInBlanksFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/fill_in_blanks_multiple"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMCQ1_multipleFillInBlanksFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:padding="@dimen/_13sdp"
+        android:text="Limestone, C2HCl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion_multipleFillInBlanksFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMCQ2_multipleFillInBlanksFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:gravity="top|start"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:padding="@dimen/_13sdp"
+        android:text="Gypsum, C2HCl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ1_multipleFillInBlanksFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMCQ3_multipleFillInBlanksFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:gravity="top|start"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:padding="@dimen/_13sdp"
+        android:text="Quicklime, H2Cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ2_multipleFillInBlanksFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMCQ4_multipleFillInBlanksFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:gravity="top|start"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:padding="@dimen/_13sdp"
+        android:text="Gypsum, Kl4O2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ3_multipleFillInBlanksFrgmnt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

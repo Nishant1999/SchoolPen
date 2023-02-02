@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/back_drawer">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:id="@+id/topNavBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_gravity="top" >
+
+                <ImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_round_menu_24" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:animateLayoutChanges="true"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layoutTopButtons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:id="@+id/iconSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@drawable/circle_back"
+                            android:padding="@dimen/_4sdp"
+                            app:srcCompat="@drawable/ic_baseline_search_24"
+                            app:tint="@color/color_primary" />
+
+                        <ImageButton
+                            android:id="@+id/iconChat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@drawable/circle_back"
+                            android:padding="@dimen/_4sdp"
+                            app:srcCompat="@drawable/ic_baseline_chat_bubble_24"
+                            app:tint="@color/color_primary" />
+
+                        <ImageButton
+                            android:id="@+id/iconNotification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circle_back"
+                            android:padding="@dimen/_4sdp"
+                            app:srcCompat="@drawable/ic_baseline_notifications_24"
+                            app:tint="@color/color_primary" />
+                    </LinearLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/topRightDp"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:src="@drawable/sample_dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/iv_menu"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:orientation="vertical">
+
+                    <com.asmanmirza.schoolpen.Helpers.SwipeLockableViewPager
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/bottomNavBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/top_rounded"
+                        android:backgroundTint="@color/white"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        app:tabIconTint="#707070"
+                        app:tabIndicator="@drawable/ic_tab_dor"
+                        app:tabIndicatorAnimationMode="linear"
+                        app:tabIndicatorColor="@color/blue"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabIndicatorHeight="@dimen/_3sdp"
+                        app:tabInlineLabel="true"
+                        app:tabRippleColor="@android:color/transparent"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextAppearance="@style/tab_text"
+                        app:tabTextColor="#e1e1e1">
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_round_home_24"
+                            android:tooltipText="Home" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_learn"
+                            android:tooltipText="Learning" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_round_auto_stories_24" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_round_menu_book_24"
+                            android:tooltipText="Courses" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_graph"
+                            android:tooltipText="Performance" />
+                    </com.google.android.material.tabs.TabLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <include
+            android:id="@+id/drawerMenu"
+            layout="@layout/item_drawer_layout"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center_horizontal" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

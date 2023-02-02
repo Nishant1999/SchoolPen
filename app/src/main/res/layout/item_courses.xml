@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_230sdp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="5dp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:outlineSpotShadowColor="#AAAAAA"
+    android:outlineAmbientShadowColor="#AAAAAA"
+    android:layout_marginStart="@dimen/_10sdp"
+    app:cardBackgroundColor="#ffffff">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/courseImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        app:srcCompat="@drawable/course_image"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_15sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/school_name"
+                app:civ_border_color="#AAAAAA"
+                app:civ_border_width="1dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#707070"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_11ssp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Stonehill international school"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#383838"
+        android:layout_weight="1"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_15ssp"
+        android:text="Trigonometry"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/skills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/card_skills_des"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_star"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="@dimen/_3sdp"
+                app:tint="#ebcd09" />
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#383838"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/_10ssp"
+                android:backgroundTint="#AAAAAA"
+                android:gravity="center"
+                android:text="4.5"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:drawableTint="#E8E825" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:backgroundTint="#AAAAAA"
+                android:gravity="center"
+                android:drawablePadding="@dimen/_2sdp"
+                android:text="(1.6k reviews)"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#707070"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:backgroundTint="#AAAAAA"
+                android:gravity="start"
+                android:drawablePadding="@dimen/_2sdp"
+                android:text="Begineer • 8 weeks"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enroll now"
+                android:background="@drawable/back_5sdp"
+                android:backgroundTint="#20AAAAAA"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:textSize="@dimen/_11ssp"
+                android:textColor="@color/color_primary"
+                android:fontFamily="@font/poppins_semi_bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INR 499"
+        android:gravity="center"
+        android:elevation="@dimen/_10sdp"
+        android:background="@drawable/back_with_stroke_30sdp"
+        android:backgroundTint="@color/color_primary"
+        android:paddingStart="@dimen/_10sdp"
+        android:includeFontPadding="false"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_gravity="end"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/_12ssp"
+        android:layout_margin="@dimen/_10sdp"/>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestion_imgWithMultipleSelectionFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:lineSpacingExtra="1sp"
+        android:text="What is the below image is called?"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvImg_quesImgDescriptionFrgmnt"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion_imgWithMultipleSelectionFrgmnt">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_quesImgDescriptionFrgmnt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/universe" />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/txtMCQ1_imgWithMultipleSelectionFrgmnt"
+        style="@style/rb_regular_black_title"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="Limestone"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvImg_quesImgDescriptionFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/txtMCQ2_imgWithMultipleSelectionFrgmnt"
+        style="@style/rb_regular_black_title"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="Slaked Lime"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ1_imgWithMultipleSelectionFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/txtMCQ3_imgWithMultipleSelectionFrgmnt"
+        style="@style/rb_regular_black_title"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="Quicklime"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ2_imgWithMultipleSelectionFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/txtMCQ4_imgWithMultipleSelectionFrgmnt"
+        style="@style/rb_regular_black_title"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="Gypsum"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMCQ3_imgWithMultipleSelectionFrgmnt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,1698 @@
+Index: app/src/main/res/layout/fragment_teacher_perforrmance.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".UI.Teacher.Fragments.TeacherPerformanceFragment\">\n\n\n    <androidx.constraintlayout.widget.ConstraintLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\">\n\n    <TextView\n        android:id=\"@+id/label_duties_stats\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/duties_stats\"\n        android:textSize=\"@dimen/_15ssp\"\n        android:textStyle=\"bold\"\n        android:padding=\"@dimen/_15ssp\"\n        android:fontFamily=\"@font/poppins_medium\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <androidx.cardview.widget.CardView\n        android:id=\"@+id/cardview_teaching\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintTop_toBottomOf=\"@+id/label_duties_stats\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_clock\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/ic_clock\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_period_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_clock\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/teaching_time_hours\"\n                android:text=\"Teaching Time\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/teaching_time_hours\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"@string/_310hours\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n               app:layout_constraintStart_toStartOf=\"@+id/text_period_title\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_period_title\"\n               android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n    <androidx.cardview.widget.CardView\n        android:id=\"@+id/cardview_classmissed\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintTop_toBottomOf=\"@+id/label_duties_stats\"\n        app:layout_constraintStart_toEndOf=\"@+id/cardview_teaching\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_folder\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/vectorfolder\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_class_missed_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_folder\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/missed_assinment_hours\"\n                android:text=\"Class Missed\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/missed_assinment_hours\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"26\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n                app:layout_constraintStart_toStartOf=\"@+id/text_class_missed_title\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_class_missed_title\"\n                android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n\n    <androidx.cardview.widget.CardView\n        android:id=\"@+id/cardview_attendence\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintTop_toBottomOf=\"@+id/cardview_teaching\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        android:layout_marginTop=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_attendence\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/vectortroffe\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_attendence_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_attendence\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/teaching_attendence_hours\"\n                android:text=\"Teaching Time\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/teaching_attendence_hours\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"@string/_310hours\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n                app:layout_constraintStart_toStartOf=\"@+id/text_attendence_title\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_attendence_title\"\n                android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n    <androidx.cardview.widget.CardView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"@dimen/_20ssp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/cardview_classmissed\"\n        app:layout_constraintStart_toEndOf=\"@+id/cardview_teaching\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_file\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/vectorfile\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_class_assignments_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_file\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/missed_time_hours\"\n                android:text=\"Assignments\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/missed_time_hours\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"26\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n                app:layout_constraintStart_toStartOf=\"@+id/text_class_assignments_title\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_class_missed_title\"\n                android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n\n    <androidx.cardview.widget.CardView\n        android:id=\"@+id/cardview_class_performance\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintTop_toBottomOf=\"@+id/cardview_attendence\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        android:layout_marginTop=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_evaluation\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/vectortroffe\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_attendence_title2\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_evaluation\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/teaching_evaluation_hours\"\n                android:text=\"On time evalua.\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/teaching_evaluation_hours\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"@string/_310hours\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n                app:layout_constraintStart_toStartOf=\"@+id/text_attendence_title2\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_attendence_title2\"\n                android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n    <androidx.cardview.widget.CardView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"@dimen/_20ssp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/cardview_attendence\"\n        app:layout_constraintStart_toEndOf=\"@+id/cardview_teaching\"\n        android:layout_marginStart=\"@dimen/_20ssp\"\n        app:cardCornerRadius=\"@dimen/_25sdp\"\n        app:cardElevation=\"4dp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:padding=\"@dimen/_20ssp\"\n            android:background=\"#F1DCDC\">\n\n\n            <ImageView\n                android:id=\"@+id/time_file2\"\n                android:layout_width=\"24dp\"\n                android:layout_height=\"24dp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:src=\"@drawable/vectorfile\"\n                app:tint=\"@color/teachers_ui\"\n                />\n\n\n            <TextView\n                android:id=\"@+id/text_class_assignments_title2\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintStart_toEndOf=\"@+id/time_file2\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintBottom_toTopOf=\"@+id/missed_time_hours2\"\n                android:text=\"Assignments\"\n                android:layout_marginBottom=\"@dimen/_5ssp\"\n                android:layout_marginStart=\"@dimen/_10sdp\"\n                android:textSize=\"@dimen/_10sdp\"\n                android:textColor=\"@color/teachers_ui\"\n                />\n\n            <TextView\n                android:id=\"@+id/missed_time_hours2\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintBottom_toBottomOf=\"parent\"\n                android:text=\"26\"\n                android:textSize=\"@dimen/_15sdp\"\n                android:textStyle=\"bold\"\n                app:layout_constraintStart_toStartOf=\"@+id/text_class_assignments_title2\"\n                app:layout_constraintTop_toBottomOf=\"@+id/text_class_assignments_title2\"\n                android:gravity=\"center\" />\n\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n    </androidx.cardview.widget.CardView>\n\n\n    <TextView\n        android:id=\"@+id/label_class_performance\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Class Performance\"\n        android:textSize=\"@dimen/_15ssp\"\n        android:textStyle=\"bold\"\n        app:layout_constraintTop_toBottomOf=\"@+id/cardview_class_performance\"\n        android:padding=\"@dimen/_15ssp\"\n        android:fontFamily=\"@font/poppins_medium\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        />\n\n    <LinearLayout\n        android:id=\"@+id/class_result_1\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintTop_toBottomOf=\"@+id/label_class_performance\"\n        android:orientation=\"horizontal\"\n        android:padding=\"@dimen/_20ssp\"\n        app:layout_constraintStart_toStartOf=\"parent\">\n\n        <androidx.cardview.widget.CardView\n            android:id=\"@+id/todays_class_cardview_container1\"\n            android:layout_width=\"@dimen/_120sdp\"\n            android:layout_height=\"@dimen/_150sdp\"\n            app:cardCornerRadius=\"@dimen/_25sdp\"\n            app:cardElevation=\"0dp\"\n            app:layout_constraintStart_toStartOf=\"parent\"\n            app:layout_constraintTop_toTopOf=\"parent\">\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:background=\"#C45162\">\n\n                <ImageView\n                    android:layout_width=\"@dimen/_170sdp\"\n                    android:layout_height=\"@dimen/_200sdp\"\n                    android:scaleType=\"centerCrop\"\n                    android:src=\"@drawable/chapter_mask\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_class_name1\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_18sdp\"\n                    android:fontFamily=\"@font/lato_regular\"\n                    android:text=\"Class V-A\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_16sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_subject_name1\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_12sdp\"\n                    android:fontFamily=\"@font/poppins_bold\"\n                    android:text=\"English\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_20sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@id/todays_class_class_name1\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_total_students1\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_12sdp\"\n                    android:fontFamily=\"@font/lato_bold\"\n                    android:text=\"Total Students 40\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_10sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@id/todays_class_subject_name1\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n        </androidx.cardview.widget.CardView>\n\n        <androidx.cardview.widget.CardView\n            android:id=\"@+id/todays_class_cardview_container4\"\n            android:layout_width=\"@dimen/_120sdp\"\n            android:layout_height=\"@dimen/_150sdp\"\n            app:cardCornerRadius=\"@dimen/_25sdp\"\n            app:cardElevation=\"0dp\"\n            android:layout_marginStart=\"@dimen/_30ssp\"\n            app:layout_constraintStart_toStartOf=\"parent\"\n            app:layout_constraintTop_toTopOf=\"parent\">\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:background=\"#C45162\">\n\n                <ImageView\n                    android:layout_width=\"@dimen/_170sdp\"\n                    android:layout_height=\"@dimen/_200sdp\"\n                    android:scaleType=\"centerCrop\"\n                    android:src=\"@drawable/chapter_mask\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_class_name4\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_18sdp\"\n                    android:fontFamily=\"@font/lato_regular\"\n                    android:text=\"Class V-A\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_16sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_subject_name4\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_12sdp\"\n                    android:fontFamily=\"@font/poppins_bold\"\n                    android:text=\"English\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_20sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@id/todays_class_class_name4\" />\n\n                <TextView\n                    android:id=\"@+id/todays_class_total_students4\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_12sdp\"\n                    android:fontFamily=\"@font/lato_bold\"\n                    android:text=\"Total Students 40\"\n                    android:textColor=\"#ffffff\"\n                    android:textSize=\"@dimen/_10sdp\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@id/todays_class_subject_name4\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n        </androidx.cardview.widget.CardView>\n    </LinearLayout>\n\n        <LinearLayout\n            android:id=\"@+id/class_result_2\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            app:layout_constraintTop_toBottomOf=\"@+id/class_result_1\"\n            android:orientation=\"horizontal\"\n            android:padding=\"@dimen/_20ssp\"\n            app:layout_constraintStart_toStartOf=\"parent\">\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/todays_class_cardview_container3\"\n                android:layout_width=\"@dimen/_120sdp\"\n                android:layout_height=\"@dimen/_150sdp\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                app:cardElevation=\"0dp\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintTop_toTopOf=\"parent\">\n\n                <androidx.constraintlayout.widget.ConstraintLayout\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:background=\"#C45162\">\n\n                    <ImageView\n                        android:layout_width=\"@dimen/_170sdp\"\n                        android:layout_height=\"@dimen/_200sdp\"\n                        android:scaleType=\"centerCrop\"\n                        android:src=\"@drawable/chapter_mask\"\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_class_name3\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_18sdp\"\n                        android:fontFamily=\"@font/lato_regular\"\n                        android:text=\"Class V-A\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_16sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_subject_name3\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_12sdp\"\n                        android:fontFamily=\"@font/poppins_bold\"\n                        android:text=\"English\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_20sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@id/todays_class_class_name3\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_total_students3\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_12sdp\"\n                        android:fontFamily=\"@font/lato_bold\"\n                        android:text=\"Total Students 40\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_10sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@id/todays_class_subject_name3\" />\n                </androidx.constraintlayout.widget.ConstraintLayout>\n            </androidx.cardview.widget.CardView>\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/todays_class_cardview_container5\"\n                android:layout_width=\"@dimen/_120sdp\"\n                android:layout_height=\"@dimen/_150sdp\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                app:cardElevation=\"0dp\"\n                android:layout_marginStart=\"@dimen/_30ssp\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintTop_toTopOf=\"parent\">\n\n                <androidx.constraintlayout.widget.ConstraintLayout\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:background=\"#C45162\">\n\n                    <ImageView\n                        android:layout_width=\"@dimen/_170sdp\"\n                        android:layout_height=\"@dimen/_200sdp\"\n                        android:scaleType=\"centerCrop\"\n                        android:src=\"@drawable/chapter_mask\"\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_class_name5\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_18sdp\"\n                        android:fontFamily=\"@font/lato_regular\"\n                        android:text=\"Class V-A\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_16sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_subject_name5\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_12sdp\"\n                        android:fontFamily=\"@font/poppins_bold\"\n                        android:text=\"English\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_20sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@id/todays_class_class_name5\" />\n\n                    <TextView\n                        android:id=\"@+id/todays_class_total_students5\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_12sdp\"\n                        android:fontFamily=\"@font/lato_bold\"\n                        android:text=\"Total Students 40\"\n                        android:textColor=\"#ffffff\"\n                        android:textSize=\"@dimen/_10sdp\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@id/todays_class_subject_name5\" />\n                </androidx.constraintlayout.widget.ConstraintLayout>\n            </androidx.cardview.widget.CardView>\n        </LinearLayout>\n    </androidx.constraintlayout.widget.ConstraintLayout>\n\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_teacher_perforrmance.xml b/app/src/main/res/layout/fragment_teacher_perforrmance.xml
+--- a/app/src/main/res/layout/fragment_teacher_perforrmance.xml	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/res/layout/fragment_teacher_perforrmance.xml	(date 1674486233785)
+@@ -9,7 +9,7 @@
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent">
++        android:layout_height="wrap_content">
+ 
+     <TextView
+         android:id="@+id/label_duties_stats"
+@@ -30,7 +30,7 @@
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/label_duties_stats"
+         app:layout_constraintStart_toStartOf="parent"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15ssp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+ 
+@@ -89,7 +89,7 @@
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/label_duties_stats"
+         app:layout_constraintStart_toEndOf="@+id/cardview_teaching"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15ssp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+ 
+@@ -149,7 +149,7 @@
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/cardview_teaching"
+         app:layout_constraintStart_toStartOf="parent"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15ssp"
+         android:layout_marginTop="@dimen/_20ssp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+@@ -209,7 +209,7 @@
+         android:layout_marginTop="@dimen/_20ssp"
+         app:layout_constraintTop_toBottomOf="@+id/cardview_classmissed"
+         app:layout_constraintStart_toEndOf="@+id/cardview_teaching"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15ssp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+ 
+@@ -269,7 +269,7 @@
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/cardview_attendence"
+         app:layout_constraintStart_toStartOf="parent"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15ssp"
+         android:layout_marginTop="@dimen/_20ssp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+@@ -329,7 +329,7 @@
+         android:layout_marginTop="@dimen/_20ssp"
+         app:layout_constraintTop_toBottomOf="@+id/cardview_attendence"
+         app:layout_constraintStart_toEndOf="@+id/cardview_teaching"
+-        android:layout_marginStart="@dimen/_20ssp"
++        android:layout_marginStart="@dimen/_15sdp"
+         app:cardCornerRadius="@dimen/_25sdp"
+         app:cardElevation="4dp">
+ 
+@@ -477,7 +477,7 @@
+             android:layout_height="@dimen/_150sdp"
+             app:cardCornerRadius="@dimen/_25sdp"
+             app:cardElevation="0dp"
+-            android:layout_marginStart="@dimen/_30ssp"
++            android:layout_marginStart="@dimen/_20ssp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+ 
+@@ -618,7 +618,7 @@
+                 android:layout_height="@dimen/_150sdp"
+                 app:cardCornerRadius="@dimen/_25sdp"
+                 app:cardElevation="0dp"
+-                android:layout_marginStart="@dimen/_30ssp"
++                android:layout_marginStart="@dimen/_20ssp"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent">
+ 
+Index: app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Adapters/StudentAttendenceStatusAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.asmanmirza.schoolpen.UI.Teacher.Home.Adapters\n\nclass StudentAttendenceStatusAdapter {\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Adapters/StudentAttendenceStatusAdapter.kt b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Adapters/StudentAttendenceStatusAdapter.kt
+--- a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Adapters/StudentAttendenceStatusAdapter.kt	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Adapters/StudentAttendenceStatusAdapter.kt	(date 1674480903599)
+@@ -1,4 +1,235 @@
+ package com.asmanmirza.schoolpen.UI.Teacher.Home.Adapters
+ 
+-class StudentAttendenceStatusAdapter {
++import android.annotation.SuppressLint
++import android.content.Context
++import android.graphics.Color
++import android.graphics.PorterDuff
++import android.util.Log
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import android.widget.*
++import android.widget.AdapterView.OnItemSelectedListener
++import androidx.recyclerview.widget.GridLayoutManager
++import androidx.recyclerview.widget.RecyclerView
++import com.asmanmirza.schoolpen.R
++import com.asmanmirza.schoolpen.UI.Teacher.Home.Models.ModelAttendanceStatusDates
++import com.asmanmirza.schoolpen.UI.Teacher.Home.Models.ModelStudentAttendanceStatus
++import java.text.Format
++import java.text.SimpleDateFormat
++import java.util.*
++
++class StudentAttendenceStatusAdapter(var context:Context, var data:ArrayList<ModelStudentAttendanceStatus>):RecyclerView.Adapter<StudentAttendenceStatusAdapter.ViewHolder>() {
++    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
++
++        val classTitle:TextView = itemView.findViewById(R.id.tv_class_number);
++        val totalPercent:TextView = itemView.findViewById(R.id.student_attendance_percentage)
++        val presentDays:TextView = itemView.findViewById(R.id.student_attendance_present);
++        val absentDays:TextView = itemView.findViewById(R.id.student_attendance_absent);
++        val monthSelect:Spinner = itemView.findViewById(R.id.monthSelectSpinner);
++        val layoutCalender:LinearLayout = itemView.findViewById(R.id.layoutCalender);
++        val btnDropDown:ImageButton = itemView.findViewById(R.id.btnOpenHideCalander)
++
++    }
++
++    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
++        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_student_profile_attendence, parent,false))
++    }
++
++    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
++        val months = arrayOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
++        val arrayAdapter = ArrayAdapter(context ,android.R.layout.simple_spinner_item, months);
++        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
++        holder.monthSelect.adapter = arrayAdapter;
++
++        holder.btnDropDown.setOnClickListener {
++            if(holder.btnDropDown.rotation == 0f){
++                holder.btnDropDown.rotation = 180f
++                holder.layoutCalender.visibility = View.VISIBLE
++            }else{
++                holder.layoutCalender.visibility = View.GONE
++                holder.btnDropDown.rotation = 0f
++            }
++        }
++
++        holder.monthSelect.onItemSelectedListener = object:OnItemSelectedListener{
++            override fun onItemSelected(
++                parent: AdapterView<*>?,
++                view: View?,
++                position: Int,
++                id: Long
++            ) {
++                showCalender(context, position+1, holder.layoutCalender)
++            }
++
++            override fun onNothingSelected(parent: AdapterView<*>?) {
++
++            }
++        }
++    }
++
++    override fun getItemCount(): Int {
++        return data.size
++    }
++
++
++    @SuppressLint("SimpleDateFormat")
++    fun showCalender(context: Context, month:Int, root:View){
++        val recDates:RecyclerView = root.findViewById(R.id.recDates);
++        recDates.layoutManager = GridLayoutManager(context, 7)
++        val dates:ArrayList<ModelAttendanceStatusDates> = ArrayList();
++
++        val selectedMonthDays =
++            getTotalNumberOfDaysInMonth(2023, month - 1)
++        var nextMonthDays = 1
++
++
++        val previousMonthDays = if (month - 1 < 1) {
++            getTotalNumberOfDaysInMonth(
++                2023 - 1,
++                11
++            )
++        } else {
++            getTotalNumberOfDaysInMonth(
++                2023,
++                month - 2
++            )
++        }
++
++        val c = Calendar.getInstance()
++        val inputDate = "01/" + "${if(month < 10) "0$month" else "$month"}/" + "2023"
++        val format1 = SimpleDateFormat("dd/MM/yyyy")
++        val dt1: Date = format1.parse(inputDate) as Date
++        c.time = dt1
++        val firstDayPosition = if (c[Calendar.DAY_OF_WEEK] - 1 == 0) {
++            7;
++        } else {
++            c[Calendar.DAY_OF_WEEK] - 1
++        }
++
++        for (i in 1 until 36) {
++            if (firstDayPosition != 1) {
++                if (i < firstDayPosition) {
++                    dates.add(
++                        ModelAttendanceStatusDates(
++                            (previousMonthDays - (firstDayPosition - i - 1)).toString(),
++                            getDate("${previousMonthDays - (firstDayPosition - i - 1)}", month - 1),
++                            false, true, true
++                        )
++                    )
++                }else {
++                    if (i - (firstDayPosition - 1) <= selectedMonthDays) {
++                        dates.add(
++                            ModelAttendanceStatusDates(
++                                (i - (firstDayPosition - 1)).toString(),
++                                getDate("${i - (firstDayPosition - 1)}", month),
++                                (isStudentPresent() == 1), false, false
++                            )
++                        )
++
++                    }else{
++                        dates.add(
++                            ModelAttendanceStatusDates(nextMonthDays.toString(),
++                                getDate("$nextMonthDays", month + 1),
++                                false, false, true
++                            )
++                        )
++                        nextMonthDays++;
++                    }
++                }
++
++            }else{
++                if (i <= selectedMonthDays) {
++                    dates.add(
++                        ModelAttendanceStatusDates(
++                            i.toString(),
++                            getDate("$i", month),
++                            (isStudentPresent() == 1), false, false
++                        )
++                    )
++
++                }else{
++                    dates.add(
++                        ModelAttendanceStatusDates(nextMonthDays.toString(),
++                            getDate("$nextMonthDays", month + 1),
++                            false, false,true
++                        )
++                    )
++                    nextMonthDays++;
++                }
++            }
++        }
++        val adapterAttendanceStatusDates = AdapterStudentAttendanceDates(context, dates);
++        recDates.adapter = adapterAttendanceStatusDates
++    }
++    fun getTotalNumberOfDaysInMonth(year: Int, month: Int): Int {
++        val currentMonth = GregorianCalendar(year, month, 1)
++        return currentMonth.getActualMaximum(Calendar.DAY_OF_MONTH)
++    }
++
++    @SuppressLint("SimpleDateFormat")
++    fun getDate(date:String, month:Int): String{
++        return if(month - 1 < 0){
++            "${if(date.toInt() < 10) "0$date" else date}/12/2023"
++        }else if(month > 12){
++            "${if(date.toInt() < 10) "0$date" else date}/01/2024"
++        }else{
++            "${if(date.toInt() < 10) "0$date" else date}/${if(month < 10) "0$month" else "$month"}/2023"
++        }
++    }
++
++    fun isStudentPresent():Int{
++        val present = arrayOf(1,-1,1,1,-1,1,1,1,1,1)
++        val d =  present[Random().nextInt(8)]
++        Log.e("d:///", "$d")
++        return d
++    }
++
++}
++
++class AdapterStudentAttendanceDates(var context: Context, var data:ArrayList<ModelAttendanceStatusDates>):RecyclerView.Adapter<AdapterStudentAttendanceDates.ViewHolder>(){
++    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
++        val dateText:TextView = itemView.findViewById(R.id.dateNumber);
++    }
++
++    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
++        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_date, parent,false))
++    }
++
++    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
++
++        val md = data[position]
++        holder.dateText.text = md.dateNumber
++
++        if(md.dim){
++            holder.dateText.setTextColor(Color.parseColor("#50707070"))
++            holder.dateText.background.setColorFilter(Color.parseColor("#00000000"), PorterDuff.Mode.SRC_IN)
++        }else if(isHoliday(md.fullDate)){
++            holder.dateText.setTextColor(Color.parseColor("#707070"))
++            holder.dateText.background.setColorFilter(Color.parseColor("#00000000"), PorterDuff.Mode.SRC_IN)
++        }else if(md.present){
++            holder.dateText.setTextColor(Color.parseColor("#ffffff"))
++            holder.dateText.background.setColorFilter(Color.parseColor("#20A686"), PorterDuff.Mode.SRC_IN)
++        }else{
++            holder.dateText.setTextColor(Color.parseColor("#ffffff"))
++            holder.dateText.background.setColorFilter(Color.parseColor("#D81159"), PorterDuff.Mode.SRC_IN)
++        }
++
++    }
++
++    @SuppressLint("SimpleDateFormat")
++    fun isHoliday(fullDate:String):Boolean{
++        val c = Calendar.getInstance()
++        val format1 = SimpleDateFormat("dd/MM/yyyy")
++        val dt1: Date = format1.parse(fullDate) as Date
++        c.time = dt1
++//        val f: Format = SimpleDateFormat("EEEE")
++//        val str: String = f.format(dt1)
++        val day = c[Calendar.DAY_OF_WEEK]
++        return day == 1 || day == 7
++    }
++
++    override fun getItemCount(): Int {
++        return data.size
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/TeacherStudentProfileActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.asmanmirza.schoolpen.UI.Teacher.Home\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport com.asmanmirza.schoolpen.R\n\nclass TeacherStudentProfileActivity : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_teacher_student_profile)\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/TeacherStudentProfileActivity.kt b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/TeacherStudentProfileActivity.kt
+--- a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/TeacherStudentProfileActivity.kt	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/TeacherStudentProfileActivity.kt	(date 1674481032504)
+@@ -2,11 +2,93 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.view.View
++import androidx.recyclerview.widget.LinearLayoutManager
+ import com.asmanmirza.schoolpen.R
++import com.asmanmirza.schoolpen.UI.Teacher.Home.Adapters.StudentAttendenceStatusAdapter
++import com.asmanmirza.schoolpen.UI.Teacher.Home.Models.ModelStudentAttendanceStatus
++import com.asmanmirza.schoolpen.databinding.ActivityTeacherStudentProfileBinding
++import com.google.android.material.tabs.TabLayout
++import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+ 
+ class TeacherStudentProfileActivity : AppCompatActivity() {
++
++    lateinit var binding:ActivityTeacherStudentProfileBinding;
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_teacher_student_profile)
++        binding = ActivityTeacherStudentProfileBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++        updateData()
++    }
++
++    fun updateData(){
++
++        binding.apply {
++
++            binding.recAttendance.layoutManager = LinearLayoutManager(this@TeacherStudentProfileActivity, LinearLayoutManager.VERTICAL, false)
++            binding.recAttendance.adapter = StudentAttendenceStatusAdapter(this@TeacherStudentProfileActivity, getClasses())
++
++            tabs.addOnTabSelectedListener(object:OnTabSelectedListener{
++                override fun onTabSelected(tab: TabLayout.Tab?) {
++                    when(tab?.position){
++                        0->{
++                            selectLayout(0)
++                        }
++                        1->{
++                            selectLayout(1)
++                        }
++
++                    }
++                }
++
++                override fun onTabUnselected(tab: TabLayout.Tab?) {
++
++                }
++
++                override fun onTabReselected(tab: TabLayout.Tab?) {
++
++                }
++
++
++            })
++
++
++        }
++
++    }
++
++    fun getClasses():ArrayList<ModelStudentAttendanceStatus>{
++
++        return ArrayList<ModelStudentAttendanceStatus>().apply {
++            add(ModelStudentAttendanceStatus("", " Class V"))
++            add(ModelStudentAttendanceStatus("", " Class IV"))
++            add(ModelStudentAttendanceStatus("", " Class III"))
++            add(ModelStudentAttendanceStatus("", " Class II"))
++            add(ModelStudentAttendanceStatus("", " Class I"))
++        }
++
+     }
++
++
++    fun selectLayout(pos:Int){
++
++        binding.apply {
++            if (pos == 0) {
++                layoutPersonalInfo.root.visibility = View.VISIBLE
++            }else{
++                layoutPersonalInfo.root.visibility = View.GONE
++            }
++
++            if(pos == 1){
++                binding.recAttendance.visibility = View.VISIBLE
++            }else{
++                binding.recAttendance.visibility = View.GONE
++            }
++
++        }
++
++    }
++
++
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_teacher_student_profile.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".UI.Teacher.Home.TeacherStudentProfileActivity\">\n\n    <ScrollView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:orientation=\"vertical\"\n        >\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginStart=\"@dimen/_10sdp\"\n            android:layout_marginEnd=\"@dimen/_10sdp\"\n            android:paddingBottom=\"100dp\">\n\n            <LinearLayout\n                android:id=\"@+id/ed_toolbar\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:orientation=\"horizontal\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                android:layout_marginStart=\"@dimen/_12sdp\"\n                android:layout_marginEnd=\"@dimen/_12sdp\"\n                android:layout_marginTop=\"@dimen/_15sdp\"\n                android:gravity=\"center\">\n\n                <ImageButton\n                    android:id=\"@+id/back_button\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:src=\"@drawable/ic_backback_button\"\n                    android:background=\"@null\"\n                    android:layout_marginTop=\"@dimen/_15sdp\"\n                    android:layout_marginBottom=\"@dimen/_15sdp\"\n                    />\n\n\n\n                <EditText\n                    android:id=\"@+id/search_bar_tv\"\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:imeOptions=\"actionSearch\"\n                    android:background=\"@drawable/back_stroke_white_bg\"\n                    android:textColor=\"#000000\"\n                    android:singleLine=\"true\"\n                    android:layout_weight=\"1\"\n                    android:maxLines=\"1\"\n                    android:fontFamily=\"@font/poppins_medium\"\n                    android:layout_marginStart=\"@dimen/_55sdp\"\n                    android:textSize=\"@dimen/_11ssp\"\n                    android:paddingTop=\"@dimen/_9sdp\"\n                    android:paddingBottom=\"@dimen/_9sdp\"\n                    android:paddingStart=\"@dimen/_15sdp\"\n                    android:paddingEnd=\"@dimen/_15sdp\"\n                    android:drawableTint=\"@color/teachers_ui\"\n                    android:drawableStart=\"@drawable/ic_baseline_search_24\"\n                    android:drawablePadding=\"@dimen/_5sdp\"\n                    android:backgroundTint=\"#F9EEEF\"\n                    android:elevation=\"@dimen/_5sdp\"\n                    />\n\n            </LinearLayout>\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/card_view_profile\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@+id/ed_toolbar\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                android:paddingLeft=\"@dimen/_14sdp\"\n                android:paddingRight=\"@dimen/_14sdp\"\n                app:cardElevation=\"5dp\">\n\n                <androidx.constraintlayout.widget.ConstraintLayout\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:paddingRight=\"@dimen/_14sdp\"\n                    android:background=\"#F9EEEF\">\n\n                    <com.rishabhharit.roundedimageview.RoundedImageView\n                        android:id=\"@+id/profile_image\"\n                        android:layout_width=\"0dp\"\n                        android:layout_height=\"wrap_content\"\n                        android:padding=\"@dimen/_10ssp\"\n                        app:cornerRadius=\"@dimen/_10sdp\"\n                        android:src=\"@drawable/tina\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/profile_name\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_30sdp\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:text=\"Neetu Goel\"\n                        android:textColor=\"@color/black\"\n                        android:textSize=\"@dimen/_20sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/profile_image\"\n                        app:layout_constraintTop_toTopOf=\"parent\" />\n\n                    <TextView\n                        android:id=\"@+id/date_view\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_5sdp\"\n                        android:text=\"Class V| SIS/V/01\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:textSize=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/profile_image\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/profile_name\" />\n\n\n                    <ImageButton\n                        android:id=\"@+id/btn_call_view\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_30sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/profile_image\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/date_view\"\n                        android:backgroundTint=\"#C45162\"\n                        android:background=\"@drawable/circle_back\"\n                        android:padding=\"@dimen/_5sdp\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        android:src=\"@drawable/ic_call_icon_white\"\n                        app:tint=\"@color/white\" />\n\n                    <ImageButton\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginStart=\"@dimen/_15ssp\"\n                        android:layout_marginTop=\"@dimen/_30sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/btn_call_view\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/date_view\"\n                        android:backgroundTint=\"#F9EEEF\"\n                        android:background=\"@drawable/circle_back\"\n                        android:padding=\"@dimen/_5sdp\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        android:src=\"@drawable/ic_baseline_chat_bubble_24\"\n                        app:tint=\"#C45162\" />\n\n                </androidx.constraintlayout.widget.ConstraintLayout>\n            </androidx.cardview.widget.CardView>\n\n            <LinearLayout\n                android:id=\"@+id/desc_feed\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintLeft_toLeftOf=\"parent\"\n                app:layout_constraintRight_toRightOf=\"parent\"\n                app:layout_constraintTop_toBottomOf=\"@+id/card_view_profile\"\n                android:orientation=\"vertical\">\n\n                <TextView\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:fontFamily=\"@font/poppins_medium\"\n                    android:layout_marginTop=\"@dimen/_15sdp\"\n                    android:textSize=\"@dimen/_12ssp\"\n                    android:text=\"Class Representative\"\n                    android:textColor=\"#383838\"/>\n\n                <TextView\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"@dimen/_2sdp\"\n                    android:textSize=\"@dimen/_11ssp\"\n                    android:fontFamily=\"@font/poppins_medium\"\n                    android:text=\"Profound artist and ethuastic science student \"\n                    android:textColor=\"@color/attendance_title\"\n                    />\n\n            </LinearLayout>\n\n            <com.google.android.material.tabs.TabLayout\n                android:id=\"@+id/tabs\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"@dimen/_20sdp\"\n                android:background=\"@android:color/transparent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintTop_toBottomOf=\"@+id/desc_feed\"\n                app:tabBackground=\"@drawable/teacher_explore_tab_back\"\n                app:tabIconTint=\"#707070\"\n                app:tabIndicator=\"@android:color/transparent\"\n                app:tabInlineLabel=\"true\"\n                app:tabMode=\"scrollable\"\n                app:tabPaddingEnd=\"@dimen/_20sdp\"\n                app:tabPaddingStart=\"@dimen/_15sdp\"\n                app:tabRippleColor=\"@android:color/transparent\"\n                app:tabSelectedTextColor=\"@color/white\"\n                app:tabTextAppearance=\"@style/tab_text\"\n                app:tabTextColor=\"#707070\">\n\n\n                <com.google.android.material.tabs.TabItem\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Personal Info\" />\n\n                <com.google.android.material.tabs.TabItem\n                    android:id=\"@+id/attendence_tab\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Attendance\" />\n\n                <com.google.android.material.tabs.TabItem\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Performance\"\n                    tools:layout_editor_absoluteX=\"258dp\"\n                    tools:layout_editor_absoluteY=\"349dp\" />\n\n                <com.google.android.material.tabs.TabItem\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Interest\" />\n\n\n            </com.google.android.material.tabs.TabLayout>\n\n            <androidx.recyclerview.widget.RecyclerView\n                android:id=\"@+id/recMonths\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginStart=\"@dimen/_5sdp\"\n                android:layout_marginTop=\"@dimen/_10sdp\"\n                android:visibility=\"gone\"\n                android:layout_marginEnd=\"@dimen/_5sdp\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                app:layout_constraintTop_toBottomOf=\"@+id/tabs\"\n                />\n\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/card_view_about\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@+id/tabs\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                android:layout_marginTop=\"@dimen/_20sdp\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                android:paddingLeft=\"@dimen/_14sdp\"\n                android:paddingRight=\"@dimen/_14sdp\"\n                app:cardElevation=\"0dp\">\n\n                <LinearLayout\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:padding=\"@dimen/_15sdp\"\n                    android:orientation=\"vertical\"\n                    android:background=\"#F9EEEF\">\n\n\n                    <TextView\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"About\"\n                        android:layout_marginTop=\"@dimen/_5sdp\"\n                        android:textStyle=\"bold\"\n                        android:fontFamily=\"@font/poppins_semi_bold\"\n                        android:textColor=\"@color/attendance_title\"\n                        android:textSize=\"@dimen/_16ssp\"/>\n\n                    <TextView\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_5sdp\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:textSize=\"@dimen/_11ssp\"\n                        android:text=\"Love to experiment with new ideas, enjoy the process of discovery. I am very enthuastic to learn new concepts in the field of chemistry. I want to become a Bio-scientist in future and study genealogy.\"\n                        android:textColor=\"@color/black\" />\n\n\n                </LinearLayout>\n\n\n            </androidx.cardview.widget.CardView>\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/card_view_contact\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@+id/card_view_about\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                android:layout_marginTop=\"@dimen/_20sdp\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                android:paddingLeft=\"@dimen/_14sdp\"\n                android:paddingRight=\"@dimen/_14sdp\"\n                android:layout_marginBottom=\"@dimen/_30sdp\"\n                app:cardElevation=\"0dp\">\n\n                <androidx.constraintlayout.widget.ConstraintLayout\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:padding=\"@dimen/_15sdp\"\n                    android:orientation=\"vertical\"\n                    android:background=\"#F9EEEF\">\n\n\n                    <TextView\n                        android:id=\"@+id/contact_label\"\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"Contact\"\n                        android:layout_marginTop=\"@dimen/_5sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        android:textStyle=\"bold\"\n                        android:textColor=\"@color/attendance_title\"\n                        android:textSize=\"@dimen/_20sdp\"/>\n\n\n                    <ImageView\n                        android:id=\"@+id/img_dial\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/contact_label\"\n                        android:backgroundTint=\"#C45162\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        android:src=\"@drawable/ic_call_icon_white\"\n                        app:tint=\"@color/lite_grey\" />\n\n\n                    <TextView\n                        android:id=\"@+id/contact_number\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"+91 6125689526\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginStart=\"@dimen/_10ssp\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        app:layout_constraintStart_toEndOf=\"@+id/img_dial\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/contact_label\"\n                        android:textColor=\"@color/attendance_title\" />\n\n\n                    <ImageView\n                        android:id=\"@+id/img_mail\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/img_dial\"\n                        android:backgroundTint=\"#C45162\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        android:src=\"@drawable/ic_baseline_mail_24\"\n                        app:tint=\"@color/lite_grey\" />\n\n                    <TextView\n                        android:id=\"@+id/contact_mail_id\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"ck3437@gmail.com\"\n                        android:layout_marginTop=\"@dimen/_15sdp\"\n                        android:layout_marginStart=\"@dimen/_10ssp\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        app:layout_constraintStart_toEndOf=\"@+id/img_dial\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/contact_number\"\n                        android:textColor=\"@color/attendance_title\" />\n\n                    <TextView\n                        android:id=\"@+id/contact_address\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"27, Nirman vihar, New Delhi, 110065\"\n                        android:layout_marginTop=\"@dimen/_15sdp\"\n                        android:layout_marginStart=\"@dimen/_10ssp\"\n\n                        android:fontFamily=\"@font/poppins_medium\"\n                        app:layout_constraintStart_toEndOf=\"@+id/img_dial\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/contact_mail_id\"\n                        android:textColor=\"@color/attendance_title\" />\n\n                </androidx.constraintlayout.widget.ConstraintLayout>\n\n\n            </androidx.cardview.widget.CardView>\n\n            <androidx.cardview.widget.CardView\n                android:id=\"@+id/card_view_guardians\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@+id/card_view_contact\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n\n                android:layout_marginTop=\"@dimen/_20sdp\"\n                app:cardCornerRadius=\"@dimen/_25sdp\"\n                android:paddingLeft=\"@dimen/_14sdp\"\n                android:paddingRight=\"@dimen/_14sdp\"\n                app:cardElevation=\"0dp\">\n\n                <androidx.constraintlayout.widget.ConstraintLayout\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:padding=\"@dimen/_15sdp\"\n                    android:orientation=\"vertical\"\n                    android:background=\"#F9EEEF\">\n\n\n                    <TextView\n                        android:id=\"@+id/guardian_label\"\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"wrap_content\"\n                        android:text=\"Guardian\"\n                        android:layout_marginTop=\"@dimen/_5sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        app:layout_constraintTop_toTopOf=\"parent\"\n                        app:layout_constraintEnd_toEndOf=\"parent\"\n                        android:textStyle=\"bold\"\n                        android:textColor=\"@color/attendance_title\"\n                        android:textSize=\"@dimen/_20sdp\"/>\n\n\n                    <TextView\n                        android:id=\"@+id/guardian_name\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        android:text=\"Father's name\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/guardian_label\"\n                        android:backgroundTint=\"#C45162\"\n                        android:textColor=\"#707070\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        app:tint=\"@color/lite_grey\" />\n\n                    <TextView\n                        android:id=\"@+id/guardian_name_tv\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/guardian_name\"\n                        android:layout_marginStart=\"@dimen/_20ssp\"\n                        android:text=\"Dinesh Nunia\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/guardian_label\"\n                        android:backgroundTint=\"#C45162\"\n                        android:textColor=\"#707070\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        app:tint=\"@color/lite_grey\" />\n\n                    <TextView\n                        android:id=\"@+id/guardian_contact\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        app:layout_constraintStart_toStartOf=\"parent\"\n                        android:text=\"Contact No\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/guardian_name\"\n                        android:backgroundTint=\"#C45162\"\n                        android:textColor=\"#707070\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        app:tint=\"@color/lite_grey\" />\n\n                    <TextView\n                        android:id=\"@+id/guardian_contact_tv\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"wrap_content\"\n                        android:layout_marginEnd=\"@dimen/_8sdp\"\n                        android:layout_marginTop=\"@dimen/_10sdp\"\n                        android:layout_marginBottom=\"@dimen/_10sdp\"\n                        android:layout_marginStart=\"@dimen/_35sdp\"\n                        app:layout_constraintStart_toEndOf=\"@+id/guardian_contact\"\n                        android:text=\"9856911426\"\n                        app:layout_constraintTop_toBottomOf=\"@+id/guardian_name_tv\"\n                        android:backgroundTint=\"#C45162\"\n                        android:textColor=\"#707070\"\n                        android:fontFamily=\"@font/poppins_medium\"\n                        android:elevation=\"@dimen/_8sdp\"\n                        app:tint=\"@color/lite_grey\" />\n\n                </androidx.constraintlayout.widget.ConstraintLayout>\n\n            </androidx.cardview.widget.CardView>\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n\n\n    </ScrollView>\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_teacher_student_profile.xml b/app/src/main/res/layout/activity_teacher_student_profile.xml
+--- a/app/src/main/res/layout/activity_teacher_student_profile.xml	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/res/layout/activity_teacher_student_profile.xml	(date 1674482766620)
+@@ -1,220 +1,200 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".UI.Teacher.Home.TeacherStudentProfileActivity">
+-
+-    <ScrollView
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:orientation="vertical"
+-        >
++    android:orientation="vertical"
++    tools:context=".UI.Teacher.Home.TeacherStudentProfileActivity">
+ 
+-        <androidx.constraintlayout.widget.ConstraintLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:layout_marginStart="@dimen/_10sdp"
+-            android:layout_marginEnd="@dimen/_10sdp"
+-            android:paddingBottom="100dp">
+ 
+-            <LinearLayout
+-                android:id="@+id/ed_toolbar"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:orientation="horizontal"
+-                app:layout_constraintTop_toTopOf="parent"
+-                app:layout_constraintStart_toStartOf="parent"
+-                android:layout_marginStart="@dimen/_12sdp"
+-                android:layout_marginEnd="@dimen/_12sdp"
+-                android:layout_marginTop="@dimen/_15sdp"
+-                android:gravity="center">
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="@dimen/_10sdp"
++        android:layout_marginEnd="@dimen/_15sdp"
++        android:orientation="horizontal">
++
+ 
+-                <ImageButton
+-                    android:id="@+id/back_button"
+-                    android:layout_width="wrap_content"
+-                    android:layout_height="wrap_content"
+-                    android:src="@drawable/ic_backback_button"
+-                    android:background="@null"
+-                    android:layout_marginTop="@dimen/_15sdp"
+-                    android:layout_marginBottom="@dimen/_15sdp"
+-                    />
+-
+-
++        <ImageButton
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:background="@android:color/transparent"
++            android:paddingHorizontal="@dimen/_20sdp"
++            android:paddingVertical="@dimen/_10sdp"
++            android:src="@drawable/ic_teachers_back_icon" />
+ 
+-                <EditText
+-                    android:id="@+id/search_bar_tv"
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:imeOptions="actionSearch"
+-                    android:background="@drawable/back_stroke_white_bg"
+-                    android:textColor="#000000"
+-                    android:singleLine="true"
+-                    android:layout_weight="1"
+-                    android:maxLines="1"
+-                    android:fontFamily="@font/poppins_medium"
+-                    android:layout_marginStart="@dimen/_55sdp"
+-                    android:textSize="@dimen/_11ssp"
+-                    android:paddingTop="@dimen/_9sdp"
+-                    android:paddingBottom="@dimen/_9sdp"
+-                    android:paddingStart="@dimen/_15sdp"
+-                    android:paddingEnd="@dimen/_15sdp"
+-                    android:drawableTint="@color/teachers_ui"
+-                    android:drawableStart="@drawable/ic_baseline_search_24"
+-                    android:drawablePadding="@dimen/_5sdp"
+-                    android:backgroundTint="#F9EEEF"
+-                    android:elevation="@dimen/_5sdp"
+-                    />
++        <EditText
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginStart="@dimen/_20sdp"
++            android:background="@drawable/back_stroke_30sdp_teachers"
++            android:backgroundTint="#20C45162"
++            android:drawableStart="@drawable/ic_baseline_search_24"
++            android:drawableTint="#C45162"
++            android:paddingHorizontal="@dimen/_12sdp" />
++
+ 
+-            </LinearLayout>
++    </LinearLayout>
+ 
++    <androidx.core.widget.NestedScrollView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_marginTop="@dimen/_10sdp"
++        android:orientation="vertical">
++
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="vertical">
++
+             <androidx.cardview.widget.CardView
+                 android:id="@+id/card_view_profile"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@+id/ed_toolbar"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
++                android:layout_marginHorizontal="@dimen/_15sdp"
++                android:layout_marginTop="@dimen/_5sdp"
++                app:cardBackgroundColor="#F9EEEF"
+                 app:cardCornerRadius="@dimen/_25sdp"
+-                android:paddingLeft="@dimen/_14sdp"
+-                android:paddingRight="@dimen/_14sdp"
+-                app:cardElevation="5dp">
++                app:cardElevation="0dp">
+ 
+-                <androidx.constraintlayout.widget.ConstraintLayout
++                <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+-                    android:paddingRight="@dimen/_14sdp"
+-                    android:background="#F9EEEF">
++                    android:layout_margin="@dimen/_10sdp"
++                    android:orientation="horizontal">
+ 
+                     <com.rishabhharit.roundedimageview.RoundedImageView
+                         android:id="@+id/profile_image"
+-                        android:layout_width="0dp"
+-                        android:layout_height="wrap_content"
+-                        android:padding="@dimen/_10ssp"
+-                        app:cornerRadius="@dimen/_10sdp"
++                        android:layout_width="@dimen/_90sdp"
++                        android:layout_height="@dimen/_120sdp"
++                        android:scaleType="centerCrop"
+                         android:src="@drawable/tina"
++                        app:cornerRadius="@dimen/_15sdp"
+                         app:layout_constraintStart_toStartOf="parent"
+                         app:layout_constraintTop_toTopOf="parent" />
+ 
+-                    <TextView
+-                        android:id="@+id/profile_name"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="@dimen/_30sdp"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:text="Neetu Goel"
+-                        android:textColor="@color/black"
+-                        android:textSize="@dimen/_20sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/profile_image"
+-                        app:layout_constraintTop_toTopOf="parent" />
++                    <LinearLayout
++                        android:layout_width="match_parent"
++                        android:layout_height="match_parent"
++                        android:layout_marginStart="@dimen/_10sdp"
++                        android:orientation="vertical">
++
++                        <TextView
++                            android:id="@+id/profile_name"
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:layout_marginTop="@dimen/_5sdp"
++                            android:fontFamily="@font/poppins_semi_bold"
++                            android:text="Neetu Goel"
++                            android:textColor="@color/black"
++                            android:textSize="@dimen/_18ssp"
++                            app:layout_constraintStart_toEndOf="@+id/profile_image"
++                            app:layout_constraintTop_toTopOf="parent" />
+ 
+-                    <TextView
+-                        android:id="@+id/date_view"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="@dimen/_5sdp"
+-                        android:text="Class V| SIS/V/01"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:textSize="@dimen/_10sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/profile_image"
+-                        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
++                        <TextView
++                            android:id="@+id/date_view"
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:fontFamily="@font/poppins_medium"
++                            android:text="Class V| SIS/V/01"
++                            android:textColor="#383838"
++                            android:textSize="@dimen/_9ssp"
++                            app:layout_constraintStart_toEndOf="@+id/profile_image"
++                            app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+ 
+ 
+-                    <ImageButton
+-                        android:id="@+id/btn_call_view"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_30sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/profile_image"
+-                        app:layout_constraintTop_toBottomOf="@+id/date_view"
+-                        android:backgroundTint="#C45162"
+-                        android:background="@drawable/circle_back"
+-                        android:padding="@dimen/_5sdp"
+-                        android:elevation="@dimen/_8sdp"
+-                        android:src="@drawable/ic_call_icon_white"
+-                        app:tint="@color/white" />
++                        <LinearLayout
++                            android:layout_width="match_parent"
++                            android:layout_height="match_parent"
++                            android:gravity="bottom"
++                            android:orientation="horizontal">
++
++                            <ImageView
++                                android:id="@+id/btn_call_view"
++                                android:layout_width="@dimen/_30sdp"
++                                android:layout_height="@dimen/_30sdp"
++                                android:layout_marginBottom="@dimen/_5sdp"
++                                android:background="@drawable/circle_back"
++                                android:backgroundTint="#C45162"
++                                android:elevation="@dimen/_3sdp"
++                                android:padding="@dimen/_8sdp"
++                                android:src="@drawable/ic_call_icon_white"
++                                app:tint="@color/white" />
+ 
+-                    <ImageButton
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginStart="@dimen/_15ssp"
+-                        android:layout_marginTop="@dimen/_30sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/btn_call_view"
+-                        app:layout_constraintTop_toBottomOf="@+id/date_view"
+-                        android:backgroundTint="#F9EEEF"
+-                        android:background="@drawable/circle_back"
+-                        android:padding="@dimen/_5sdp"
+-                        android:elevation="@dimen/_8sdp"
+-                        android:src="@drawable/ic_baseline_chat_bubble_24"
+-                        app:tint="#C45162" />
++                            <ImageView
++                                android:layout_width="@dimen/_30sdp"
++                                android:layout_height="@dimen/_30sdp"
++                                android:layout_marginStart="@dimen/_10sdp"
++                                android:layout_marginBottom="@dimen/_5sdp"
++                                android:background="@drawable/circle_back"
++                                android:backgroundTint="#F9EEEF"
++                                android:elevation="@dimen/_3sdp"
++                                android:padding="@dimen/_6sdp"
++                                android:src="@drawable/ic_baseline_chat_bubble_24"
++                                app:tint="#C45162" />
+ 
+-                </androidx.constraintlayout.widget.ConstraintLayout>
++                        </LinearLayout>
++
++                    </LinearLayout>
++
++                </LinearLayout>
+             </androidx.cardview.widget.CardView>
+ 
+             <LinearLayout
+                 android:id="@+id/desc_feed"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                app:layout_constraintLeft_toLeftOf="parent"
+-                app:layout_constraintRight_toRightOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/card_view_profile"
++                android:layout_marginHorizontal="@dimen/_15sdp"
+                 android:orientation="vertical">
+ 
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+-                    android:fontFamily="@font/poppins_medium"
+                     android:layout_marginTop="@dimen/_15sdp"
+-                    android:textSize="@dimen/_12ssp"
++                    android:fontFamily="@font/poppins_medium"
+                     android:text="Class Representative"
+-                    android:textColor="#383838"/>
++                    android:textColor="#383838"
++                    android:textSize="@dimen/_12ssp" />
+ 
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="@dimen/_2sdp"
+-                    android:textSize="@dimen/_11ssp"
+                     android:fontFamily="@font/poppins_medium"
+                     android:text="Profound artist and ethuastic science student "
+                     android:textColor="@color/attendance_title"
+-                    />
++                    android:textSize="@dimen/_10ssp" />
+ 
+             </LinearLayout>
+ 
+             <com.google.android.material.tabs.TabLayout
+                 android:id="@+id/tabs"
+-                android:layout_width="wrap_content"
++                android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:layout_marginTop="@dimen/_20sdp"
+-                android:background="@android:color/transparent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/desc_feed"
+-                app:tabBackground="@drawable/teacher_explore_tab_back"
+-                app:tabIconTint="#707070"
++                android:layout_marginStart="@dimen/_10sdp"
++                android:layout_marginTop="@dimen/_15sdp"
++                android:layout_marginEnd="@dimen/_10sdp"
++                android:elevation="0dp"
++                android:scrollbarSize="0dp"
++                android:scrollbars="none"
++                app:tabBackground="@drawable/teachers_tab_back"
+                 app:tabIndicator="@android:color/transparent"
+-                app:tabInlineLabel="true"
+                 app:tabMode="scrollable"
+-                app:tabPaddingEnd="@dimen/_20sdp"
++                app:tabPaddingEnd="@dimen/_15sdp"
+                 app:tabPaddingStart="@dimen/_15sdp"
+                 app:tabRippleColor="@android:color/transparent"
+                 app:tabSelectedTextColor="@color/white"
+-                app:tabTextAppearance="@style/tab_text"
++                app:tabTextAppearance="@style/calander_text"
+                 app:tabTextColor="#707070">
+ 
+-
+                 <com.google.android.material.tabs.TabItem
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Personal Info" />
+ 
+                 <com.google.android.material.tabs.TabItem
+-                    android:id="@+id/attendence_tab"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Attendance" />
+@@ -222,295 +202,28 @@
+                 <com.google.android.material.tabs.TabItem
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:text="Performance"
+-                    tools:layout_editor_absoluteX="258dp"
+-                    tools:layout_editor_absoluteY="349dp" />
++                    android:text="Performance" />
+ 
+                 <com.google.android.material.tabs.TabItem
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:text="Interest" />
+-
+-
++                    android:text="Interests" />
+             </com.google.android.material.tabs.TabLayout>
+ 
++
++            <include
++                android:id="@+id/layoutPersonalInfo"
++                layout="@layout/layout_personal_info_student" />
++
+             <androidx.recyclerview.widget.RecyclerView
+-                android:id="@+id/recMonths"
++                android:id="@+id/recAttendance"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:layout_marginStart="@dimen/_5sdp"
+-                android:layout_marginTop="@dimen/_10sdp"
++                android:overScrollMode="never"
+                 android:visibility="gone"
+-                android:layout_marginEnd="@dimen/_5sdp"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/tabs"
+-                />
+-
+-
+-            <androidx.cardview.widget.CardView
+-                android:id="@+id/card_view_about"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@+id/tabs"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                android:layout_marginTop="@dimen/_20sdp"
+-                app:cardCornerRadius="@dimen/_25sdp"
+-                android:paddingLeft="@dimen/_14sdp"
+-                android:paddingRight="@dimen/_14sdp"
+-                app:cardElevation="0dp">
+-
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:padding="@dimen/_15sdp"
+-                    android:orientation="vertical"
+-                    android:background="#F9EEEF">
+-
+-
+-                    <TextView
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:text="About"
+-                        android:layout_marginTop="@dimen/_5sdp"
+-                        android:textStyle="bold"
+-                        android:fontFamily="@font/poppins_semi_bold"
+-                        android:textColor="@color/attendance_title"
+-                        android:textSize="@dimen/_16ssp"/>
+-
+-                    <TextView
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_5sdp"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:textSize="@dimen/_11ssp"
+-                        android:text="Love to experiment with new ideas, enjoy the process of discovery. I am very enthuastic to learn new concepts in the field of chemistry. I want to become a Bio-scientist in future and study genealogy."
+-                        android:textColor="@color/black" />
+-
+-
+-                </LinearLayout>
++                tools:itemCount="2"
++                tools:listitem="@layout/item_student_profile_attendence" />
++        </LinearLayout>
+ 
+-
+-            </androidx.cardview.widget.CardView>
+-
+-            <androidx.cardview.widget.CardView
+-                android:id="@+id/card_view_contact"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@+id/card_view_about"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                android:layout_marginTop="@dimen/_20sdp"
+-                app:cardCornerRadius="@dimen/_25sdp"
+-                android:paddingLeft="@dimen/_14sdp"
+-                android:paddingRight="@dimen/_14sdp"
+-                android:layout_marginBottom="@dimen/_30sdp"
+-                app:cardElevation="0dp">
+-
+-                <androidx.constraintlayout.widget.ConstraintLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:padding="@dimen/_15sdp"
+-                    android:orientation="vertical"
+-                    android:background="#F9EEEF">
+-
+-
+-                    <TextView
+-                        android:id="@+id/contact_label"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:text="Contact"
+-                        android:layout_marginTop="@dimen/_5sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        app:layout_constraintTop_toTopOf="parent"
+-                        app:layout_constraintEnd_toEndOf="parent"
+-                        android:textStyle="bold"
+-                        android:textColor="@color/attendance_title"
+-                        android:textSize="@dimen/_20sdp"/>
+-
+-
+-                    <ImageView
+-                        android:id="@+id/img_dial"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        app:layout_constraintTop_toBottomOf="@+id/contact_label"
+-                        android:backgroundTint="#C45162"
+-                        android:elevation="@dimen/_8sdp"
+-                        android:src="@drawable/ic_call_icon_white"
+-                        app:tint="@color/lite_grey" />
+-
+-
+-                    <TextView
+-                        android:id="@+id/contact_number"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:text="+91 6125689526"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginStart="@dimen/_10ssp"
+-                        android:fontFamily="@font/poppins_medium"
+-                        app:layout_constraintStart_toEndOf="@+id/img_dial"
+-                        app:layout_constraintTop_toBottomOf="@+id/contact_label"
+-                        android:textColor="@color/attendance_title" />
+-
+-
+-                    <ImageView
+-                        android:id="@+id/img_mail"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        app:layout_constraintTop_toBottomOf="@+id/img_dial"
+-                        android:backgroundTint="#C45162"
+-                        android:elevation="@dimen/_8sdp"
+-                        android:src="@drawable/ic_baseline_mail_24"
+-                        app:tint="@color/lite_grey" />
+-
+-                    <TextView
+-                        android:id="@+id/contact_mail_id"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:text="ck3437@gmail.com"
+-                        android:layout_marginTop="@dimen/_15sdp"
+-                        android:layout_marginStart="@dimen/_10ssp"
+-                        android:fontFamily="@font/poppins_medium"
+-                        app:layout_constraintStart_toEndOf="@+id/img_dial"
+-                        app:layout_constraintTop_toBottomOf="@+id/contact_number"
+-                        android:textColor="@color/attendance_title" />
+-
+-                    <TextView
+-                        android:id="@+id/contact_address"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:text="27, Nirman vihar, New Delhi, 110065"
+-                        android:layout_marginTop="@dimen/_15sdp"
+-                        android:layout_marginStart="@dimen/_10ssp"
+-
+-                        android:fontFamily="@font/poppins_medium"
+-                        app:layout_constraintStart_toEndOf="@+id/img_dial"
+-                        app:layout_constraintTop_toBottomOf="@+id/contact_mail_id"
+-                        android:textColor="@color/attendance_title" />
+-
+-                </androidx.constraintlayout.widget.ConstraintLayout>
+-
+-
+-            </androidx.cardview.widget.CardView>
+-
+-            <androidx.cardview.widget.CardView
+-                android:id="@+id/card_view_guardians"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@+id/card_view_contact"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-
+-                android:layout_marginTop="@dimen/_20sdp"
+-                app:cardCornerRadius="@dimen/_25sdp"
+-                android:paddingLeft="@dimen/_14sdp"
+-                android:paddingRight="@dimen/_14sdp"
+-                app:cardElevation="0dp">
+-
+-                <androidx.constraintlayout.widget.ConstraintLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:padding="@dimen/_15sdp"
+-                    android:orientation="vertical"
+-                    android:background="#F9EEEF">
+-
+-
+-                    <TextView
+-                        android:id="@+id/guardian_label"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:text="Guardian"
+-                        android:layout_marginTop="@dimen/_5sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        app:layout_constraintTop_toTopOf="parent"
+-                        app:layout_constraintEnd_toEndOf="parent"
+-                        android:textStyle="bold"
+-                        android:textColor="@color/attendance_title"
+-                        android:textSize="@dimen/_20sdp"/>
+-
+-
+-                    <TextView
+-                        android:id="@+id/guardian_name"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        android:text="Father's name"
+-                        app:layout_constraintTop_toBottomOf="@+id/guardian_label"
+-                        android:backgroundTint="#C45162"
+-                        android:textColor="#707070"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:elevation="@dimen/_8sdp"
+-                        app:tint="@color/lite_grey" />
+-
+-                    <TextView
+-                        android:id="@+id/guardian_name_tv"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/guardian_name"
+-                        android:layout_marginStart="@dimen/_20ssp"
+-                        android:text="Dinesh Nunia"
+-                        app:layout_constraintTop_toBottomOf="@+id/guardian_label"
+-                        android:backgroundTint="#C45162"
+-                        android:textColor="#707070"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:elevation="@dimen/_8sdp"
+-                        app:tint="@color/lite_grey" />
+-
+-                    <TextView
+-                        android:id="@+id/guardian_contact"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        android:text="Contact No"
+-                        app:layout_constraintTop_toBottomOf="@+id/guardian_name"
+-                        android:backgroundTint="#C45162"
+-                        android:textColor="#707070"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:elevation="@dimen/_8sdp"
+-                        app:tint="@color/lite_grey" />
+-
+-                    <TextView
+-                        android:id="@+id/guardian_contact_tv"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginEnd="@dimen/_8sdp"
+-                        android:layout_marginTop="@dimen/_10sdp"
+-                        android:layout_marginBottom="@dimen/_10sdp"
+-                        android:layout_marginStart="@dimen/_35sdp"
+-                        app:layout_constraintStart_toEndOf="@+id/guardian_contact"
+-                        android:text="9856911426"
+-                        app:layout_constraintTop_toBottomOf="@+id/guardian_name_tv"
+-                        android:backgroundTint="#C45162"
+-                        android:textColor="#707070"
+-                        android:fontFamily="@font/poppins_medium"
+-                        android:elevation="@dimen/_8sdp"
+-                        app:tint="@color/lite_grey" />
+-
+-                </androidx.constraintlayout.widget.ConstraintLayout>
+-
+-            </androidx.cardview.widget.CardView>
+-
+-        </androidx.constraintlayout.widget.ConstraintLayout>
+-
+-
+-    </ScrollView>
+-</FrameLayout>
+\ No newline at end of file
++    </androidx.core.widget.NestedScrollView>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/item_student_profile_attendence.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\"\n    android:layout_marginHorizontal=\"@dimen/_5sdp\"\n    android:layout_marginVertical=\"@dimen/_5sdp\">\n\n    <TextView\n        android:id=\"@+id/tv_class_number\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Class V\"\n        android:layout_marginTop=\"@dimen/_20sdp\"\n        android:layout_marginStart=\"@dimen/_5sdp\"\n        android:fontFamily=\"@font/lato_bold\"\n        android:textSize=\"@dimen/_12ssp\"\n        android:layout_marginBottom=\"@dimen/_20ssp\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"/>\n\n    <androidx.cardview.widget.CardView\n        android:id=\"@+id/student_attendance_container\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        app:cardBackgroundColor=\"#F9EEEF\"\n        app:cardElevation=\"0dp\"\n\n        android:layout_marginTop=\"@dimen/_10ssp\"\n        app:layout_constraintTop_toBottomOf=\"@+id/tv_class_number\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:cardCornerRadius=\"@dimen/_15sdp\">\n\n        <androidx.constraintlayout.widget.ConstraintLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\"\n            android:layout_margin=\"@dimen/_5sdp\"\n            app:layout_constraintBottom_toBottomOf=\"parent\"\n            app:layout_constraintEnd_toEndOf=\"parent\"\n            app:layout_constraintStart_toStartOf=\"parent\"\n            app:layout_constraintTop_toTopOf=\"parent\">\n\n            <TextView\n                android:id=\"@+id/tv_month\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:text=\"July\"\n                android:layout_marginStart=\"@dimen/_5sdp\"\n                android:fontFamily=\"@font/lato_bold\"\n                android:textSize=\"@dimen/_8ssp\"\n                android:layout_marginBottom=\"@dimen/_20ssp\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintStart_toStartOf=\"parent\"/>\n\n            <TextView\n                android:id=\"@+id/student_attendance_percentage\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginEnd=\"@dimen/_5sdp\"\n                android:fontFamily=\"@font/poppins_bold\"\n                android:text=\"86%\"\n                android:layout_marginStart=\"@dimen/_20ssp\"\n                android:textColor=\"#C45162\"\n                android:textSize=\"@dimen/_22sdp\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintTop_toBottomOf=\"@+id/tv_month\" />\n\n\n            <TextView\n                android:id=\"@+id/students_attendance_percent\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@id/student_attendance_percentage\"\n                app:layout_constraintStart_toStartOf=\"@id/student_attendance_percentage\"\n                app:layout_constraintEnd_toEndOf=\"@id/student_attendance_percentage\"\n                android:text=\"Total Attendance\"\n                android:fontFamily=\"@font/poppins_medium\"\n                android:textSize=\"@dimen/_10ssp\"\n                android:layout_marginBottom=\"@dimen/_10sdp\"\n                android:textColor=\"#C45162\"/>\n\n            <TextView\n                android:id=\"@+id/student_attendance_present\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n             app:layout_constraintEnd_toStartOf=\"@+id/student_attendance_absent\"\n                app:layout_constraintTop_toTopOf=\"parent\"\n                android:layout_marginTop=\"@dimen/_10sdp\"\n                android:text=\"23\"\n                android:layout_marginEnd=\"@dimen/_30ssp\"\n                android:textSize=\"@dimen/_22sdp\"\n                android:fontFamily=\"@font/poppins_bold\"\n                android:textColor=\"#20A686\"\n                android:gravity=\"center\"/>\n\n\n            <TextView\n                android:id=\"@+id/students_attendance_present_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@id/student_attendance_present\"\n                app:layout_constraintStart_toStartOf=\"@id/student_attendance_present\"\n                app:layout_constraintEnd_toEndOf=\"@id/student_attendance_present\"\n                android:text=\"Present\"\n                android:fontFamily=\"@font/poppins_medium\"\n                android:textSize=\"@dimen/_10ssp\"\n                android:layout_marginBottom=\"@dimen/_10sdp\"\n                android:textColor=\"#707070\"/>\n\n            <TextView\n                android:id=\"@+id/student_attendance_absent\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n              app:layout_constraintTop_toTopOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                android:text=\"06\"\n                android:layout_marginTop=\"@dimen/_10sdp\"\n                android:layout_marginEnd=\"@dimen/_20ssp\"\n                android:textSize=\"@dimen/_22sdp\"\n                android:fontFamily=\"@font/poppins_bold\"\n                android:textColor=\"#C45162\"\n                android:gravity=\"center\"\n                />\n\n            <TextView\n                android:id=\"@+id/students_attendance_absent_title\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                app:layout_constraintTop_toBottomOf=\"@id/student_attendance_absent\"\n                app:layout_constraintStart_toStartOf=\"@id/student_attendance_absent\"\n                app:layout_constraintEnd_toEndOf=\"@id/student_attendance_absent\"\n                android:text=\"Absent\"\n                android:fontFamily=\"@font/poppins_medium\"\n                android:textSize=\"@dimen/_10ssp\"\n                android:layout_marginBottom=\"@dimen/_10sdp\"\n                android:textColor=\"#707070\"/>\n\n            <LinearLayout\n                android:id=\"@+id/week_days\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginStart=\"@dimen/_5sdp\"\n                android:layout_marginTop=\"@dimen/_5sdp\"\n                android:layout_marginEnd=\"@dimen/_5sdp\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                app:layout_constraintTop_toBottomOf=\"@+id/students_attendance_present_title\"\n                android:orientation=\"horizontal\">\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Mon\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Tue\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Wed\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Thu\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Fri\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Sat\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n\n                <TextView\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:fontFamily=\"@font/lato_semi_bold\"\n                    android:gravity=\"center\"\n                    android:text=\"Sun\"\n                    android:textColor=\"#707070\"\n                    android:textSize=\"@dimen/_11ssp\" />\n            </LinearLayout>\n\n            <androidx.recyclerview.widget.RecyclerView\n                android:id=\"@+id/recDates\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginStart=\"@dimen/_5sdp\"\n                app:layout_constraintTop_toBottomOf=\"@+id/week_days\"\n                app:layout_constraintStart_toStartOf=\"parent\"\n                app:layout_constraintEnd_toEndOf=\"parent\"\n                android:layout_marginTop=\"@dimen/_10sdp\"\n                android:layout_marginEnd=\"@dimen/_5sdp\"\n                android:overScrollMode=\"never\" />\n\n        </androidx.constraintlayout.widget.ConstraintLayout>\n\n\n    </androidx.cardview.widget.CardView>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_student_profile_attendence.xml b/app/src/main/res/layout/item_student_profile_attendence.xml
+--- a/app/src/main/res/layout/item_student_profile_attendence.xml	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/res/layout/item_student_profile_attendence.xml	(date 1674482766626)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginHorizontal="@dimen/_5sdp"
+@@ -10,228 +11,250 @@
+         android:id="@+id/tv_class_number"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="Class V"
+-        android:layout_marginTop="@dimen/_20sdp"
+         android:layout_marginStart="@dimen/_5sdp"
+-        android:fontFamily="@font/lato_bold"
+-        android:textSize="@dimen/_12ssp"
++        android:layout_marginTop="@dimen/_5sdp"
+         android:layout_marginBottom="@dimen/_20ssp"
+-        app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"/>
++        android:fontFamily="@font/poppins_semi_bold"
++        android:text="Class V"
++        android:textSize="@dimen/_12ssp"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
+ 
+     <androidx.cardview.widget.CardView
+         android:id="@+id/student_attendance_container"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
++        android:layout_marginTop="@dimen/_10sdp"
+         app:cardBackgroundColor="#F9EEEF"
++        app:cardCornerRadius="@dimen/_15sdp"
+         app:cardElevation="0dp"
+-
+-        android:layout_marginTop="@dimen/_10ssp"
+-        app:layout_constraintTop_toBottomOf="@+id/tv_class_number"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:cardCornerRadius="@dimen/_15sdp">
++        app:layout_constraintTop_toBottomOf="@+id/tv_class_number">
+ 
+-        <androidx.constraintlayout.widget.ConstraintLayout
++        <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+-            android:layout_margin="@dimen/_5sdp"
++            android:layout_marginHorizontal="@dimen/_10sdp"
++            android:layout_marginVertical="@dimen/_15sdp"
++            android:orientation="vertical"
++            android:animateLayoutChanges="true"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+ 
+-            <TextView
+-                android:id="@+id/tv_month"
++            <androidx.appcompat.widget.AppCompatSpinner
++                android:id="@+id/monthSelectSpinner"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+-                android:text="July"
+-                android:layout_marginStart="@dimen/_5sdp"
+-                android:fontFamily="@font/lato_bold"
++                android:layout_marginStart="@dimen/_10sdp"
+                 android:textSize="@dimen/_8ssp"
+-                android:layout_marginBottom="@dimen/_20ssp"
+-                app:layout_constraintTop_toTopOf="parent"
+-                app:layout_constraintStart_toStartOf="parent"/>
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toTopOf="parent" />
++
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginStart="@dimen/_10sdp"
++                android:orientation="horizontal">
++
++                <androidx.constraintlayout.widget.ConstraintLayout
++                    android:layout_width="0dp"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1">
+ 
+-            <TextView
+-                android:id="@+id/student_attendance_percentage"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginEnd="@dimen/_5sdp"
+-                android:fontFamily="@font/poppins_bold"
+-                android:text="86%"
+-                android:layout_marginStart="@dimen/_20ssp"
+-                android:textColor="#C45162"
+-                android:textSize="@dimen/_22sdp"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/tv_month" />
++                    <TextView
++                        android:id="@+id/student_attendance_percentage"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:fontFamily="@font/poppins_bold"
++                        android:text="86%"
++                        android:textColor="#C45162"
++                        android:textSize="@dimen/_21ssp"
++                        app:layout_constraintBottom_toTopOf="@+id/students_attendance_percent"
++                        app:layout_constraintStart_toStartOf="parent" />
+ 
+ 
+-            <TextView
+-                android:id="@+id/students_attendance_percent"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@id/student_attendance_percentage"
+-                app:layout_constraintStart_toStartOf="@id/student_attendance_percentage"
+-                app:layout_constraintEnd_toEndOf="@id/student_attendance_percentage"
+-                android:text="Total Attendance"
+-                android:fontFamily="@font/poppins_medium"
+-                android:textSize="@dimen/_10ssp"
+-                android:layout_marginBottom="@dimen/_10sdp"
+-                android:textColor="#C45162"/>
++                    <TextView
++                        android:id="@+id/students_attendance_percent"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:fontFamily="@font/poppins_medium"
++                        android:text="Total Attendance"
++                        android:textColor="#C45162"
++                        android:textSize="@dimen/_9ssp"
++                        app:layout_constraintBottom_toBottomOf="parent"
++                        app:layout_constraintStart_toStartOf="@id/student_attendance_percentage" />
+ 
+-            <TextView
+-                android:id="@+id/student_attendance_present"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-             app:layout_constraintEnd_toStartOf="@+id/student_attendance_absent"
+-                app:layout_constraintTop_toTopOf="parent"
+-                android:layout_marginTop="@dimen/_10sdp"
+-                android:text="23"
+-                android:layout_marginEnd="@dimen/_30ssp"
+-                android:textSize="@dimen/_22sdp"
+-                android:fontFamily="@font/poppins_bold"
+-                android:textColor="#20A686"
+-                android:gravity="center"/>
++                    <TextView
++                        android:id="@+id/student_attendance_present"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginEnd="@dimen/_30ssp"
++                        android:fontFamily="@font/poppins_bold"
++                        android:gravity="center"
++                        android:text="23"
++                        android:textColor="#20A686"
++                        android:textSize="@dimen/_21ssp"
++                        app:layout_constraintEnd_toStartOf="@+id/student_attendance_absent"
++                        app:layout_constraintTop_toTopOf="parent" />
+ 
+ 
+-            <TextView
+-                android:id="@+id/students_attendance_present_title"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@id/student_attendance_present"
+-                app:layout_constraintStart_toStartOf="@id/student_attendance_present"
+-                app:layout_constraintEnd_toEndOf="@id/student_attendance_present"
+-                android:text="Present"
+-                android:fontFamily="@font/poppins_medium"
+-                android:textSize="@dimen/_10ssp"
+-                android:layout_marginBottom="@dimen/_10sdp"
+-                android:textColor="#707070"/>
++                    <TextView
++                        android:id="@+id/students_attendance_present_title"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginBottom="@dimen/_10sdp"
++                        android:fontFamily="@font/poppins_medium"
++                        android:text="Present"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_9ssp"
++                        app:layout_constraintEnd_toEndOf="@id/student_attendance_present"
++                        app:layout_constraintStart_toStartOf="@id/student_attendance_present"
++                        app:layout_constraintTop_toBottomOf="@id/student_attendance_present" />
+ 
+-            <TextView
+-                android:id="@+id/student_attendance_absent"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-              app:layout_constraintTop_toTopOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                android:text="06"
+-                android:layout_marginTop="@dimen/_10sdp"
+-                android:layout_marginEnd="@dimen/_20ssp"
+-                android:textSize="@dimen/_22sdp"
+-                android:fontFamily="@font/poppins_bold"
+-                android:textColor="#C45162"
+-                android:gravity="center"
+-                />
++                    <TextView
++                        android:id="@+id/student_attendance_absent"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginEnd="@dimen/_20ssp"
++                        android:fontFamily="@font/poppins_bold"
++                        android:gravity="center"
++                        android:text="06"
++                        android:textColor="#C45162"
++                        android:textSize="@dimen/_21ssp"
++                        app:layout_constraintEnd_toEndOf="parent"
++                        app:layout_constraintTop_toTopOf="parent" />
+ 
+-            <TextView
+-                android:id="@+id/students_attendance_absent_title"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                app:layout_constraintTop_toBottomOf="@id/student_attendance_absent"
+-                app:layout_constraintStart_toStartOf="@id/student_attendance_absent"
+-                app:layout_constraintEnd_toEndOf="@id/student_attendance_absent"
+-                android:text="Absent"
+-                android:fontFamily="@font/poppins_medium"
+-                android:textSize="@dimen/_10ssp"
+-                android:layout_marginBottom="@dimen/_10sdp"
+-                android:textColor="#707070"/>
++                    <TextView
++                        android:id="@+id/students_attendance_absent_title"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginBottom="@dimen/_10sdp"
++                        android:fontFamily="@font/poppins_medium"
++                        android:text="Absent"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_9ssp"
++                        app:layout_constraintEnd_toEndOf="@id/student_attendance_absent"
++                        app:layout_constraintStart_toStartOf="@id/student_attendance_absent"
++                        app:layout_constraintTop_toBottomOf="@id/student_attendance_absent" />
++                </androidx.constraintlayout.widget.ConstraintLayout>
++
++                <ImageButton
++                    android:id="@+id/btnOpenHideCalander"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_gravity="center_vertical"
++                    android:backgroundTint="@android:color/transparent"
++                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
++                    app:tint="#C45162" />
++
++            </LinearLayout>
+ 
+             <LinearLayout
+-                android:id="@+id/week_days"
++                android:id="@+id/layoutCalender"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
++                android:visibility="gone"
+                 android:layout_marginStart="@dimen/_5sdp"
+-                android:layout_marginTop="@dimen/_5sdp"
++                android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_5sdp"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/students_attendance_present_title"
+-                android:orientation="horizontal">
++                android:orientation="vertical">
++
++                <LinearLayout
++                    android:id="@+id/week_days"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:orientation="horizontal"
++                    app:layout_constraintEnd_toEndOf="parent"
++                    app:layout_constraintStart_toStartOf="parent"
++                    app:layout_constraintTop_toBottomOf="@+id/students_attendance_present_title">
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Mon"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Mon"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Tue"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Tue"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Wed"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Wed"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Thu"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Thu"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Fri"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Fri"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Sat"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Sat"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
+ 
+-                <TextView
+-                    android:layout_width="0dp"
+-                    android:layout_height="wrap_content"
+-                    android:layout_weight="1"
+-                    android:fontFamily="@font/lato_semi_bold"
+-                    android:gravity="center"
+-                    android:text="Sun"
+-                    android:textColor="#707070"
+-                    android:textSize="@dimen/_11ssp" />
+-            </LinearLayout>
++                    <TextView
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1"
++                        android:fontFamily="@font/poppins_medium"
++                        android:gravity="center"
++                        android:text="Sun"
++                        android:textColor="#707070"
++                        android:textSize="@dimen/_10ssp" />
++                </LinearLayout>
+ 
+-            <androidx.recyclerview.widget.RecyclerView
+-                android:id="@+id/recDates"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginStart="@dimen/_5sdp"
+-                app:layout_constraintTop_toBottomOf="@+id/week_days"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                android:layout_marginTop="@dimen/_10sdp"
+-                android:layout_marginEnd="@dimen/_5sdp"
+-                android:overScrollMode="never" />
++                <androidx.recyclerview.widget.RecyclerView
++                    android:id="@+id/recDates"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:overScrollMode="never"
++                    tools:itemCount="1"
++                    android:layout_marginTop="@dimen/_3sdp"
++                    tools:listitem="@layout/item_date" />
++
++            </LinearLayout>
+ 
+-        </androidx.constraintlayout.widget.ConstraintLayout>
++
++        </LinearLayout>
+ 
+ 
+     </androidx.cardview.widget.CardView>
+Index: app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelStudentAttendanceStatus.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelStudentAttendanceStatus.kt b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelStudentAttendanceStatus.kt
+new file mode 100644
+--- /dev/null	(date 1674482334662)
++++ b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelStudentAttendanceStatus.kt	(date 1674482334662)
+@@ -0,0 +1,4 @@
++package com.asmanmirza.schoolpen.UI.Teacher.Home.Models
++
++class ModelStudentAttendanceStatus(var id:String, var classTitle:String, ) {
++}
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\">SchoolPen</string>\n    <string name=\"action_settings\">Settings</string>\n    <!-- Strings used for fragments for navigation -->\n    <string name=\"first_fragment_label\">First Fragment</string>\n    <string name=\"second_fragment_label\">Second Fragment</string>\n    <string name=\"next\">Next</string>\n    <string name=\"previous\">Previous</string>\n\n    <string name=\"lorem_ipsum\">\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad\n        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend\n        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,\n        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\\n\\n\n        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus\n        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed\n        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada\n        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,\n        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor\n        bibendum, vel congue leo egestas.\\n\\n\n        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit\n        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,\n        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer\n        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at\n        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,\n        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque\n        est.\\n\\n\n        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.\n        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui\n        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In\n        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,\n        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra\n        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a\n        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus\n        convallis.\\n\\n\n        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et\n        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa\n        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,\n        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper\n        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus\n        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus\n        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.\n    </string>\n    <!-- TODO: Remove or change this placeholder text -->\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\n    <string name=\"view_lesson\"><u>View Lesson</u></string>\n    <string name=\"view_all\"><u>View all</u></string>\n    <string name=\"don_t_have_an_account_register\">Don\\'t have an account?  <font color=\"#000000\"><b>Register</b></font></string>\n    <string name=\"liked_by_nidhi_and_6_others\">Liked by <font color=\"#383838\">Nidhi</font> and <font color=\"#383838\">6 others</font></string>\n    <string name=\"don_t_have_an_account_sign_up\">Don\\'t have an account? <font color=\"#9163D7\"><b>Sign up</b></font></string>\n    <string name=\"already_have_and_account_login\">Already have and account? <font color=\"#9163D7\"><b>Login</b></font></string>\n    <string name=\"didn_t_received_otp_resend_otp\">Didn\\'t received OTP?  <font color=\"#9163D7\"><u><b>Resend OTP</b></u></font></string>\n    <string name=\"attendance_remind_later\">Remind me</string>\n    <string name=\"attendance_remind_later_text\">later</string>\n    <string name=\"attendance_button_text\">Attendance</string>\n    <string name=\"card_skills_des\"><b><font color=\"#383838\">Skills you\\'ll gain:</font></b> Radian Measure, Triangle Solution, Amplitude, Solving Trigonometric Equation</string>\n    <string name=\"enroll_now\"><u>Enroll now</u></string>\n    <string name=\"duties_stats\">Duties Stats</string>\n    <string name=\"_310hours\">31 hours</string>\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision f9b9ee215cb576387e27e124e807a5b8e21246fb)
++++ b/app/src/main/res/values/strings.xml	(date 1674482326903)
+@@ -59,4 +59,5 @@
+     <string name="enroll_now"><u>Enroll now</u></string>
+     <string name="duties_stats">Duties Stats</string>
+     <string name="_310hours">31 hours</string>
++    <string name="love_to_experiment_with_new_ideas_enjoy_the_process_of_discovery_i_am_very_enthuastic_to_learn_new_concepts_in_the_field_of_chemistry_i_want_to_become_a_bio_scientist_in_future_and_study_genealogy">Love to experiment with new ideas, enjoy the process of discovery. I am very enthuastic to learn new concepts in the field of chemistry. I want to become a Bio-scientist in future and study genealogy.</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_live_class.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_live_class.xml b/app/src/main/res/layout/fragment_live_class.xml
+new file mode 100644
+--- /dev/null	(date 1674491076739)
++++ b/app/src/main/res/layout/fragment_live_class.xml	(date 1674491076739)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".UI.Teacher.LiveClassFragment">
++
++
++
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelAttendanceStatusDates.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelAttendanceStatusDates.kt b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelAttendanceStatusDates.kt
+new file mode 100644
+--- /dev/null	(date 1674480916405)
++++ b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/Home/Models/ModelAttendanceStatusDates.kt	(date 1674480916405)
+@@ -0,0 +1,3 @@
++package com.asmanmirza.schoolpen.UI.Teacher.Home.Models
++
++class ModelAttendanceStatusDates(var dateNumber:String, var fullDate:String, var present:Boolean, var holiday:Boolean, var dim:Boolean)
+\ No newline at end of file
+Index: app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/LiveClassFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/LiveClassFragment.kt b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/LiveClassFragment.kt
+new file mode 100644
+--- /dev/null	(date 1674480656086)
++++ b/app/src/main/java/com/asmanmirza/schoolpen/UI/Teacher/LiveClassFragment.kt	(date 1674480656086)
+@@ -0,0 +1,60 @@
++package com.asmanmirza.schoolpen.UI.Teacher
++
++import android.os.Bundle
++import androidx.fragment.app.Fragment
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import com.asmanmirza.schoolpen.R
++
++// TODO: Rename parameter arguments, choose names that match
++// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
++private const val ARG_PARAM1 = "param1"
++private const val ARG_PARAM2 = "param2"
++
++/**
++ * A simple [Fragment] subclass.
++ * Use the [LiveClassFragment.newInstance] factory method to
++ * create an instance of this fragment.
++ */
++class LiveClassFragment : Fragment() {
++    // TODO: Rename and change types of parameters
++    private var param1: String? = null
++    private var param2: String? = null
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        arguments?.let {
++            param1 = it.getString(ARG_PARAM1)
++            param2 = it.getString(ARG_PARAM2)
++        }
++    }
++
++    override fun onCreateView(
++        inflater: LayoutInflater, container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View? {
++        // Inflate the layout for this fragment
++        return inflater.inflate(R.layout.fragment_live_class, container, false)
++    }
++
++    companion object {
++        /**
++         * Use this factory method to create a new instance of
++         * this fragment using the provided parameters.
++         *
++         * @param param1 Parameter 1.
++         * @param param2 Parameter 2.
++         * @return A new instance of fragment LiveClassFragment.
++         */
++        // TODO: Rename and change types and number of parameters
++        @JvmStatic
++        fun newInstance(param1: String, param2: String) =
++            LiveClassFragment().apply {
++                arguments = Bundle().apply {
++                    putString(ARG_PARAM1, param1)
++                    putString(ARG_PARAM2, param2)
++                }
++            }
++    }
++}
+\ No newline at end of file

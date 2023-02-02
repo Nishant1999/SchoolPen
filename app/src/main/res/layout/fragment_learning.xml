@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/student_back1"
+        app:tint="@color/color_primary" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/top_explore_image"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_70sdp"
+                app:srcCompat="@drawable/learn_back_designs"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_gravity="end"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Learning"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/_24ssp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:textColor="@color/color_primary"
+                    />
+                <View
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@drawable/back_15sdp"
+                    android:backgroundTint="#509163d7"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore learning"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:textColor="#808080"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recLearnButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_learn_buttons"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_10sdp"/>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#50AAAAAA"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutChallenges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="@font/lato_semi_bold"
+                    android:text="Learn while playing"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15ssp" />
+
+                <include layout="@layout/item_learn_banner" />
+
+                    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:dotsColor="#50707070"
+                        app:dotsCornerRadius="8dp"
+                        app:dotsSize="@dimen/_5sdp"
+                        app:dotsSpacing="@dimen/_2sdp"
+                        app:dotsWidthFactor="4"
+                        android:visibility="gone"
+                        app:selectedDotColor="@color/color_primary"
+                        app:progressMode="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/scroll_dots"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="@font/lato_semi_bold"
+                    android:text="Upcoming compitition"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15ssp" />
+
+                    <include layout="@layout/item_mega_comp" />
+                    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                        android:id="@+id/dots_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:dotsColor="#50707070"
+                        app:dotsCornerRadius="8dp"
+                        app:dotsSize="@dimen/_5sdp"
+                        app:dotsSpacing="@dimen/_2sdp"
+                        app:dotsWidthFactor="4"
+                        android:visibility="gone"
+                        app:selectedDotColor="@color/color_primary"
+                        app:progressMode="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/scroll_dots"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+
+                    <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    app:cardBackgroundColor="#309163d7">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/bubbles"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_20sdp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imageWinner"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_90sdp"
+                                android:src="@drawable/fatima"/>
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <FrameLayout
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:background="@drawable/circle_back">
+
+                                </FrameLayout>
+
+                                <ImageView
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    app:srcCompat="@drawable/first_prize"/>
+
+                                <FrameLayout
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_10ssp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/lato_bold"/>
+
+                                </FrameLayout>
+
+
+
+
+
+                            </FrameLayout>
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nani Khurana"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="#383838"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="99.3%"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/color_primary"/>
+
+
+                        </LinearLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recLeaderboard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            tools:listitem="@layout/item_leaderboard_profiles"
+                            tools:itemCount="4"/>
+
+
+                    </LinearLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="Leaderboard"
+                        android:textColor="#383838"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:srcCompat="@drawable/hurrey"/>
+
+                </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutFeeds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rec_feeds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_learn_feeds"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutWorldKnowledge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recWorldKnowledge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_learn_world_knowledge"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            </FrameLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/floatingButton"
+        android:layout_width="@dimen/_65sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        app:srcCompat="@drawable/logo"/>
+
+    <ImageView
+        android:id="@+id/floatingImage"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        android:elevation="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:srcCompat="@drawable/explore_image" />
+
+
+</FrameLayout>

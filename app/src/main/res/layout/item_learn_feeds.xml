@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:paddingStart="@dimen/_15sdp"
+    android:paddingEnd="@dimen/_15sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dpImage"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/fatima" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semi_bold"
+                android:text="Netu Kapoor"
+                android:textColor="#383838"
+                android:textSize="@dimen/_14ssp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Science"
+                    android:textColor="#707070"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="4 hour ago"
+                    android:textColor="#707070"
+                    android:textSize="@dimen/_10ssp" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <app.com.stackimageview.customviews.StackImageView
+            android:id="@+id/stackImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:siv_max_visible_image="5"
+            app:siv_image_gap="-10dp"
+            app:siv_image_dimen="@dimen/_20sdp"
+            app:siv_image_border_width="@dimen/_1sdp"
+            app:siv_image_border_color="#FFFFFF"
+            app:siv_image_loader_visible="true"
+            app:siv_image_loader_color="#FFFFFF"
+            app:siv_image_placeholder_visible="true"
+            app:siv_image_placeholder_dimen="25dp"
+            app:siv_image_placeholder_source="@layout/item_overlap_profile"
+            app:siv_image_bg_color="#656565"
+            app:siv_count_dimen="@dimen/_20sdp"
+            app:siv_count_border_width="@dimen/_1sdp"
+            app:siv_count_border_color="#FFFFFF"
+            app:siv_count_position="after"
+            app:siv_count_bg_color="@color/color_primary"
+            app:siv_count_text_size="@dimen/_10ssp"
+            app:siv_count_text_color="#FFFFFF"
+            app:siv_count_text_font="@font/poppins_semi_bold"
+            app:siv_count_image_instead_of_text="false"
+            app:siv_count_image_dimen="30dp"
+            app:siv_count_image_source="@drawable/ic_more_icon"
+            app:siv_overlap_type="bottom_to_top"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/lato_semi_bold"
+            android:text="Nidhi and 6 others answered"
+            android:textColor="#707070"
+            android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardBackgroundColor="#DED0F3"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_15sdp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semi_bold"
+                android:text="Question: Which of the followings were the first ruler of Hindu Kush?"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_question_option" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_baseline_thumb_up_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="Like"
+                android:textSize="@dimen/_12ssp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_baseline_send_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="Share"
+                android:textSize="@dimen/_12ssp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_baseline_bookmark_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="Save"
+                android:textSize="@dimen/_12ssp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_semi_bold"
+        android:text="@string/liked_by_nidhi_and_6_others"
+        android:textColor="#808080"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#50AAAAAA"/>
+
+</LinearLayout>

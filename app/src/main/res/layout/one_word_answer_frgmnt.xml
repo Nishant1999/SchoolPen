@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestion_oneWordAnsFrgmnt"
+        style="@style/tv_poppins_medium_black_title"
+        android:layout_width="0dp"
+        android:lineSpacingExtra="-7sp"
+        android:text="@string/demo_question"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMaxWord_oneWordAnsFrgmnt"
+        style="@style/tv_poppins_light_grey"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/one_word"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion_oneWordAnsFrgmnt" />
+
+    <EditText
+        android:id="@+id/edtAnswer_oneWordAnsFrgmnt"
+        style="@style/edt_poppins_regular_grey"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:gravity="top|start"
+        android:hint="@string/type_answer_hint"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:padding="@dimen/_15sdp"
+        android:textColorHint="@color/lite_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMaxWord_oneWordAnsFrgmnt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="#000000"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group android:translateY="0">
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M20 3H19V1H17V3H7V1H5V3H4C3.47005 3.00158 2.96227 3.2128 2.58753 3.58753C2.2128 3.96227 2.00158 4.47005 2 5V21C2.00158 21.5299 2.2128 22.0377 2.58753 22.4125C2.96227 22.7872 3.47005 22.9984 4 23H20C20.5299 22.9984 21.0377 22.7872 21.4125 22.4125C21.7872 22.0377 21.9984 21.5299 22 21V5C21.9984 4.47005 21.7872 3.96227 21.4125 3.58753C21.0377 3.2128 20.5299 3.00158 20 3ZM20 21H4V8H20V21Z" />
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M7 10.501H11C11.2761 10.501 11.5 10.7248 11.5 11.001V15.001C11.5 15.2771 11.2761 15.501 11 15.501H7C6.72386 15.501 6.5 15.2771 6.5 15.001V11.001C6.5 10.7248 6.72386 10.501 7 10.501Z"
+            tools:ignore="VectorPath"/>
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M8.36035 13.5645L11.0469 17.0176L18.7217 10.7734" />
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M11 10.501H7C6.72386 10.501 6.5 10.7248 6.5 11.001V15.001C6.5 15.2771 6.72386 15.501 7 15.501H11C11.2761 15.501 11.5 15.2771 11.5 15.001V11.001C11.5 10.7248 11.2761 10.501 11 10.501Z" />
+    </group>
+</vector>

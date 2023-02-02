@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_40sdp"
+    android:layout_marginStart="@dimen/_14sdp"
+    android:layout_marginBottom="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_14sdp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/student_detail_card_view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        app:cardBackgroundColor="@color/teachers_dark_pink"
+        app:cardCornerRadius="@dimen/_40sdp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/attendance_toggle_switch">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <TextView
+                android:id="@+id/text_student_attendance_index"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:background="@drawable/circle_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:text="1"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/teachers_dark_pink"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingLeft="@dimen/_9sdp"/>
+
+            <TextView
+                android:id="@+id/text_student_attendance_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Aman Patel"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/text_student_attendance_index"
+                android:layout_marginLeft="@dimen/_4sdp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/homeDp1"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="@dimen/_9sdp"
+                android:src="@drawable/sample_dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        
+        
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/attendance_toggle_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:checked="false"
+        android:theme="@style/SCBSwitch"
+        android:longClickable="false"
+        android:textOff="A"
+        android:textOn="P"
+        app:switchTextAppearance="@style/switchTextStyle"
+        android:fontFamily="@font/poppins_semi_bold"
+        app:track="@drawable/attendance_track"
+        android:thumb="@drawable/thumb_attendance"
+        app:showText="true"
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+</LinearLayout>
+
+
+
+</FrameLayout>

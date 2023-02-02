@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Student.assignment.AssignmentHomeAct">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHeader_assignmentHomeAct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_assignment"
+        android:paddingStart="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack_assignmentHomeAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_purple" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgRandom_assignmentHomeAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/assignment_header_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtHomeWork_assignmentHomeAct"
+            style="@style/tv_poppins_regular_white"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/home_work"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBack_assignmentHomeAct" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtHeader_assignmentHomeAct"
+            style="@style/tv_poppins_bold_white"
+            android:text="Question bank 23"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHomeWork_assignmentHomeAct" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns_assignmentHomeAct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/txtStartTest_assignmentHomeAct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clHeader_assignmentHomeAct">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtInstruction_assignmentHomeAct"
+                style="@style/tv_poppins_bold_black"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/instruction"
+                android:textColor="@color/black_title_text"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtInstructionData_assignmentHomeAct"
+                style="@style/tv_poppins_regular_grey"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/instruction_demo_text"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtInstruction_assignmentHomeAct"
+                app:layout_constraintTop_toBottomOf="@+id/txtInstruction_assignmentHomeAct" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtCircleOnNumber_assignmentHomeAct"
+                style="@style/tv_poppins_bold_black"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="top"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/circle_on_qus_no"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInstructionData_assignmentHomeAct" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCircleOnNumber_assignmentHomeAct">
+
+                <LinearLayout
+                    android:id="@+id/llMarkedReview_assignmentHomeAct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/llGoodSubmit_assignmentHomeAct"
+                    app:layout_constraintHorizontal_weight="0.33"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/light_blue_circle" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtMarkReview_assignmentHomeAct"
+                        style="@style/tv_poppins_regular_grey"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="-2sp"
+                        android:text="@string/marked_for_review"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llGoodSubmit_assignmentHomeAct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/llSkipped_assigmentHomeAct"
+                    app:layout_constraintHorizontal_weight="0.33"
+                    app:layout_constraintStart_toEndOf="@+id/llMarkedReview_assignmentHomeAct"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/blue_circle" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtGoodToSubmit_assignmentHomeAct"
+                        style="@style/tv_poppins_regular_grey"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="-2sp"
+                        android:text="@string/good_to_submit"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSkipped_assigmentHomeAct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.33"
+                    app:layout_constraintStart_toEndOf="@+id/llGoodSubmit_assignmentHomeAct"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/yellow_circle" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtSkippedQues_assignmentHomeAct"
+                        style="@style/tv_poppins_regular_grey"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="-2sp"
+                        android:text="@string/skipped_question"
+                        android:textSize="@dimen/_11ssp" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtStartTest_assignmentHomeAct"
+        style="@style/tv_poppins_regular_white"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/assignment_btn"
+        android:gravity="center"
+        android:lineHeight="16dp"
+        android:text="@string/start_test"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

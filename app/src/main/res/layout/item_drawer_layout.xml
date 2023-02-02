@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_35sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_15sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:src="@drawable/school_logo1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/tv_poppins_bold_white"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="-4sp"
+                        android:maxLines="2"
+                        android:text="Stonehill International School"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/tv_poppins_regular_white"
+                        android:lineSpacingExtra="-2sp"
+                        android:text="Bangalore , India"
+                        android:textSize="@dimen/_8ssp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTeachers_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:lineSpacingExtra="-12sp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/teacher"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvClassmate_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_classmates"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:lineSpacingExtra="-12sp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/classmates"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSyllabus_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_syllabus"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:lineSpacingExtra="-12sp"
+                android:text="@string/syllabus"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAttendance_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_attendance"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:lineSpacingExtra="-12sp"
+                android:text="@string/attendance_button_text"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCalendar_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_calendar_month_24"
+                android:drawablePadding="@dimen/_10sdp"
+                android:lineSpacingExtra="-12sp"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/calendar"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSchoolBoard_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_pin_20"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:lineSpacingExtra="-12sp"
+                android:text="@string/school_board"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFeePortal_studentHomeAct"
+                style="@style/tv_poppins_medium_white"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_fee"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/fee_portal"
+                android:lineSpacingExtra="-12sp"
+                android:textSize="@dimen/_12ssp" />
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_90sdp"
+            app:srcCompat="@drawable/drawer_bottom_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnExit_studentHomeAct"
+            style="@style/tv_poppins_medium_white"
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:drawableStart="@drawable/ic_baseline_logout_20"
+            android:drawablePadding="@dimen/_10sdp"
+            android:drawableTint="@color/white"
+            android:lineSpacingExtra="-12sp"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/exit"
+            android:textSize="@dimen/_12ssp" />
+
+    </FrameLayout>
+
+</LinearLayout>

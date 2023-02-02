@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UI.Teacher.Home.TeacherStudentProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:srcCompat="@drawable/ic_teachers_back_icon" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:background="@drawable/back_stroke_30sdp_teachers"
+            android:backgroundTint="#20C45162"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawableTint="#C45162"
+            android:paddingHorizontal="@dimen/_12sdp" />
+
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:cardBackgroundColor="#F9EEEF"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <com.rishabhharit.roundedimageview.RoundedImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_120sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tina"
+                        app:cornerRadius="@dimen/_15sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profile_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="Neetu Goel"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            app:layout_constraintStart_toEndOf="@+id/profile_image"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/date_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Class V| SIS/V/01"
+                            android:textColor="#383838"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintStart_toEndOf="@+id/profile_image"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/btn_call_view"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="@drawable/circle_back"
+                                android:backgroundTint="#C45162"
+                                android:elevation="@dimen/_3sdp"
+                                android:padding="@dimen/_8sdp"
+                                app:srcCompat="@drawable/ic_call_icon_white"
+                                app:tint="@color/white" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="@drawable/circle_back"
+                                android:backgroundTint="#F9EEEF"
+                                android:elevation="@dimen/_3sdp"
+                                android:padding="@dimen/_6sdp"
+                                app:srcCompat="@drawable/ic_baseline_chat_bubble_24"
+                                app:tint="#C45162" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/desc_feed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Class Representative"
+                    android:textColor="#383838"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Profound artist and ethuastic science student "
+                    android:textColor="@color/attendance_title"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:scrollbarSize="0dp"
+                android:scrollbars="none"
+                app:tabBackground="@drawable/teachers_tab_back"
+                app:tabIndicator="@android:color/transparent"
+                app:tabMode="scrollable"
+                app:tabPaddingEnd="@dimen/_15sdp"
+                app:tabPaddingStart="@dimen/_15sdp"
+                app:tabRippleColor="@android:color/transparent"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextAppearance="@style/calander_text"
+                app:tabTextColor="#707070">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Info" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attendance" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Performance" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interests" />
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <include
+                android:id="@+id/layoutPersonalInfo"
+                layout="@layout/layout_personal_info_student" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:visibility="gone"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_student_profile_attendence" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

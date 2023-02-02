@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_30sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp">
+
+       <TextView
+           android:id="@+id/certificate_heading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           android:text="Get a Certificate"
+           android:fontFamily="@font/poppins_semi_bold"
+           android:textSize="@dimen/_14ssp"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:layout_marginLeft="@dimen/_10sdp"/>
+
+       <ImageView
+           android:id="@+id/certificate_image"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/_220sdp"
+           app:srcCompat="@drawable/course_certificate"
+           android:scaleType="fitXY"
+           app:layout_constraintTop_toBottomOf="@id/certificate_heading"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           android:layout_marginTop="@dimen/_8sdp"
+           android:layout_marginLeft="@dimen/_5sdp"
+           android:layout_marginRight="@dimen/_5sdp"
+           />
+
+       <TextView
+           android:id="@+id/certificate_details_heading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@id/certificate_image"
+           android:text="Math Gold in Trigonometry certificate"
+           android:layout_marginTop="@dimen/_15sdp"
+           android:layout_marginLeft="@dimen/_10sdp"
+           app:layout_constraintStart_toStartOf="parent"
+           android:fontFamily="@font/poppins_semi_bold"
+           android:layout_marginRight="@dimen/_5sdp"
+           android:textSize="@dimen/_11ssp"/>
+
+       <TextView
+           android:id="@+id/certificate_details"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/_10sdp"
+           android:layout_marginTop="@dimen/_8sdp"
+           android:layout_marginRight="@dimen/_10sdp"
+           android:fontFamily="@font/poppins_medium"
+           android:text="Google Career Certificates are part of Grow with Google, an initiative that draws on Google's 20-year history of building products, platforms, and services that help people and businesses grow. Through programs like these, we aim to help everyone– those who make up the workforce of today and the students who will drive the workforce of tomorrow – access the best of Google’s training and tools to grow their skills, careers, and businesses."
+           android:textColor="#707070"
+           android:textSize="@dimen/_11ssp"
+           android:layout_marginBottom="@dimen/_10sdp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/certificate_details_heading"
+           app:layout_constraintVertical_bias="0.0" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

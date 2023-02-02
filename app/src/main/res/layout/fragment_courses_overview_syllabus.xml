@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.main.coursesoverview.tabs.CoursesOverviewSyllabusFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_40sdp"
+        android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/syllabus_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="What you will learn in this course"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/unit_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Unit 1"
+            android:textColor="#707070"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@id/syllabus_header"
+            app:layout_constraintTop_toBottomOf="@id/syllabus_header" />
+
+        <TextView
+            android:id="@+id/chapter_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="Trigonometry and its fundamental"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toEndOf="@id/unit_label"
+            app:layout_constraintTop_toTopOf="@id/unit_label" />
+
+
+        <ImageButton
+            android:id="@+id/drop_down_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:rotation="180"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_arrrow_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/chapter_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toEndOf="@+id/chapter_label"
+            app:layout_constraintTop_toTopOf="@+id/chapter_label" />
+
+        <TextView
+            android:id="@+id/chapter_contents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="In this revised course, fundamental and modern approaches to Japanese structural design will be explained using historical overviews and Tokyo-Tech’s campus buildings as case studies. Learners will be able to interpret and apply seismic design concepts like energy-dissipating braced frames, spine frames, seismic retrofit, seismic isolation and seismic design of spatial structures. "
+            android:textColor="#707070"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/chapter_label"
+            app:layout_constraintTop_toBottomOf="@id/chapter_label" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

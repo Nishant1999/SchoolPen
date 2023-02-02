@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/homeScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/iv_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_teacher_top_background" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_20sdp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    >
+                <ImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_round_menu_24"
+                    app:tint="@color/white" />
+
+                    <ImageButton
+                        android:id="@+id/iv_Signout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@drawable/ic_baseline_logout_20"
+                        app:tint="@color/white" />
+
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/homeDp1"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/dp1" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:includeFontPadding="false"
+                                    android:text="Welcome back"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_14ssp" />
+
+                                <TextView
+                                    android:id="@+id/tv_user"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:includeFontPadding="false"
+                                    android:text="Netu"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_18ssp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutTopButtons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:background="@drawable/circle_back"
+                                android:padding="@dimen/_5sdp"
+                                app:srcCompat="@drawable/ic_baseline_search_24"
+                                app:tint="@color/teachers_dark_pink" />
+
+                            <ImageButton
+                                android:id="@+id/btnChat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:background="@drawable/circle_back"
+                                android:padding="@dimen/_5sdp"
+                                app:srcCompat="@drawable/ic_baseline_chat_bubble_24"
+                                app:tint="@color/teachers_dark_pink" />
+
+                            <ImageButton
+                                android:id="@+id/notification_class"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:background="@drawable/circle_back"
+                                android:padding="@dimen/_5sdp"
+                                app:srcCompat="@drawable/ic_baseline_notifications_24"
+                                app:tint="@color/teachers_dark_pink" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Today&apos;s Upcoming Classes"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageButton
+                        android:id="@+id/btnTimeTableToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/poppins_bold"
+                        app:srcCompat="@drawable/ic_baseline_calendar_month_24"
+                        android:text="View Timetable"
+                        android:textColor="#50000000"
+                        android:textSize="@dimen/_11ssp"
+                        app:tint="@color/teachers_dark_pink" />
+                </FrameLayout>
+
+                <include
+                    android:id="@+id/start_class"
+                    layout="@layout/item_teachers_todays_class" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Tomorrow Classes"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/poppins_bold"
+                        app:srcCompat="@drawable/ic_baseline_calendar_month_24"
+                        android:text="View Timetable"
+                        android:textColor="#50000000"
+                        android:textSize="@dimen/_11ssp"
+                        app:tint="@color/teachers_dark_pink" />
+                </FrameLayout>
+
+
+                <include layout="@layout/item_teachers_tomorrows_class" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Assigned Classes"
+                        android:textSize="@dimen/_12ssp" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <FrameLayout
+                                android:id="@+id/assignedClass1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="@dimen/_190sdp">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/todays_class_cardview_container"
+                                        android:layout_width="@dimen/_120sdp"
+                                        android:layout_height="@dimen/_150sdp"
+                                        android:layout_marginTop="@dimen/_8sdp"
+                                        app:cardCornerRadius="@dimen/_25sdp"
+                                        app:cardElevation="0dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="#C45162">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/_170sdp"
+                                                android:layout_height="@dimen/_200sdp"
+                                                android:scaleType="centerCrop"
+                                                app:srcCompat="@drawable/chapter_mask"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_class_name"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_18sdp"
+                                                android:fontFamily="@font/lato_regular"
+                                                android:text="Class IV-C"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_16sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_subject_name"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_12sdp"
+                                                android:fontFamily="@font/poppins_bold"
+                                                android:text="Science"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_20sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toBottomOf="@id/todays_class_class_name" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_total_students"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_12sdp"
+                                                android:fontFamily="@font/lato_bold"
+                                                android:text="Total Students 47"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_10sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toBottomOf="@id/todays_class_subject_name" />
+                                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                    </androidx.cardview.widget.CardView>
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:layout_width="@dimen/_66sdp"
+                                        android:layout_height="@dimen/_66sdp"
+                                        android:src="@drawable/fatima"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="@dimen/_5sdp"
+                                        app:layout_constraintBottom_toBottomOf="@id/todays_class_cardview_container"
+                                        app:layout_constraintEnd_toEndOf="@id/todays_class_cardview_container"
+                                        app:layout_constraintStart_toStartOf="@id/todays_class_cardview_container"
+                                        app:layout_constraintTop_toBottomOf="@id/todays_class_cardview_container" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </FrameLayout>
+                            <FrameLayout
+                                android:id="@+id/assignedClass2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="@dimen/_190sdp">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/todays_class_cardview_container1"
+                                        android:layout_width="@dimen/_120sdp"
+                                        android:layout_height="@dimen/_150sdp"
+                                        android:layout_marginTop="@dimen/_8sdp"
+                                        app:cardCornerRadius="@dimen/_25sdp"
+                                        app:cardElevation="0dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="#C45162">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/_170sdp"
+                                                android:layout_height="@dimen/_200sdp"
+                                                android:scaleType="centerCrop"
+                                                app:srcCompat="@drawable/chapter_mask"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_class_name1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_18sdp"
+                                                android:fontFamily="@font/lato_regular"
+                                                android:text="Class V-A"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_16sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_subject_name1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_12sdp"
+                                                android:fontFamily="@font/poppins_bold"
+                                                android:text="English"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_20sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toBottomOf="@id/todays_class_class_name1" />
+
+                                            <TextView
+                                                android:id="@+id/todays_class_total_students1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_12sdp"
+                                                android:fontFamily="@font/lato_bold"
+                                                android:text="Total Students 40"
+                                                android:textColor="#ffffff"
+                                                android:textSize="@dimen/_10sdp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toBottomOf="@id/todays_class_subject_name1" />
+                                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                    </androidx.cardview.widget.CardView>
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:layout_width="@dimen/_66sdp"
+                                        android:layout_height="@dimen/_66sdp"
+                                        android:src="@drawable/sample_dp"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="@dimen/_5sdp"
+                                        app:layout_constraintBottom_toBottomOf="@id/todays_class_cardview_container1"
+                                        app:layout_constraintEnd_toEndOf="@id/todays_class_cardview_container1"
+                                        app:layout_constraintStart_toStartOf="@id/todays_class_cardview_container1"
+                                        app:layout_constraintTop_toBottomOf="@id/todays_class_cardview_container1" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </FrameLayout>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </FrameLayout>
+
+
+                <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
+                    android:id="@+id/main_single_row_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:visibility="gone"
+                    app:deselection="false"
+                    app:longPress="false"
+                    app:multiSelection="false" />
+
+                <TextView
+                    android:id="@+id/btnOpenCalendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:drawableEnd="@drawable/ic_baseline_calendar_month_24"
+                    android:drawableTint="@color/teachers_dark_pink"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:includeFontPadding="false"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:text="January 2023"
+                    android:textSize="@dimen/_13ssp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_330sdp"
+                        app:srcCompat="@drawable/teachers_calender_back_img" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recDates"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/item_home_dates" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@android:color/transparent"
+                            android:elevation="0dp"
+                            app:tabBackground="@drawable/teachers_home_calander_tab_back"
+                            app:tabIndicator="@android:color/transparent"
+                            app:tabRippleColor="@android:color/transparent"
+                            app:tabSelectedTextColor="@color/white"
+                            app:tabTextAppearance="@style/calander_text"
+                            app:tabTextColor="#707070">
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Events" />
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tasks" />
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Birthdays" />
+                        </com.google.android.material.tabs.TabLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recEvents"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:overScrollMode="never"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/teachers_item_calendar_events" />
+
+                        <Button
+                            android:id="@+id/btnCreateTask"
+                            android:layout_width="@dimen/_150sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:backgroundTint="@color/teachers_dark_pink"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="+ Create Task"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Apply For Leaves"
+                        android:textSize="@dimen/_12ssp" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/teachers_leaves_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/item_teachers_leaves" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_1sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:includeFontPadding="false"
+                        android:text="Notices"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_1sdp"
+                        android:textColor="@color/teachers_dark_pink"
+                        android:fontFamily="@font/lato_bold"
+                        android:includeFontPadding="false"
+                        android:text="View All"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="@dimen/_12ssp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <include layout="@layout/teacher_item_notice" />
+
+                <TextView
+                    android:id="@+id/btnViewAllNotices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/lato_semi_bold"
+                    android:text="@string/view_all"
+                    android:textColor="@color/teachers_dark_pink"
+                    android:textSize="@dimen/_13ssp" />
+
+
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/student_back1"
+        app:tint="@color/color_primary" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:fillViewport="true">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome back, \nplease verify your identification"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"/>
+
+                <EditText
+                    android:id="@+id/inUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#AAAAAA"
+                    android:hint="Enter your username"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_13ssp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:autofillHints="name"
+                    android:importantForAutofill="yes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/color_primary"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"/>
+
+                <EditText
+                    android:id="@+id/inPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#AAAAAA"
+                    android:hint="Password"
+                    android:autofillHints="password"
+                    android:importantForAutofill="yes"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/_13ssp"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:paddingEnd="@dimen/_4sdp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/color_primary"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"/>
+                <TextView
+                    android:id="@+id/textNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tip: save credentials to autofill for fast process"
+                    android:textColor="#AAAAAA"
+                    android:textSize="@dimen/_9ssp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_baseline_info_18"
+                    app:drawableTint="#AAAAAA" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_15sdp">
+                    <TextView
+                        android:id="@+id/btnLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_with_stroke_30sdp"
+                        android:text="Login to continue"
+                        android:backgroundTint="@color/color_primary"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/white"
+                        android:paddingStart="@dimen/_18sdp"
+                        android:paddingEnd="@dimen/_15sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:textSize="@dimen/_13ssp"/>
+
+                    <ProgressBar
+                        android:id="@+id/layoutLoading"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:visibility="gone"
+                        android:layout_marginStart="@dimen/_10sdp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        app:srcCompat="@drawable/ic_back_purple"  />
+
+
+    <TextView
+        android:id="@+id/btnGoToSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/don_t_have_an_account_sign_up"
+        android:textColor="#707070"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:textSize="@dimen/_11ssp"
+        android:drawablePadding="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"/>
+
+
+
+</FrameLayout>

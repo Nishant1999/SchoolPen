@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestion_imgWithSingleSelectionFrgmnt"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_width="0dp"
+        android:lineSpacingExtra="1sp"
+        android:text="What is the below image is called?"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvImg_quesImgDescriptionFrgmnt"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion_imgWithSingleSelectionFrgmnt">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_quesImgDescriptionFrgmnt"
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/universe"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <RadioGroup
+        android:id="@+id/rgMcq_quesImgDescriptionFrgmnt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/cvImg_quesImgDescriptionFrgmnt">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/txtMCQ1_imgWithSingleSelectionFrgmnt"
+        style="@style/rb_regular_black_title" 
+        android:layout_marginTop="@dimen/_30sdp" 
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp" 
+        android:text="Limestone"  />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/txtMCQ2_imgWithSingleSelectionFrgmnt"
+        style="@style/rb_regular_black_title" 
+        android:layout_marginTop="@dimen/_13sdp"  
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp" 
+        android:text="Slaked Lime" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/txtMCQ3_imgWithSingleSelectionFrgmnt"
+        style="@style/rb_regular_black_title"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp"
+        android:text="Quicklime"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/txtMCQ4_imgWithSingleSelectionFrgmnt"
+        style="@style/rb_regular_black_title" 
+        android:layout_marginTop="@dimen/_13sdp" 
+        android:textSize="@dimen/_12ssp"
+        android:lineSpacingExtra="1sp" 
+        android:text="Gypsum" />
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

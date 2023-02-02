@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyShapeAppearanceOverlay" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerSize">50dp</item>
+    </style>
+
+    <style name="ShapeAppearance.MyApp.Fab.Rectangle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeTopRight">12dp</item>
+    </style>
+</resources>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/homeScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/iv_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/group_live_class_background" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_20sdp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        >
+                        <ImageView
+                            android:id="@+id/iv_menu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/ic_round_menu_24"
+                            app:tint="@color/teachers_ui" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_90sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/live_class_meetings"
+                            android:textColor="@color/teachers_ui"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_20ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/connect_with_students_parents"
+                            android:textColor="@color/teachers_ui"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:id="@+id/back_ground_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/live_class1"/>
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="70dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_start_live_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Start live Class"
+                        android:drawableLeft="@drawable/ic_baseline_videocam_24"
+                        android:fontFamily="@font/poppins_bold"
+                        android:drawableTint="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="@color/teachers_dark_pink"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_schedule_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Schedule class"
+                        android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                        android:fontFamily="@font/poppins_bold"
+                        android:drawableTint="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="@color/teachers_dark_pink"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_schedule_meeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Schedule meetings"
+                        android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                        android:fontFamily="@font/poppins_bold"
+                        android:drawableTint="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="@color/teachers_dark_pink"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_join_meeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Join meetings"
+                        android:drawableLeft="@drawable/ic_baseline_add_24"
+                        android:fontFamily="@font/poppins_bold"
+                        android:drawableTint="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:paddingStart="@dimen/_20ssp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="@color/teachers_dark_pink"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

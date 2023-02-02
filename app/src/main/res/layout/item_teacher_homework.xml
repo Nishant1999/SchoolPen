@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_teacher_homework"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/attendance_gradient_background">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/teacher_work_mask" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_15sdp">
+
+                <TextView
+                    android:id="@+id/subject_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="Science"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/work_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Sent on 14/10/2022"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@id/subject_name"
+                    app:layout_constraintTop_toBottomOf="@id/subject_name" />
+
+                <TextView
+                    android:id="@+id/chapter_name"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Digestive System"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/subject_name"
+                    app:layout_constraintTop_toBottomOf="@id/work_date" />
+
+                <TextView
+                    android:id="@+id/assignment_task"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Write the parts of the digestive system expalining thr functions"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_11ssp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/subject_name"
+                    app:layout_constraintTop_toBottomOf="@id/chapter_name" />
+
+                <TextView
+                    android:id="@+id/grading_needed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="32 students graded"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/subject_name" />
+
+                <TextView
+                    android:id="@+id/submission_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="5 new Submission"
+                    android:textColor="#90ffffff"
+                    android:textSize="@dimen/_9ssp"
+                    android:gravity="end"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/grading_needed"
+                    app:layout_constraintTop_toBottomOf="@id/grading_needed" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

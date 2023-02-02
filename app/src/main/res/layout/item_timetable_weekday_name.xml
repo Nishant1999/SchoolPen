@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_3sdp"
+    android:layout_marginEnd="@dimen/_2sdp"
+    android:background="@drawable/back_with_stroke_30sdp"
+    android:backgroundTint="@color/white"
+    android:fontFamily="@font/poppins_bold"
+    android:paddingStart="@dimen/_14sdp"
+    android:paddingTop="@dimen/_4sdp"
+    android:paddingEnd="@dimen/_14sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:text="Mon"
+    android:textColor="@color/teachers_ui"
+    android:textSize="@dimen/_15ssp" />

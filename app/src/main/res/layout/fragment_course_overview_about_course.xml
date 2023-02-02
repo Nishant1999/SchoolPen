@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.main.coursesoverview.tabs.CourseOverviewAboutCourseFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_5sdp">
+
+
+        <TextView
+            android:id="@+id/text_about_course_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="About the course"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/poppins_semi_bold"/>
+
+        <TextView
+            android:id="@+id/text_about_course_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_about_course_heading"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_11ssp"
+            android:text="In this revised course, fundamental and modern approaches to Japanese structural design will be explained using historical overviews and Tokyo-Tech’s campus buildings as case studies. Learners will be able to interpret and apply seismic design concepts like energy-dissipating braced frames, spine frames, seismic retrofit, seismic isolation and seismic design of spatial structures. Drawing from the instructor’s past 20 years of experience in design, considerations to sustainability, practical complexities and their solutions will be presented using the campus buildings as design examples with immersive 360-degree interactive videos. Learners will also get an insight into the architect-engineer collaboration through interviews with architectural professors."
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#707070"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_learn_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_about_course_content"
+            android:text="What you'll learn"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/poppins_semi_bold"/>
+
+        <TextView
+            android:id="@+id/text_learn_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_learn_heading"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_11ssp"
+            android:text="1.  Angles and their measure, including degrees, DMS and radians.\n
+2.  The unit circle, including finding sine and cosine, and how to complete a triangle.\n
+3.  Graphing the trig functions, including sine and cosine graphs, and transformations.\n
+4.  Trig identities, including even-odd, sum-difference, half-angle, double-angle, product-to-sum, and sum-to-product identities.\n
+5.  Polar coordinates, including converting coordinates and equations"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#707070"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+        android:id="@+id/text_requirements_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_learn_content"
+        android:text="Requirements"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+        android:textSize="@dimen/_14ssp"
+        android:fontFamily="@font/poppins_semi_bold"/>
+
+        <TextView
+            android:id="@+id/text_requirements_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_requirements_heading"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_11ssp"
+            android:text="You should be comfortable with the Fundamentals of Math.
+You should be comfortable with basic Algebra, like equation solving.
+A little Geometry is helpful, but not absolutely necessary.
+We'll start the course by talking about angles, so if you know some algebra and geometry basics, you'll be well-prepared for the course."
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#707070"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

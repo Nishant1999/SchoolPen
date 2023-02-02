@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/optionText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_with_stroke_30sdp"
+    android:backgroundTint="@color/white"
+    android:paddingStart="@dimen/_15sdp"
+    android:paddingEnd="@dimen/_15sdp"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_10sdp"
+    android:textSize="@dimen/_12ssp"
+    android:textColor="#707070"
+    android:layout_marginBottom="@dimen/_12sdp"
+    android:fontFamily="@font/lato_semi_bold"
+    android:text="Baba Aajam"/>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Student.assignment.AssignmentReviewActivity">
+
+    <include
+        android:id="@+id/header_assignmentReview"
+        layout="@layout/assignment_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestions_assignemntReview"
+        style="@style/tv_poppins_semi_bold_black_title"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:lineSpacingExtra="-3sp"
+        android:text="@string/questions"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_assignmentReview" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvQuesNo_assignmentReviewAct"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_185sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/purple_border_rounded"
+        android:paddingStart="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestions_assignemntReview"
+        app:spanCount="4"
+        tools:listitem="@layout/assignment_ques_number_row" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTimeRemainTitle_assignmentReviewAct"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/time_remaining"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvQuesNo_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTimeRemain_assignmentReviewAct"
+        style="@style/tv_poppins_semi_bold_light_gray"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="10:26"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvQuesNo_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtAttempQuesTitle_assignmentReviewAct"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/attempted_questions"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtAttempQues_assignmentReviewAct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtAttempQues_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtAttempQues_assignmentReviewAct"
+        style="@style/tv_poppins_bold_black"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/blue_circle"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="10"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTimeRemain_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtSkippedQuesTitle_assignmentReviewAct"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/skipped_questions"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtAttemSkippedQues_assignmentReviewAct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtAttemSkippedQues_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtAttemSkippedQues_assignmentReviewAct"
+        style="@style/tv_poppins_bold_black"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/yellow_circle"
+        android:gravity="center"
+        android:text="4"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAttempQues_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTotalQuesTitle_assignmentReviewAct"
+        style="@style/tv_poppins_regular_black_title"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/total_questions"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSkippedQuesTitle_assignmentReviewAct" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTotalQues_assignmentReviewAct"
+        style="@style/tv_poppins_bold_black"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="19"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="@+id/txtAttemSkippedQues_assignmentReviewAct"
+        app:layout_constraintStart_toStartOf="@+id/txtAttemSkippedQues_assignmentReviewAct"
+        app:layout_constraintTop_toBottomOf="@+id/txtAttemSkippedQues_assignmentReviewAct" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtStartTest_assignmentHomeAct"
+        style="@style/tv_poppins_bold_white"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/assignment_btn"
+        android:gravity="center"
+        android:lineHeight="16dp"
+        android:lineSpacingExtra="-8sp"
+        android:text="@string/submit"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/layoutWeight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:visibility="gone"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:orientation="horizontal">
+
+            <com.quarkworks.roundedframelayout.RoundedFrameLayout
+                android:id="@+id/backFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:cornerRadiusBottomRight="30dp"
+                app:cornerRadiusTopLeft="30dp"
+                app:cornerRadiusTopRight="30dp">
+
+                <TextView
+                    android:id="@+id/chatText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="Hi,Rishab"
+                    android:textColor="#707070"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone" />
+
+                <com.rishabhharit.roundedimageview.RoundedImageView
+                    android:id="@+id/chatImage"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/banner_courses"
+                    app:cornerRadius="30dp"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/_2sdp"
+                    app:roundedCorners="all" />
+            </com.quarkworks.roundedframelayout.RoundedFrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textMessageSentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4 hours ago"
+        android:textSize="@dimen/_8ssp"
+        android:textColor="#707070"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+</LinearLayout>

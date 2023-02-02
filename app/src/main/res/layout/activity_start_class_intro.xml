@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.main.Teacher.attendance.AttendanceFragment"
+    android:background="@drawable/attendance_gradient_background">
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_backback_button"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_26sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        />
+
+    <TextView
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Skip"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_take_attendance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Attendance"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_24sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_132sdp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_container"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_140sdp"
+        app:layout_constraintTop_toBottomOf="@id/text_take_attendance"
+        android:layout_marginTop="@dimen/_110sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="@dimen/_20sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/text_remind_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attendance_remind_later"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_90sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:textColor="@color/teachers_dark_pink"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attendance_remind_later_text"
+                app:layout_constraintTop_toBottomOf="@id/text_remind_me"
+                app:layout_constraintStart_toStartOf="@id/text_remind_me"
+                app:layout_constraintEnd_toEndOf="@id/text_remind_me"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/teachers_dark_pink"
+                />
+
+            <Button
+                android:id="@+id/btn_attendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/teachers_dark_pink"
+                android:text="@string/attendance_button_text"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_remind_me"
+                android:layout_marginTop="@dimen/_90sdp"
+                android:layout_marginLeft="@dimen/_38sdp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:srcCompat="@drawable/calender_icon"
+        app:layout_constraintBottom_toTopOf="@id/cardview_container"
+        app:layout_constraintEnd_toEndOf="@id/cardview_container"
+        app:layout_constraintStart_toStartOf="@id/cardview_container"
+        app:layout_constraintTop_toTopOf="@id/cardview_container"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

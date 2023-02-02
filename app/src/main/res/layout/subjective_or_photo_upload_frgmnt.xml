@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtQuestion_subjectAnsPhotoFrgmnt"
+        style="@style/tv_poppins_medium_black_title"
+        android:layout_width="0dp"
+        android:lineSpacingExtra="-7sp"
+        android:text="@string/demo_question"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMaxWord_subjectAnsPhotoFrgmnt"
+        style="@style/tv_poppins_light_grey"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/hundred_word"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion_subjectAnsPhotoFrgmnt" />
+
+    <EditText
+        android:id="@+id/edtAnswer_subjectAnsPhotoFrgmnt"
+        style="@style/edt_poppins_regular_grey"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/assignment_ques_ans_bg"
+        android:gravity="top|start"
+        android:hint="@string/type_answer_hint"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:lineSpacingExtra="1sp"
+        android:textSize="@dimen/_12ssp"
+        android:minHeight="@dimen/_200sdp"
+        android:padding="@dimen/_15sdp"
+        android:textColorHint="@color/lite_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMaxWord_subjectAnsPhotoFrgmnt" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtOr_subjectAnsPhotoFrgmnt"
+        style="@style/tv_poppins_bold_title_black"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/or"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toTopOf="@+id/llSelectFile_subjectAnsPhotoFrgmnt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAnswer_subjectAnsPhotoFrgmnt"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <LinearLayout
+        android:id="@+id/llSelectFile_subjectAnsPhotoFrgmnt"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@drawable/oval_light_sky_blue"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOr_subjectAnsPhotoFrgmnt"
+        app:layout_constraintVertical_chainStyle="spread">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            app:srcCompat="@drawable/ic_camera" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/homework_detail_tint" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/tv_poppins_regular_blue"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_weight="0.7"
+            android:lineSpacingExtra="-3sp"
+            android:text="@string/browse_file_here"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

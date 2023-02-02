@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/monthName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_3sdp"
+    android:layout_marginEnd="@dimen/_2sdp"
+    android:background="@drawable/back_with_stroke_30sdp"
+    android:backgroundTint="@color/color_primary"
+    android:fontFamily="@font/lato_semi_bold"
+    android:paddingStart="@dimen/_8sdp"
+    android:paddingTop="@dimen/_4sdp"
+    android:paddingEnd="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:text="January"
+    android:textColor="#ffffff"
+    android:textSize="@dimen/_11ssp" />

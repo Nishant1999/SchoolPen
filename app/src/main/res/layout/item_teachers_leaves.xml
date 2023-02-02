@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_110sdp"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/todays_class_cardview_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_25sdp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C45162">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/groupteacher_leaves_mask"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/divider_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_60sdp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@drawable/divider_icon"/>
+
+
+
+
+                <TextView
+                    android:id="@+id/teachers_leaves_left_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/divider_icon"
+                    android:text="10"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/teachers_leaves_left_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/divider_icon"
+                    android:text="out of 12"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_leaves_left_number"
+                    />
+
+                <ImageView
+                    android:id="@+id/icon_sick_leave"
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:scaleType="fitXY"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    app:srcCompat="@drawable/ic_sick_leave"
+                    app:layout_constraintEnd_toStartOf="@id/text_sick_leave"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_leaves_left_total" />
+
+
+                <TextView
+                    android:id="@+id/text_sick_leave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Sick Leave"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintEnd_toEndOf="@id/divider_icon"
+                    app:layout_constraintStart_toEndOf="@id/icon_sick_leave"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_leaves_left_total" />
+
+                <TextView
+                    android:id="@+id/teachers_vacations_left_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/divider_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="15"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/teachers_vacations_left_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="out of 22"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/divider_icon"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_vacations_left_number" />
+
+                <ImageView
+                    android:id="@+id/icon_vacation_leave"
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:scaleType="fitXY"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    app:srcCompat="@drawable/ic_vacation_leave"
+                    app:layout_constraintEnd_toStartOf="@id/text_vacation_leave"
+                    app:layout_constraintStart_toEndOf="@id/divider_icon"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_vacations_left_total" />
+
+                <TextView
+                    android:id="@+id/text_vacation_leave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vacation Leave"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    app:layout_constraintTop_toBottomOf="@id/teachers_vacations_left_total"
+                    app:layout_constraintStart_toEndOf="@id/icon_vacation_leave"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

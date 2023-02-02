@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:background="@color/white">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/payment_details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:outlineProvider="none"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/feedetail_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStudentName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/student_name"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStudentvalue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="@string/akriti_singhal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvStudentName"
+                        app:layout_constraintStart_toEndOf="@id/tvStudentName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvClassName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/classs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvStudentName"
+                        app:layout_constraintTop_toBottomOf="@id/tvStudentName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvClassvalue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="@string/v"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvClassName"
+                        app:layout_constraintStart_toEndOf="@id/tvClassName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRollNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/roll_no"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvStudentName"
+                        app:layout_constraintTop_toBottomOf="@id/tvClassName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRollValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="@string/sis_v_21"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvRollNo"
+                        app:layout_constraintStart_toEndOf="@id/tvRollNo" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFessName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_32sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/fees_name"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvStudentName"
+                        app:layout_constraintTop_toBottomOf="@id/tvRollNo" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFeesValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_40sdp"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="@string/_1st_quater_apr22_jun22"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvFessName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvFessName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFessBreakup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/fees_breakup"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvStudentName"
+                        app:layout_constraintTop_toBottomOf="@id/tvFessName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTutionFees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/tution_fees"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvFessBreakup" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvLibraryFees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/library_fees"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvTutionFees"
+                        app:layout_constraintTop_toBottomOf="@id/tvTutionFees" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSchoolFees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/school_fund"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="@id/tvLibraryFees"
+                        app:layout_constraintTop_toBottomOf="@id/tvLibraryFees" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalFee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_35sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_100sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/total_fees"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvTotalFeeValue"
+                        app:layout_constraintTop_toBottomOf="@id/tvSchoolFees" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalFeeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:drawableStart="@drawable/vector_rupee_"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="@string/_6000"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvTotalFee"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/tvSchoolFees" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvChoosePayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:text="@string/choose_payment_option"
+                android:textColor="#383838"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/payment_details_container" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnFullpayment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@drawable/gradient_btn"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/full_payment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toStartOf="@id/btnInstallment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvChoosePayment" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnInstallment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/install_btn_bg"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/installment"
+                android:textColor="#707070"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnFullpayment"
+                app:layout_constraintTop_toBottomOf="@id/tvChoosePayment" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:text="@string/amount"
+                android:textColor="#383838"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvChoosePayment"
+                app:layout_constraintTop_toBottomOf="@id/btnFullpayment" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnAmount"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/gradient_btn"
+                android:backgroundTint="#489163D7"
+                android:drawableStart="@drawable/vector_rupee_"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/black"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="start"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/_6000"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/btnInstallment"
+                app:layout_constraintTop_toBottomOf="@id/btnFullpayment" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnProceed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:background="@drawable/gradient_btn"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="center"
+                android:paddingStart="@dimen/_40sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_40sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/proceed_to_payment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnAmount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

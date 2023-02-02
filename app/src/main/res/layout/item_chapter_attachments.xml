@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/instructor_info_container_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/period_back_stroke"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:backgroundTint="#EBE4F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        />
+
+    <ImageButton
+        android:id="@+id/imageWinner"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        app:srcCompat="@drawable/ic_pdf_icon"
+        app:layout_constraintTop_toTopOf="@id/instructor_info_container_button"
+        app:layout_constraintBottom_toBottomOf="@id/instructor_info_container_button"
+        android:elevation="10dp"
+        android:background="@null"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="@id/instructor_info_container_button"
+        />
+
+    <TextView
+        android:id="@+id/text_assignment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/imageWinner"
+        app:layout_constraintStart_toEndOf="@id/imageWinner"
+        android:text="Shapes in Nature"
+        android:elevation="10dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/text_assignment_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_assignment_title"
+        app:layout_constraintStart_toStartOf="@id/text_assignment_title"
+        android:text="5 min read"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato_regular"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="#707070"
+        app:layout_constraintBottom_toBottomOf="@id/instructor_info_container_button"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+    <ImageButton
+        android:id="@+id/go_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/instructor_info_container_button"
+        app:layout_constraintBottom_toBottomOf="@id/instructor_info_container_button"
+        app:layout_constraintEnd_toEndOf="@id/instructor_info_container_button"
+        app:srcCompat="@drawable/ic_back_icon"
+        android:rotation="180"
+        android:background="@null"
+        android:elevation="10dp"
+        android:layout_marginEnd="@dimen/_10sdp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_240sdp"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:cardBackgroundColor="#ded0f3"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/noticeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:fontFamily="@font/lato_semi_bold"
+            android:text="Admission Notice – 2022-23 Class-XI (Class Eleven Only)"
+            android:textColor="#383838"
+            android:textSize="@dimen/_12ssp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/noticeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableStart="@drawable/ic_baseline_access_time_filled_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semi_bold"
+                android:gravity="center"
+                android:text="19/07/2022"
+                android:textColor="#707070"
+                android:textSize="@dimen/_9ssp" />
+
+            <ImageButton
+                android:id="@+id/noticeDownloadBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/_3sdp"
+                app:srcCompat="@drawable/ic_baseline_download_24"
+                app:tint="#9163d7" />
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/noticeImageCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/noticeImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/pdf" />
+
+            <ImageButton
+                android:id="@+id/noticePlayBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_back"
+                android:backgroundTint="#9163d7"
+                android:padding="@dimen/_3sdp"
+                app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+                android:visibility="gone"
+                app:tint="@color/white" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/noticeDescription"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/lato_semi_bold"
+            android:scrollbars="none"
+            android:text="Did you know that globally nearly 1 in 4 girls ages 15–19 are not in school? These numbers (reported by UNICEF) tell a story of inequality. While a quarter of teen girls are without economic, academic, and professional pathways, only one tenth of boys face the same barriers to opportunity. Gender-based disadvantage greatly impacts transgender and nonbinary young people around the globe as well—in some places, female, trans, and nonbinary youth are"
+            android:textColor="#383838"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/noticeShowMore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#ded0f3"
+            android:fontFamily="@font/lato_semi_bold"
+            android:gravity="center"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Show More"
+            android:textColor="#9163d7"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

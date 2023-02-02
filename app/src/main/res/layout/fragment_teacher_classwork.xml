@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_backback_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/class_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="Class VI-C"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toStartOf="@id/back_button"
+                    app:layout_constraintTop_toBottomOf="@id/back_button" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/back_with_stroke_30sdp"
+                    android:backgroundTint="#F4EFFB"
+                    android:elevation="0dp"
+                    app:tabBackground="@drawable/teachers_tab_back"
+                    app:tabIndicator="@android:color/transparent"
+                    app:tabRippleColor="@android:color/transparent"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextAppearance="@style/calander_text"
+                    app:tabTextColor="#707070">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Homework" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exams" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Doubts" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutHomeWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="Latest Homework"
+                        android:textColor="#383838"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recLatestHomework"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_teacher_homework"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        tools:itemCount="2"
+                        android:layout_marginTop="@dimen/_5sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:fontFamily="@font/lato_semi_bold"
+                        android:text="Old Homework"
+                        android:textColor="#383838"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:overScrollMode="never">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/btnSortBy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/back_with_stroke_30sdp"
+                                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                android:drawablePadding="@dimen/_4sdp"
+                                android:fontFamily="@font/lato_semi_bold"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_14sdp"
+                                android:paddingTop="@dimen/_4sdp"
+                                android:paddingEnd="@dimen/_4sdp"
+                                android:paddingBottom="@dimen/_4sdp"
+                                android:text="Sort By"
+                                android:drawableTint="@color/color_primary"
+                                android:textColor="#9163d7"
+                                android:textSize="@dimen/_10ssp" />
+
+                            <TextView
+                                android:id="@+id/btnFilter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:background="@drawable/back_with_stroke_30sdp"
+                                android:drawableEnd="@drawable/ic_baseline_tune_20"
+                                android:drawablePadding="@dimen/_4sdp"
+                                android:fontFamily="@font/lato_semi_bold"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_14sdp"
+                                android:paddingTop="@dimen/_6sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_6sdp"
+                                android:text="Filter"
+                                android:drawableTint="@color/color_primary"
+                                android:textColor="#9163d7"
+                                android:textSize="@dimen/_10ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:background="@drawable/back_with_stroke_30sdp"
+                                android:fontFamily="@font/lato_semi_bold"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_14sdp"
+                                android:paddingTop="@dimen/_7sdp"
+                                android:paddingEnd="@dimen/_14sdp"
+                                android:paddingBottom="@dimen/_7sdp"
+                                android:text="MCQ's"
+                                android:textColor="#9163d7"
+                                android:textSize="@dimen/_10ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:background="@drawable/back_with_stroke_30sdp"
+                                android:fontFamily="@font/lato_semi_bold"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_14sdp"
+                                android:paddingTop="@dimen/_7sdp"
+                                android:paddingEnd="@dimen/_14sdp"
+                                android:paddingBottom="@dimen/_7sdp"
+                                android:text="FITB's"
+                                android:textColor="#9163d7"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recOldHomework"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_teacher_homework"
+                        android:layout_marginBottom="@dimen/_10sdp" />
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+</FrameLayout>

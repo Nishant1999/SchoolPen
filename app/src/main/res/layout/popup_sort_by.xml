@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/top_rounded_back"
+    android:backgroundTint="#ffffff"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort notices by"
+            android:layout_gravity="center_vertical"
+            android:textColor="#383838"
+            android:fontFamily="@font/lato_semi_bold"
+            android:textSize="@dimen/_12ssp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@drawable/ic_baseline_close_24"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/_4sdp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latest"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato_semi_bold"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingStart="@dimen/_15sdp"
+        android:textSize="@dimen/_12ssp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top to bottom"
+        android:textColor="@color/black"
+        android:fontFamily="@font/lato_semi_bold"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingStart="@dimen/_15sdp"
+        android:textSize="@dimen/_12ssp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bottom to top"
+        android:textColor="@color/black"
+        android:fontFamily="@font/lato_semi_bold"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingStart="@dimen/_15sdp"
+        android:textSize="@dimen/_12ssp"/>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:textColor="#9163D7"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_11ssp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:layout_gravity="end"
+            android:background="@drawable/back_with_stroke_30sdp"
+            android:backgroundTint="#9163D7"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/white"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>

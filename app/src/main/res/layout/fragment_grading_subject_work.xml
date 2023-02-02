@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UI.Teacher.grading.GradingSubjectWorkFragment">
+
+   <ImageView
+       android:id="@+id/topBackground"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_140sdp"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:srcCompat="@drawable/item_grading_work_top"
+       />
+
+   <ImageButton
+      android:id="@+id/back_button"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/topBackground"
+      app:layout_constraintStart_toStartOf="@id/topBackground"
+      app:srcCompat="@drawable/ic_backback_button"
+      android:background="@null"
+      android:layout_marginTop="@dimen/_10sdp"
+      android:layout_marginLeft="@dimen/_10sdp"
+      />
+
+   <ImageView
+       android:layout_width="@dimen/_150sdp"
+       android:layout_height="@dimen/_80sdp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:srcCompat="@drawable/grading_work_img"
+      android:layout_marginTop="@dimen/_20sdp"
+      android:layout_marginEnd="@dimen/_10sdp"/>
+
+   <TextView
+       android:id="@+id/class_heading"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@id/back_button"
+      app:layout_constraintStart_toStartOf="@id/back_button"
+      android:text="Homework Class IV-C"
+      android:textSize="@dimen/_16ssp"
+      android:textColor="#ffffff"
+      android:fontFamily="@font/lato_regular"
+      android:layout_marginTop="@dimen/_40sdp"/>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@id/class_heading"
+       app:layout_constraintStart_toStartOf="@id/back_button"
+       android:text="Digestive System"
+       android:textSize="@dimen/_22ssp"
+       android:textColor="#ffffff"
+       android:fontFamily="@font/poppins_bold"/>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/grading_work_recycler_view"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/topBackground"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

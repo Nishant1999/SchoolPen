@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/roleName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="As Parent"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:textSize="@dimen/_12ssp"
+    android:paddingStart="@dimen/_20sdp"
+    android:paddingEnd="@dimen/_20sdp"
+    android:paddingTop="@dimen/_7sdp"
+    android:paddingBottom="@dimen/_7sdp"
+    android:fontFamily="@font/poppins_semi_bold"
+    android:background="@drawable/back_with_stroke_30sdp"
+    android:layout_marginTop="@dimen/_10sdp"/>

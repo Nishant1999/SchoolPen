@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="@dimen/_15sdp"
+    android:paddingVertical="@dimen/_15sdp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_15sdp"
+        android:orientation="vertical"
+        android:backgroundTint="#F9EEEF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:text="About"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/_14ssp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/love_to_experiment_with_new_ideas_enjoy_the_process_of_discovery_i_am_very_enthuastic_to_learn_new_concepts_in_the_field_of_chemistry_i_want_to_become_a_bio_scientist_in_future_and_study_genealogy"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_15sdp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:backgroundTint="#F9EEEF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:text="Contact"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/_14ssp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="+91 9876543210"
+            android:drawableTint="#707070"
+            android:drawableStart="@drawable/ic_call_icon"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/_10sdp"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_3sdp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="ck3437@gmail.com"
+            android:drawableTint="#707070"
+            android:drawableStart="@drawable/ic_baseline_mail_24"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/_10sdp"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_3sdp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="27, Nirman vihar, New Delhi, 110065"
+            android:drawableTint="#00707070"
+            android:drawableStart="@drawable/ic_call_icon"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/_10sdp"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_15sdp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_15sdp"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="#F9EEEF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:text="Guardians"
+            android:textColor="@color/black"
+
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/_14ssp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Fathers Name:     Dinesh Nunia"
+            android:textSize="@dimen/_10ssp"
+            android:autoSizeMaxTextSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_5sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Contact No:          9876543210"
+            android:textSize="@dimen/_10ssp"
+            android:autoSizeMaxTextSize="@dimen/_10ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_15sdp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

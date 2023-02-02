@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/backGround"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_240sdp"
+        app:srcCompat="@drawable/ic_teacher_profile_circle_background"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_backback_button"
+        android:background="@null"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/dpImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        app:civ_border_width="@dimen/_2sdp"
+        app:civ_border_color="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@id/backGround"
+        android:src="@drawable/fatima" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dpImage"
+        android:text="Fatima Khan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_18ssp"
+        />
+
+    <TextView
+        android:id="@+id/profile_designation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/profile_name"
+        android:text="Teacher | Chemistry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/lato_regular"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginTop="@dimen/_5sdp"
+        />
+
+
+    <ImageButton
+        android:id="@+id/edit_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_baseline_mode_edit_24"
+        app:layout_constraintBottom_toBottomOf="@id/profile_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toEndOf="@id/profile_name"
+        app:tint="#ffffff" />
+
+
+    <TextView
+        android:id="@+id/personal_info_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/backGround"
+        android:text="Personal Info"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="#000000"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textSize="@dimen/_14ssp"
+        android:fontFamily="@font/poppins_semi_bold"
+        app:layout_constraintStart_toStartOf="@id/back_button"
+        />
+
+    <ImageButton
+        android:id="@+id/edit_personal_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_baseline_mode_edit_24"
+        app:layout_constraintStart_toStartOf="@id/edit_profile_name"
+        app:layout_constraintTop_toTopOf="@id/personal_info_heading"
+        app:tint="#707070" />
+
+    <ImageView
+        android:id="@+id/address_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_location_pin_icon"
+        app:layout_constraintTop_toTopOf="@id/title_address"
+        app:layout_constraintStart_toStartOf="@id/personal_info_heading"
+        app:layout_constraintBottom_toBottomOf="@id/title_address"/>
+
+    <TextView
+        android:id="@+id/title_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_heading"
+        app:layout_constraintStart_toEndOf="@id/address_icon"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Address"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:id="@+id/content_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_address"
+        app:layout_constraintStart_toStartOf="@id/title_address"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="New Delhi India"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="#000000"/>
+
+    <ImageView
+        android:id="@+id/email_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_email_icon"
+        app:layout_constraintTop_toTopOf="@id/title_email"
+        app:layout_constraintStart_toStartOf="@id/personal_info_heading"
+        app:layout_constraintBottom_toBottomOf="@id/title_email"/>
+
+    <TextView
+        android:id="@+id/title_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/content_address"
+        app:layout_constraintStart_toEndOf="@id/address_icon"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Email"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:id="@+id/content_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_email"
+        app:layout_constraintStart_toStartOf="@id/title_address"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="testemail@gmail.com"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="#000000"/>
+
+    <ImageView
+        android:id="@+id/dob_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cake_icon"
+        app:layout_constraintTop_toTopOf="@id/title_dob"
+        app:layout_constraintStart_toStartOf="@id/personal_info_heading"
+        app:layout_constraintBottom_toBottomOf="@id/title_dob"/>
+
+    <TextView
+        android:id="@+id/title_dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/content_email"
+        app:layout_constraintStart_toEndOf="@id/address_icon"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Date Of Birth"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:id="@+id/content_dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_dob"
+        app:layout_constraintStart_toStartOf="@id/title_dob"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="10/12/2022"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="#000000"/>
+
+    <ImageView
+        android:id="@+id/contact_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_contact_icon"
+        app:layout_constraintTop_toTopOf="@id/title_contact"
+        app:layout_constraintStart_toStartOf="@id/personal_info_heading"
+        app:layout_constraintBottom_toBottomOf="@id/title_contact"/>
+
+    <TextView
+        android:id="@+id/title_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/content_dob"
+        app:layout_constraintStart_toEndOf="@id/address_icon"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Phone No"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:id="@+id/content_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_contact"
+        app:layout_constraintStart_toStartOf="@id/title_contact"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="09988776655"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="#000000"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

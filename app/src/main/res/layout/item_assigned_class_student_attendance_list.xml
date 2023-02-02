@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_5sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:background="@drawable/student_details_background"
+    android:orientation="horizontal">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageDp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:src="@drawable/fatima"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Fatima Khan"
+        android:textColor="#383838"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toEndOf="@id/imageDp"
+        app:layout_constraintTop_toTopOf="@id/imageDp" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Arts | Primary"
+        android:textColor="#707070"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+    <TextView
+        android:id="@+id/student_attendance_absent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="06"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#C45162"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/student_attendance_present"
+        />
+
+    <TextView
+        android:id="@+id/students_attendance_absent_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/student_attendance_absent"
+        app:layout_constraintStart_toStartOf="@id/student_attendance_absent"
+        app:layout_constraintEnd_toEndOf="@id/student_attendance_absent"
+        android:text="Absent"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#707070"/>
+
+    <TextView
+        android:id="@+id/student_attendance_present"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/name"
+        android:text="23"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/_20ssp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#20A686"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/student_attendance_absent"/>
+
+
+    <TextView
+        android:id="@+id/students_attendance_present_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/student_attendance_present"
+        app:layout_constraintStart_toStartOf="@id/student_attendance_present"
+        app:layout_constraintEnd_toEndOf="@id/student_attendance_present"
+        android:text="Present"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#707070"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

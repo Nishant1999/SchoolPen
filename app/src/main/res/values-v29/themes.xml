@@ -1,0 +1,69 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.SchoolPen" parent="Base.Theme.SchoolPen">
+        <!-- Transparent system bars for edge-to-edge. -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <style name="tv_poppins_regular" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="tv_poppins_medium" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="tv_poppins_semi_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="tv_poppins_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="tv_poppins_regular_black_title" parent="tv_poppins_regular">
+        <item name="android:textColor">@color/black_title_text</item>
+    </style>
+
+    <style name="tv_poppins_regular_grey" parent="tv_poppins_regular">
+        <item name="android:textColor">@color/lite_grey</item>
+    </style>
+
+    <style name="tv_poppins_semi_bold_black_title" parent="tv_poppins_semi_bold">
+        <item name="android:textColor">@color/black_title_text</item>
+    </style>
+
+
+    <style name="tv_poppins_bold_light_gray" parent="tv_poppins_bold">
+        <item name="android:textColor">@color/lite_grey</item>
+    </style>
+
+
+    <style name="tv_poppins_semi_bold_light_gray" parent="tv_poppins_semi_bold">
+        <item name="android:textColor">@color/lite_grey</item>
+    </style>
+
+    <style name="tv_poppins_bold_black" parent="tv_poppins_bold">
+        <item name="android:textColor">@color/pure_black</item>
+    </style>
+
+    <style name="tv_poppins_bold_white" parent="tv_poppins_bold">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="tv_poppins_regular_white" parent="tv_poppins_regular">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
