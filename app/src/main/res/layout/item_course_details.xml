@@ -46,11 +46,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="2dp"
                     android:fontFamily="@font/poppins_semi_bold"
-                    android:text="8 weeks"
+                    android:text="2 weeks"
                     android:textColor="#000000"
                     android:textSize="@dimen/_14ssp" />
 
@@ -91,6 +92,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/difficulty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="2dp"
@@ -136,6 +138,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/courseFee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="2dp"

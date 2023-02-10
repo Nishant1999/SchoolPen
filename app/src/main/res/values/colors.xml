@@ -28,4 +28,5 @@
     <color name="light_green_chart">#9FDB1D</color>
     <color name="grey">#303030</color>
     <color name="audio_bg">#EBE4F5</color>
+    <color name="stars_color">#A73376</color>
 </resources>

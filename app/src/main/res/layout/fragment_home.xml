@@ -464,7 +464,9 @@
                     android:text="Notices"
                     android:textSize="@dimen/_12ssp" />
 
-                <include layout="@layout/item_notice" />
+                <include
+                    android:id="@+id/layoutNotices"
+                    layout="@layout/item_notice" />
 
                 <TextView
                     android:id="@+id/btnViewAllNotices"

@@ -249,4 +249,5 @@ Math can be applied to almost everything in the real world. Some of it can be qu
     <string name="natasha_khurana">Natasha khurana</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="received_achivements">Received Achivements</string>
+    <string name="auth">eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaWQiLCJleHAiOjE2NzU0Nzc1MjYsImlhdCI6MTY3NTQ0MTUyNn0.B62-OwrP9gsRGcRK1VfM_s-k5-AP1essmbBIZgauatk</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.asmanmirza.schoolpen.UI.Student.Fragments
 
+import android.app.Application
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -7,28 +8,46 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asmanmirza.schoolpen.R
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.ModelTeacherRemarks
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.ModelTest
 import com.asmanmirza.schoolpen.databinding.FragmentClassworkBinding
 import com.asmanmirza.schoolpen.Helpers.ItemClickSupport
+import com.asmanmirza.schoolpen.Helpers.TinyDB
+import com.asmanmirza.schoolpen.Models.TodayliveClassDtos
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Adapters.AdapterCompleteWork
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Adapters.AdapterPendingHomework
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Adapters.AdapterTeacherRemarks
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Adapters.AdapterTest
+import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.HomeWork
 import com.asmanmirza.schoolpen.UI.Student.Classwork.details.HomeWorkDetailActivity
 import com.asmanmirza.schoolpen.UI.Student.Classwork.details.TestDetailActivity
 import com.asmanmirza.schoolpen.UI.Student.Classwork.grades.CumulativeGradeActivity
 import com.asmanmirza.schoolpen.UI.Student.Classwork.grades.TodaysGradeActivity
+import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHome
+import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHomework
 import com.asmanmirza.schoolpen.UI.Student.assignment.AssignmentHomeAct
+import com.asmanmirza.schoolpen.UI.Student.models.HomeViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.models.HomeWorkViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
+import com.asmanmirza.schoolpen.UI.Student.repository.HomeworkRepository
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import javax.inject.Inject
 
 class ClassworkFragment : Fragment() {
 
     private var _binding: FragmentClassworkBinding? = null
     private val binding get() = _binding!!
+    lateinit var db: TinyDB;
+    lateinit var data: ArrayList<HomeWork>
+    lateinit var homeWorkViewModel: ViewModelHomework
+
+    @Inject
+    lateinit var homeWorkViewModelFactory: HomeWorkViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +59,19 @@ class ClassworkFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        homeWorkViewModelFactory= HomeWorkViewModelFactory(HomeworkRepository(context?.applicationContext as Application))
+        db = TinyDB(requireContext())
+        data=ArrayList()
+
+
+        homeWorkViewModel =
+            ViewModelProvider(this, homeWorkViewModelFactory)[ViewModelHomework::class.java]
+        val token = db.getString("token")
+        homeWorkViewModel.getHomework(
+            1,1,"Bearer $token"
+        )
+
         binding.apply {
             getHomeworkDetails()
             /*MainActivity.instance.updateStatusBarColor("#259163D7")
@@ -104,7 +136,12 @@ class ClassworkFragment : Fragment() {
         binding.recCompletedWork.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recPendingWork.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recCompletedWork.adapter = AdapterCompleteWork(requireContext(), ArrayList());
-        binding.recPendingWork.adapter = AdapterPendingHomework(requireContext(), ArrayList());
+
+
+        homeWorkViewModel.homeworkData.observe(viewLifecycleOwner) {
+            data.addAll(it)
+            binding.recPendingWork.adapter = AdapterPendingHomework(requireContext(),data)
+        }
     }
 
     fun getTestDetails(){

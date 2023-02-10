@@ -1,5 +1,7 @@
 package com.asmanmirza.schoolpen.UI.Student.Fragments
 
+import android.app.Application
+import android.content.ClipData.Item
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -9,20 +11,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.NestedScrollView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asmanmirza.schoolpen.databinding.FragmentCoursesBinding
 import com.asmanmirza.schoolpen.Helpers.ItemClickSupport
+import com.asmanmirza.schoolpen.Helpers.TinyDB
 import com.asmanmirza.schoolpen.UI.Student.Courses.Adapters.AdapterCourses
 import com.asmanmirza.schoolpen.UI.Student.Courses.CourseDetailActivity
-import com.asmanmirza.schoolpen.UI.Student.Courses.Models.ModelCourses
+import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseDTO
+import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelCourse
+import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.repository.CourseRepo
+import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import javax.inject.Inject
 
 
 class CoursesFragment : Fragment() {
 
     private var _binding: FragmentCoursesBinding? = null
     private val binding get() = _binding!!
+
+    lateinit var db: TinyDB;
+    lateinit var myApi: MyApi
+    lateinit var data: ArrayList<CourseDTO>
+    lateinit var courseViewModel: ViewModelCourse
+
+    var courseId:Int=0
+
+    @Inject
+    lateinit var courseViewModelFactory: CourseViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +55,33 @@ class CoursesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        courseViewModelFactory= CourseViewModelFactory(CourseRepo(context?.applicationContext as Application))
+        db = TinyDB(requireContext())
+        data=ArrayList()
+
+
+        courseViewModel =
+            ViewModelProvider(this, courseViewModelFactory)[ViewModelCourse::class.java]
+        val token = db.getString("token")
+        courseViewModel.getAllCourse(
+            "Bearer $token"
+        )
+
         binding.apply {
             //HostFragment.instance.hideMenuIcon(true)
             recResumeCourses.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             recTopCourses.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             recFriendCourses.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            recResumeCourses.adapter = AdapterCourses(requireContext(), getCourses())
-            recTopCourses.adapter = AdapterCourses(requireContext(), getCourses())
-            recFriendCourses.adapter = AdapterCourses(requireContext(), getCourses())
+
+            courseViewModel.courseData.observe(viewLifecycleOwner) {
+                data.addAll(it)
+
+                recResumeCourses.adapter = AdapterCourses(requireContext(), data,1)
+
+                recTopCourses.adapter = AdapterCourses(requireContext(), data,2)
+                recFriendCourses.adapter = AdapterCourses(requireContext(), data,3)
+            }
+
             scrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 if(isViewVisible(inSearch)){
                     floatingSearchButton.visibility = View.GONE
@@ -70,26 +108,33 @@ class CoursesFragment : Fragment() {
 
             })
 
-            ItemClickSupport.addTo(recTopCourses).setOnItemClickListener { recyclerView, position, v ->
-                if(position == 0){
+
+
+               /* ItemClickSupport.addTo(recTopCourses).setOnItemClickListener { recyclerView, position, v ->
+
                     startActivity(Intent(requireContext(), CourseDetailActivity::class.java))
-                }else{
-                    Toast.makeText(requireContext(), "You only can view the first course.", Toast.LENGTH_SHORT).show()
+
+                *//*    if(position == 0){
+                        startActivity(Intent(requireContext(), CourseDetailActivity::class.java))
+                    }else{
+                        Toast.makeText(requireContext(), "You only can view the first course.", Toast.LENGTH_SHORT).show()
+                    }*//*
                 }
-            }
             ItemClickSupport.addTo(recResumeCourses).setOnItemClickListener { recyclerView, position, v ->
-                Toast.makeText(requireContext(), "You can't view this section", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(requireContext(), CourseDetailActivity::class.java))
+               // Toast.makeText(requireContext(), "You can't view this section", Toast.LENGTH_SHORT).show()
             }
             ItemClickSupport.addTo(recFriendCourses).setOnItemClickListener { recyclerView, position, v ->
-                Toast.makeText(requireContext(), "You can't view this section", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(requireContext(), CourseDetailActivity::class.java))
+                //Toast.makeText(requireContext(), "You can't view this section", Toast.LENGTH_SHORT).show()
             }
             floatingSearchButton.setOnClickListener {
                 scrollView.smoothScrollTo(0, 0)
-            }
+            }*/
         }
     }
 
-    fun getCourses():ArrayList<ModelCourses>{
+    /*fun getCourses():ArrayList<ModelCourses>{
 
         return ArrayList<ModelCourses>().apply {
             add(ModelCourses("", "Trigonometry", "Radian Measure, Triangle Solution, Amplitude, Solving Trigonometric Equation", "4.5", "499", "https://examsbook.co.in/img/post/large/DBmGTrigonometry-Important-Questions-for-Competitive-Exams.jpg"))
@@ -98,7 +143,7 @@ class CoursesFragment : Fragment() {
             add(ModelCourses("", "English Speaking", "Easy Reading, Speaking and master in English Language", "4.5", "799", "https://image.shutterstock.com/image-vector/horizontal-internet-banner-learning-english-260nw-1604567167.jpg"))
             add(ModelCourses("", "History of India", "You will gain all the info about ancient buildings, temples and peoples.", "4.2", "1499", "https://static.independent.co.uk/2022/09/30/16/iStock-689331314.jpg"))
         }
-    }
+    }*/
 
     private fun isViewVisible(view: View): Boolean {
         val scrollBounds = Rect()

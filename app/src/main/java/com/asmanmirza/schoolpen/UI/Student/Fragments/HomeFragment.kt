@@ -1,37 +1,50 @@
 package com.asmanmirza.schoolpen.UI.Student.Fragments
 
+import android.app.Application
 import android.content.Intent
 import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.asmanmirza.schoolpen.Adapters.AdapterEvents
-import com.asmanmirza.schoolpen.Adapters.AdapterHomeDates
-import com.asmanmirza.schoolpen.Adapters.AdapterHomeLiveClasses
-import com.asmanmirza.schoolpen.Adapters.AdapterHomeTodaysClasses
+import com.asmanmirza.schoolpen.Adapters.*
+import com.asmanmirza.schoolpen.Helpers.ApiClient
 import com.asmanmirza.schoolpen.Helpers.TinyDB
 import com.asmanmirza.schoolpen.Helpers.ZoomOutPageTransformer
-import com.asmanmirza.schoolpen.Models.ModelClasses
-import com.asmanmirza.schoolpen.Models.ModelDates
-import com.asmanmirza.schoolpen.Models.ModelEvents
-import com.asmanmirza.schoolpen.Models.ModelLiveClasses
+import com.asmanmirza.schoolpen.Models.*
 import com.asmanmirza.schoolpen.R
-import com.asmanmirza.schoolpen.UI.Student.Fee.ActivityFeePortal
 import com.asmanmirza.schoolpen.UI.Student.Fee.ActivityStudentProfile
 import com.asmanmirza.schoolpen.UI.Student.Home.CalanderActivity
 import com.asmanmirza.schoolpen.UI.Student.Home.LiveClassesActivity
 import com.asmanmirza.schoolpen.UI.Student.Home.NoticeActivity
+import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHome
 import com.asmanmirza.schoolpen.UI.Student.StudentHome
 import com.asmanmirza.schoolpen.UI.Student.chat.StudentChatHomeActivity
+import com.asmanmirza.schoolpen.UI.Student.models.HomeViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.models.Period
+import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
+import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.asmanmirza.schoolpen.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.util.*
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -40,6 +53,16 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var adapterHomeDates: AdapterHomeDates;
     lateinit var db: TinyDB;
+    lateinit var myApi: MyApi
+    lateinit var data: ArrayList<TodayliveClassDtos>
+    lateinit var periodData: ArrayList<Period>
+    lateinit var homeViewModel: ViewModelHome
+    lateinit var milliSecond:ArrayList<Long>
+    lateinit var noticeData: ArrayList<Data>
+
+    @Inject
+    lateinit var homeViewModelFactory: HomeViewModelFactory
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,9 +79,26 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //homeDetailViewModel=ViewModelProvider(this)
+        homeViewModelFactory= HomeViewModelFactory(HomeRepository(context?.applicationContext as Application))
+        db = TinyDB(requireContext())
 
-        db = TinyDB(requireContext());
+        milliSecond=ArrayList()
+        data=ArrayList()
+        periodData=ArrayList()
+        noticeData=ArrayList()
         view.findViewById<TextView>(R.id.tv_user).text = db.getString("username")
+
+        homeViewModel =
+            ViewModelProvider(this, homeViewModelFactory)[ViewModelHome::class.java]
+        val token = db.getString("token")
+
+        homeViewModel.getTodayLiveData(
+             "Bearer $token"
+        )
+
+        homeViewModel.getPeriodClassId("Bearer $token")
+
         binding.apply {
            /* MainActivity.instance.updateStatusBarColor("#99F86005")
             HostFragment.instance.hideBottomNavBar(0)
@@ -71,20 +111,37 @@ class HomeFragment : Fragment() {
             }
 
             with(viewPagerLiveClasses){
-                adapter = AdapterHomeLiveClasses(requireContext(), getLiveClasses())
-                setPageTransformer(true, ZoomOutPageTransformer())
-                dotsIndicator.attachTo(this)
+                //data=getLiveClasses()
+
+                homeViewModel.todayData.observe(viewLifecycleOwner) {
+                    data.addAll(it)
+                    adapter = AdapterHomeLiveClasses(requireContext(),data)
+                    setPageTransformer(true, ZoomOutPageTransformer())
+                    dotsIndicator.attachTo(this)
+                }
             }
             with(viewPagerTodaysClasses){
-                adapter = AdapterHomeTodaysClasses(requireContext(), getTodayClasses(), R.drawable.back_todays_classes)
-                setPageTransformer(true, ZoomOutPageTransformer())
-                dotsIndicator1.attachTo(this)
+                homeViewModel.todayPeriodData.observe(viewLifecycleOwner){
+                    periodData.addAll(it)
+                    adapter = AdapterHomeTodaysClasses(requireContext(), periodData, R.drawable.back_todays_classes)
+                    this.adapter?.notifyDataSetChanged()
+                    setPageTransformer(true, ZoomOutPageTransformer())
+                    dotsIndicator1.attachTo(this)
+                }
+
             }
             with(viewPagerTomorrowClasses){
-                adapter = AdapterHomeTodaysClasses(requireContext(), getTomorrowClasses(), R.drawable.back_todays_classes)
-                setPageTransformer(true, ZoomOutPageTransformer())
-                dotsIndicator2.attachTo(this)
+              /*  homeViewModel.todayPeriodData.observe(viewLifecycleOwner) {
+                    periodData.addAll(it)
+                    adapter = AdapterHomeTodaysClasses(requireContext(), periodData, R.drawable.back_todays_classes
+                    )
+                    viewPagerTomorrowClasses.adapter?.notifyDataSetChanged()
+                    setPageTransformer(true, ZoomOutPageTransformer())
+                    dotsIndicator2.attachTo(this)
+                }*/
             }
+
+            noticeDetails()
 
             btnViewAllNotices.setOnClickListener {
                 startActivity(Intent(requireContext(), NoticeActivity::class.java))
@@ -149,15 +206,78 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun getLiveClasses():ArrayList<ModelLiveClasses>{
-        return ArrayList<ModelLiveClasses>().apply{
+    private fun noticeDetails() {
+        myApi = ApiClient.getClient()?.create(MyApi::class.java)!!
+
+        myApi.getNotice("Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelNotice>{
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onResponse(call: Call<ModelNotice>, response: Response<ModelNotice>) {
+                if (response.isSuccessful){
+
+                    val res: List<Data> = response.body()!!.data
+
+                    for(i in res){
+                        var date:Date
+                        val formatter = SimpleDateFormat("yyyy-MM-dd")
+                        try {
+                            date = formatter.parse(i.date)
+                            val timeInMilliseconds = date.time
+
+                            val calendar = Calendar.getInstance()
+
+                            if(timeInMilliseconds>=calendar.timeInMillis) {
+                                milliSecond.add(timeInMilliseconds)
+                            }
+
+                        }
+                        catch (e: ParseException) {
+                            e.printStackTrace()
+                        }
+                    }
+                    milliSecond.sort()
+
+                    val t= milliSecond[0]
+                    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+                    val dateString = simpleDateFormat.format(t)
+
+
+                    for(i in res){
+                        if(dateString.equals(i.date)){
+                            binding.layoutNotices.noticeDate.text=i.date
+                        binding.layoutNotices.noticeTitle.text=i.heading
+                        }
+                    }
+
+                    Toast.makeText(context,""+dateString.toString(),Toast.LENGTH_LONG).show()
+                }
+                else{
+                    Toast.makeText(
+                        context,
+                        "Something went wrong",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ModelNotice>, t: Throwable) {
+                Toast.makeText(
+                    context,
+                    "Internal server error occurred",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    fun getLiveClasses() {
+       /* return ArrayList<ModelLiveClasses>().apply{
             add(ModelLiveClasses("", "History of India", "Sonu Sharma", "Social Science", "21", ""))
             add(ModelLiveClasses("", "Algebraic Expressions", "Nani Mathur", "Mathematics", "45", ""))
             add(ModelLiveClasses("", "Chemical Names", "D Jain", "Science", "32", ""))
             add(ModelLiveClasses("", "Q&A Session", "S Solanki", "English", "16", ""))
-        }
+        }*/
     }
-    fun getTodayClasses():ArrayList<ModelClasses>{
+/*    fun getTodayClasses():ArrayList<ModelClasses>{
         return ArrayList<ModelClasses>().apply{
             add(ModelClasses("", "1", "Social Science", "Sonu Sharma", "Chapter 2: History of India", ""))
             add(ModelClasses("", "2", "Mathematics", "Alex Edward", "Chapter 3: Combination & Permutation", ""))
@@ -166,8 +286,8 @@ class HomeFragment : Fragment() {
             add(ModelClasses("", "5", "Hindi", "S Gupta", "Chapter 4: Story of Buddha", ""))
             add(ModelClasses("", "6", "Computer", "Taylor", "Chapter 2: Learning basic of computer", ""))
         }
-    }
-    fun getTomorrowClasses():ArrayList<ModelClasses>{
+    }*/
+/*    fun getTomorrowClasses():ArrayList<ModelClasses>{
         return ArrayList<ModelClasses>().apply{
             add(ModelClasses("", "1", "Social Science", "Sonu Sharma", "Chapter 2: History of India", ""))
             add(ModelClasses("", "2", "Mathematics", "Alex Edward", "Chapter 3: Combination & Permutation", ""))
@@ -176,7 +296,7 @@ class HomeFragment : Fragment() {
             add(ModelClasses("", "5", "Hindi", "S Gupta", "Chapter 4: Story of Buddha", ""))
             add(ModelClasses("", "6", "Computer", "Taylor", "Chapter 2: Learning basic of computer", ""))
         }
-    }
+    }*/
 
     fun getDates():ArrayList<ModelDates>{
 

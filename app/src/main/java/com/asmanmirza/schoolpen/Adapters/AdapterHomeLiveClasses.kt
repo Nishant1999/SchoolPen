@@ -10,12 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.viewpager.widget.PagerAdapter
 import com.asmanmirza.schoolpen.R
-import com.asmanmirza.schoolpen.Models.ModelLiveClasses
+import com.asmanmirza.schoolpen.Models.TodayliveClassDtos
 import com.asmanmirza.schoolpen.UI.Student.Home.LiveClassDetailActivity
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
-class AdapterHomeLiveClasses(var context: Context, var data:ArrayList<ModelLiveClasses>) : PagerAdapter() {
+class AdapterHomeLiveClasses(var context: Context, var data:ArrayList<TodayliveClassDtos>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val item = LayoutInflater.from(container.context).inflate(
@@ -39,14 +39,14 @@ class AdapterHomeLiveClasses(var context: Context, var data:ArrayList<ModelLiveC
     fun setData(itemView: View, position:Int){
 
         val imageDp: CircleImageView = itemView.findViewById(R.id.imageDp)
-        var title: TextView = itemView.findViewById(R.id.title);
-        var des: TextView = itemView.findViewById(R.id.description);
-        var studentsJoined: TextView = itemView.findViewById(R.id.totalStudents);
+        val title: TextView = itemView.findViewById(R.id.title);
+        val des: TextView = itemView.findViewById(R.id.description);
+        val studentsJoined: TextView = itemView.findViewById(R.id.totalStudents);
         val md = data[position]
 
-        des.text = "${md.teacher} | ${md.stream}"
+     //  des.text = "${md.assignedTeacher?.name} | ${md.subjectDescription}"
         title.text = md.title;
-        studentsJoined.text = "${md.totalJoinedStudents} students joined"
+        studentsJoined.text = "0 Joined Student"//"${md.totalJoinedStudents} students joined"*/
         Glide.with(context).load("https://api.lorem.space/image/face?w=15$position&h=15$position").thumbnail(0.5f).into(imageDp);
 
         itemView.setOnClickListener {

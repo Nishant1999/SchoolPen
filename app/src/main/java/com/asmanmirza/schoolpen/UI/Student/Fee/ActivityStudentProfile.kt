@@ -2,7 +2,6 @@ package com.asmanmirza.schoolpen.UI.Student.Fee
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +16,7 @@ import javax.inject.Inject
 class ActivityStudentProfile : AppCompatActivity(), View.OnClickListener {
     private var _binding: ActvityProfileStudentBinding? = null
     private val binding get() = _binding
-    lateinit var userDetailViewModel: ViewModelProfile
+    private lateinit var userDetailViewModel: ViewModelProfile
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory

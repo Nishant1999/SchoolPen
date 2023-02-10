@@ -5,6 +5,7 @@ import android.content.ContentProviderClient
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.asmanmirza.schoolpen.Models.Data
 import com.asmanmirza.schoolpen.R
 import com.asmanmirza.schoolpen.Models.ModelNotice
 import com.bumptech.glide.Glide
@@ -21,9 +23,9 @@ import com.shockwave.pdfium.PdfDocument
 import com.shockwave.pdfium.PdfiumCore
 
 
-class AdapterNotice(var context: Context, var data:ArrayList<ModelNotice>) : RecyclerView.Adapter<AdapterNotice.ViewHolder>() {
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+class AdapterNotice(var context: Context, var data:ArrayList<Data>) : RecyclerView.Adapter<AdapterNotice.ViewHolder>() {
 
+    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val title:TextView = itemView.findViewById(R.id.noticeTitle);
         val date:TextView = itemView.findViewById(R.id.noticeDate);
         val imgCard:CardView = itemView.findViewById(R.id.noticeImageCard);
@@ -37,13 +39,14 @@ class AdapterNotice(var context: Context, var data:ArrayList<ModelNotice>) : Rec
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        Log.d("+++++++++Hello",data.toString())
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_notice, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val md = data[position];
 
-        holder.title.text = md.title;
+        holder.title.text = md.heading;
         holder.date.text = md.date;
 
         if(md.type == "image"){
@@ -64,6 +67,7 @@ class AdapterNotice(var context: Context, var data:ArrayList<ModelNotice>) : Rec
     }
 
     override fun getItemCount(): Int {
+        Log.d("+++++++++++++size",data.size.toString())
         return data.size
     }
 

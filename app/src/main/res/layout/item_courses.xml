@@ -149,6 +149,7 @@
                 android:text="Begineer • 8 weeks"/>
 
             <TextView
+                android:id="@+id/txt_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enroll now"

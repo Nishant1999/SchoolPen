@@ -1,35 +1,48 @@
 package com.asmanmirza.schoolpen.UI.Student.Home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.BitmapDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.asmanmirza.schoolpen.R
-import com.asmanmirza.schoolpen.databinding.ActivityNoticeBinding
-import com.asmanmirza.schoolpen.Helpers.ItemClickSupport
-import com.asmanmirza.schoolpen.Models.ModelNotice
 import com.asmanmirza.schoolpen.Adapters.AdapterNotice
+import com.asmanmirza.schoolpen.Helpers.ApiClient
+import com.asmanmirza.schoolpen.Helpers.ItemClickSupport
+import com.asmanmirza.schoolpen.Helpers.TinyDB
+import com.asmanmirza.schoolpen.Models.Data
+import com.asmanmirza.schoolpen.Models.ModelNotice
+import com.asmanmirza.schoolpen.R
+import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
+import com.asmanmirza.schoolpen.databinding.ActivityNoticeBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class NoticeActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityNoticeBinding;
-    lateinit var data: ArrayList<ModelNotice>;
+    lateinit var data: ArrayList<Data>
+    lateinit var myApi:MyApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNoticeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         updateData()
     }
 
     private fun updateData(){
 
         binding.apply {
+            myApi = ApiClient.getClient()?.create(MyApi::class.java)!!
             recNotices.layoutManager = LinearLayoutManager(this@NoticeActivity, LinearLayoutManager.VERTICAL, false)
             addData()
             btnFilter.setOnClickListener {
@@ -43,7 +56,7 @@ class NoticeActivity : AppCompatActivity() {
             }
             ItemClickSupport.addTo(recNotices).setOnItemClickListener { recyclerView, position, v ->
                 val b = Bundle();
-                b.putString("title", data[position].title)
+                b.putString("title", data[position].heading)
                 b.putString("description", data[position].description)
                 b.putString("file", data[position].file)
                 b.putString("type", data[position].type)
@@ -51,9 +64,43 @@ class NoticeActivity : AppCompatActivity() {
             }
         }
     }
-    private fun addData() {
-        data = ArrayList();
-        data.add(
+      @SuppressLint("SuspiciousIndentation")
+      private fun addData() {
+          data=ArrayList()
+          val db = TinyDB(this@NoticeActivity)
+
+            myApi.getNotice("Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelNotice>{
+                override fun onResponse(call: Call<ModelNotice>, response: Response<ModelNotice>) {
+                    if (response.isSuccessful){
+
+                        val res: List<Data> = response.body()!!.data
+                        for(i in res){
+                            val d = Data(i.id,i.heading,i.description,i.date,i.file,i.type,i.school,i.classes)
+                            data.add(d)
+                        }
+                        Log.d("++++++++data",data.toString())
+                        binding.recNotices.adapter = AdapterNotice(this@NoticeActivity, data)
+                    }
+                    else{
+                        Toast.makeText(
+                            this@NoticeActivity,
+                            "Something went wrong",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelNotice>, t: Throwable) {
+                    Toast.makeText(
+                        this@NoticeActivity,
+                        "Internal server error occurred",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+
+        //data = ArrayList();
+       /* data.add(
             ModelNotice(
                 "Admission Notice – 2022-23 Class-XI (Class Eleven Only)",
                 "19/07/2022",
@@ -89,9 +136,10 @@ class NoticeActivity : AppCompatActivity() {
                 "",
                 "text"
             )
-        )
+        )*/
 
-        binding.recNotices.adapter = AdapterNotice(this, data);
+
+
     }
 
     private fun showFilterPopup() {
@@ -151,3 +199,5 @@ class NoticeActivity : AppCompatActivity() {
     }
 
 }
+
+
