@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:orientation="horizontal">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dpImage"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/fatima"
+
+     />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/review_student_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="Neeharika Khana"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toEndOf="@id/dpImage"
+                app:layout_constraintTop_toBottomOf="@id/top_reviews" />
+
+
+            <TextView
+                android:id="@+id/review_student_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:text="Class V"
+                android:textColor="#707070"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintBottom_toBottomOf="@id/dpImage"
+                app:layout_constraintStart_toStartOf="@id/review_student_name"
+                app:layout_constraintTop_toBottomOf="@id/review_student_name" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:stepSize="0.5"
+        android:numStars="5"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleSmall"
+        />
+
+
+        <TextView
+            android:id="@+id/review_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="21/06/2021"
+            android:textColor="#707070"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_9ssp"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:text="Good course, I learn a lot of new things and Karen explain step by step of my journey. Thanks Karen, Thanks google, next year I am ready to change my career path with this certificate."
+        android:textColor="#707070"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+</LinearLayout>
+
