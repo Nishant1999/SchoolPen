@@ -11,6 +11,9 @@ import com.asmanmirza.schoolpen.databinding.ActivitySignupBinding
 import com.asmanmirza.schoolpen.Helpers.ApiClient
 import com.asmanmirza.schoolpen.Helpers.ApiInterface
 import com.asmanmirza.schoolpen.Helpers.TinyDB
+import com.asmanmirza.schoolpen.UI.Parent.ParentHomeActivity
+import com.asmanmirza.schoolpen.UI.Student.StudentHome
+import com.asmanmirza.schoolpen.UI.Teacher.TeachersHome
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -30,6 +33,8 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater);
         setContentView(binding.root)
+
+
 
         updateData()
 
@@ -136,11 +141,33 @@ class SignupActivity : AppCompatActivity() {
                             "Please verify you mobile number.",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val intent = Intent(this@SignupActivity, MobileValidationActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        intent.putExtra("userId", res.getInt("userId"))
-                        startActivity(intent)
-                        finish()
+                        if(authorityID == "1"){
+                            val intent =
+                                Intent(this@SignupActivity, TeachersHome::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("userId", res.getInt("userId"))
+                            startActivity(intent)
+                            finish()
+                        }
+                        else if(authorityID == "2") {
+                            val intent =
+                                Intent(this@SignupActivity, StudentHome::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("userId", res.getInt("userId"))
+                            startActivity(intent)
+                            finish()
+                        }
+                        else{
+                            val intent =
+                                Intent(this@SignupActivity, ParentHomeActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("userId", res.getInt("userId"))
+                            startActivity(intent)
+                            finish()
+                        }
 
                     }else if(res.getInt("status") == 409){
                         Toast.makeText(this@SignupActivity, "Username or user already exists", Toast.LENGTH_SHORT).show()

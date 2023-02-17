@@ -340,7 +340,9 @@
                     android:text="Teacher&apos;s Note"
                     android:textSize="@dimen/_12ssp" />
 
-                <include layout="@layout/item_teachers_note" />
+                <include
+                    android:id="@+id/item_teacher"
+                    layout="@layout/item_teachers_note" />
 
                 <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
                     android:id="@+id/main_single_row_calendar"

@@ -14,9 +14,10 @@ import com.asmanmirza.schoolpen.R
 import com.asmanmirza.schoolpen.UI.Student.Classwork.details.HomeWorkDetailActivity
 import com.asmanmirza.schoolpen.UI.Student.Classwork.details.TestDetailActivity
 import com.asmanmirza.schoolpen.UI.Student.Home.Models.ModelStudentNotification
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.NotificationDTO
 import com.bumptech.glide.Glide
 
-class AdapterNotificationStudent(var context:Context, var data:ArrayList<ModelStudentNotification>):RecyclerView.Adapter<AdapterNotificationStudent.ViewHolder>() {
+class AdapterNotificationStudent(var context:Context, var data:ArrayList<NotificationDTO>):RecyclerView.Adapter<AdapterNotificationStudent.ViewHolder>() {
     class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
 
         val logo:ImageView = itemView.findViewById(R.id.notificationTypeImage)
@@ -26,7 +27,7 @@ class AdapterNotificationStudent(var context:Context, var data:ArrayList<ModelSt
         val btnAction:TextView = itemView.findViewById(R.id.btnAction)
         val timeStamp:TextView = itemView.findViewById(R.id.timeStamp)
 
-        fun bind(context: Context, data: ArrayList<ModelStudentNotification>, position: Int){
+        fun bind(context: Context, data: ArrayList<NotificationDTO>, position: Int){
 
             if(position == 0){
                 itemView.background.setColorFilter(Color.parseColor("#F4F0FB"), PorterDuff.Mode.SRC_IN)
@@ -36,12 +37,12 @@ class AdapterNotificationStudent(var context:Context, var data:ArrayList<ModelSt
 
             val md = data[position];
             when(md.type){
-                0->{
+                "work"->{
                     Glide.with(context).load(R.drawable.ic_baseline_fee).into(logo)
                     btnAction.text = "Pay Now"
                     btnAction.background.setColorFilter(Color.parseColor("#6200ee"), PorterDuff.Mode.SRC_IN)
                 }
-                1->{
+                "tasks"->{
                     btnAction.text = "View Assignment"
                     btnAction.setTextColor(Color.parseColor("#6200ee"))
                     btnAction.background.setColorFilter(Color.parseColor("#206200ee"), PorterDuff.Mode.SRC_IN)
@@ -50,7 +51,7 @@ class AdapterNotificationStudent(var context:Context, var data:ArrayList<ModelSt
                         context.startActivity(Intent(context, HomeWorkDetailActivity::class.java))
                     }
                 }
-                2->{
+                "exams"->{
                     btnAction.text = "View Details"
                     btnAction.setTextColor(Color.parseColor("#ffbb33"))
                     btnAction.background.setColorFilter(Color.parseColor("#20ffbb33"), PorterDuff.Mode.SRC_IN)
@@ -60,10 +61,11 @@ class AdapterNotificationStudent(var context:Context, var data:ArrayList<ModelSt
                     }
                 }
             }
+
             title.text = md.title
-            des.text = md.description
-            brief.text = md.brief
-            timeStamp.text = md.timeStamp
+            des.text = md.subTitle
+            brief.text = md.message
+            timeStamp.text = md.dateOfNotification
 
 
         }

@@ -11,6 +11,8 @@ import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseDTOId
 import com.asmanmirza.schoolpen.UI.Student.di.ResultWrapper
 import com.asmanmirza.schoolpen.UI.Student.repository.CourseRepo
 import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -38,7 +40,10 @@ class ViewModelCourse @Inject constructor(private val repo: CourseRepo) : ViewMo
                         val data = it.value.data
                         val res = data.courseDTOs
                       // Log.d("+++++ResultData", res.toString())
+
+                        CoroutineScope(Dispatchers.IO).launch {
                         _courseData.postValue(res)
+                        }
                     }
 
                 }
@@ -58,7 +63,9 @@ class ViewModelCourse @Inject constructor(private val repo: CourseRepo) : ViewMo
                         val data = it.value.data
                         val res = data.courseDTO
                         Log.d("+++++ResultDataID", res.toString())
-                        _courseDataId.postValue(res)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            _courseDataId.postValue(res)
+                        }
                     }
 
                 }

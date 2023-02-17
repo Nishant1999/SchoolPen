@@ -23,28 +23,47 @@ import com.asmanmirza.schoolpen.Helpers.TinyDB
 import com.asmanmirza.schoolpen.Helpers.ZoomOutPageTransformer
 import com.asmanmirza.schoolpen.Models.*
 import com.asmanmirza.schoolpen.R
+import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.TestData
 import com.asmanmirza.schoolpen.UI.Student.Fee.ActivityStudentProfile
 import com.asmanmirza.schoolpen.UI.Student.Home.CalanderActivity
 import com.asmanmirza.schoolpen.UI.Student.Home.LiveClassesActivity
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.DataUserId
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.ModelClassUserId
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.ModelTeacherNote
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.TeacherNote
 import com.asmanmirza.schoolpen.UI.Student.Home.NoticeActivity
+import com.asmanmirza.schoolpen.UI.Student.Home.NotificationActivity
 import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHome
 import com.asmanmirza.schoolpen.UI.Student.StudentHome
 import com.asmanmirza.schoolpen.UI.Student.chat.StudentChatHomeActivity
 import com.asmanmirza.schoolpen.UI.Student.models.HomeViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.models.ModelUserPeriod
 import com.asmanmirza.schoolpen.UI.Student.models.Period
 import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
 import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.asmanmirza.schoolpen.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormatSymbols
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 
 @AndroidEntryPoint
@@ -53,12 +72,18 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var adapterHomeDates: AdapterHomeDates;
     lateinit var db: TinyDB;
+    private var schoolId:String=" "
+    private var classId:String=" "
     lateinit var myApi: MyApi
     lateinit var data: ArrayList<TodayliveClassDtos>
     lateinit var periodData: ArrayList<Period>
+    lateinit var periodDataTomorrow: ArrayList<Period>
     lateinit var homeViewModel: ViewModelHome
     lateinit var milliSecond:ArrayList<Long>
     lateinit var noticeData: ArrayList<Data>
+    lateinit var dataUserId: ArrayList<DataUserId>
+//    lateinit var teacherNote: ArrayList<Long>
+    val milliSecondHashmap = HashMap<Long, Long>()
 
     @Inject
     lateinit var homeViewModelFactory: HomeViewModelFactory
@@ -82,10 +107,21 @@ class HomeFragment : Fragment() {
         //homeDetailViewModel=ViewModelProvider(this)
         homeViewModelFactory= HomeViewModelFactory(HomeRepository(context?.applicationContext as Application))
         db = TinyDB(requireContext())
+        myApi = ApiClient.getClient()?.create(MyApi::class.java)!!
+        dataUserId=ArrayList()
+        //Toast.makeText(requireContext(),"User id 1"+db.getString("userId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+
+
+
+
+
+
+//        Toast.makeText(requireContext(),""+db.getString("schoolId").toDouble().toInt(),Toast.LENGTH_LONG).show()
 
         milliSecond=ArrayList()
         data=ArrayList()
         periodData=ArrayList()
+        periodDataTomorrow= ArrayList()
         noticeData=ArrayList()
         view.findViewById<TextView>(R.id.tv_user).text = db.getString("username")
 
@@ -97,7 +133,7 @@ class HomeFragment : Fragment() {
              "Bearer $token"
         )
 
-        homeViewModel.getPeriodClassId("Bearer $token")
+       // homeViewModel.getPeriodClassId(db.getString("classId").toDouble().toInt(),"Bearer $token")
 
         binding.apply {
            /* MainActivity.instance.updateStatusBarColor("#99F86005")
@@ -120,36 +156,141 @@ class HomeFragment : Fragment() {
                     dotsIndicator.attachTo(this)
                 }
             }
+
             with(viewPagerTodaysClasses){
-                homeViewModel.todayPeriodData.observe(viewLifecycleOwner){
+                saveDetails()
+           /*     homeViewModel.todayPeriodData.observe(viewLifecycleOwner){
                     periodData.addAll(it)
                     adapter = AdapterHomeTodaysClasses(requireContext(), periodData, R.drawable.back_todays_classes)
-                    this.adapter?.notifyDataSetChanged()
+                   // this.adapter?.notifyDataSetChanged()
                     setPageTransformer(true, ZoomOutPageTransformer())
                     dotsIndicator1.attachTo(this)
+                }*/
+
+              /*  val scope = CoroutineScope(Dispatchers.IO)
+
+                scope.launch {
+
+                    myApi.getPeriodByClassId(
+                        db.getString("classId").toDouble().toInt(),
+                        "Bearer" + " " + db.getString("token")
+                    ).enqueue(object : Callback<ModelUserPeriod> {
+                        override fun onResponse(
+                            call: Call<ModelUserPeriod>,
+                            response: Response<ModelUserPeriod>
+                        ) {
+                            if (response.isSuccessful) {
+
+                                Log.d("+++respose", response.body().toString())
+                                val test = response.body()?.data!!.period as ArrayList<Period>
+                                for (i in test) {
+                                    periodDataTomorrow.add(i)
+                                }
+                                adapter = AdapterHomeTodaysClasses(
+                                    requireContext(),
+                                    periodDataTomorrow,
+                                    R.drawable.back_todays_classes
+                                )
+                                setPageTransformer(true, ZoomOutPageTransformer())
+                                binding.dotsIndicator1.attachTo(viewPagerTodaysClasses)
+                            } else {
+                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                            TODO("Not yet implemented")
+                        }
+
+                    })
                 }
+*/
 
             }
-            with(viewPagerTomorrowClasses){
-              /*  homeViewModel.todayPeriodData.observe(viewLifecycleOwner) {
-                    periodData.addAll(it)
-                    adapter = AdapterHomeTodaysClasses(requireContext(), periodData, R.drawable.back_todays_classes
+            with(viewPagerTomorrowClasses) {
+                saveDetails()
+                /*   homeViewModel.todayPeriodData.observe(viewLifecycleOwner) {
+                    periodDataTomorrow.addAll(it)
+                    adapter = AdapterHomeTodaysClasses(requireContext(), periodDataTomorrow, R.drawable.back_todays_classes
                     )
-                    viewPagerTomorrowClasses.adapter?.notifyDataSetChanged()
+
                     setPageTransformer(true, ZoomOutPageTransformer())
                     dotsIndicator2.attachTo(this)
                 }*/
-            }
 
-            noticeDetails()
+                /*  val scope = CoroutineScope(Dispatchers.IO)
+                scope.launch {
+                    myApi.getPeriodByClassId(
+                        db.getString("classId").toDouble().toInt(),
+                        "Bearer" + " " + db.getString("token")
+                    ).enqueue(object : Callback<ModelUserPeriod> {
+                        override fun onResponse(
+                            call: Call<ModelUserPeriod>,
+                            response: Response<ModelUserPeriod>
+                        ) {
+                            if (response.isSuccessful) {
+
+                                Log.d("+++respose", response.body().toString())
+                                val test = response.body()?.data!!.period as ArrayList<Period>
+                                for (i in test) {
+                                    periodData.add(i)
+                                }
+                                adapter = AdapterHomeTodaysClasses(
+                                    requireContext(),
+                                    periodData,
+                                    R.drawable.back_todays_classes
+                                )
+                                setPageTransformer(true, ZoomOutPageTransformer())
+                                binding.dotsIndicator2.attachTo(viewPagerTomorrowClasses)
+                            } else {
+                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                            TODO("Not yet implemented")
+                        }
+
+                    })
+                }
+            }*/
+            }
+            teacherNote()
+
+
 
             btnViewAllNotices.setOnClickListener {
                 startActivity(Intent(requireContext(), NoticeActivity::class.java))
             }
 
+            val calendar = Calendar.getInstance()
+
+            val monthText = DateFormatSymbols().months[calendar.get(Calendar.MONTH)]
+            val yearText = calendar.get(Calendar.YEAR).toString()
+
+            val monthYearText = "$monthText $yearText"
+
+            val formatter = SimpleDateFormat("dd/MM/yyyy")
+
+            val latestDates = mutableListOf<String>()
+            for (i in -5..6) {
+                calendar.add(Calendar.DATE, i)
+                if(i in 0..4) {
+                    latestDates.add(formatter.format(calendar.time))
+                }
+                calendar.add(Calendar.DATE, -i)
+            }
+
+
+
+            //Toast.makeText(context,latestDates.toString(),Toast.LENGTH_LONG).show()
+
+
+            binding.btnOpenCalendar.text=monthYearText
+
 
             recDates.layoutManager = GridLayoutManager(requireContext(), 5)
-            adapterHomeDates =  AdapterHomeDates(requireContext(), getDates(), "#9163d7");
+            adapterHomeDates =  AdapterHomeDates(requireContext(), latestDates, "#9163d7");
             recDates.adapter = adapterHomeDates
 
             homeScroll.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
@@ -164,7 +305,7 @@ class HomeFragment : Fragment() {
             })
 
             ivAlert.setOnClickListener {
-                startActivity(Intent(requireContext(), ActivityStudentProfile::class.java))
+                startActivity(Intent(requireContext(), NotificationActivity::class.java))
             }
 
             ivMenu.setOnClickListener {
@@ -174,6 +315,8 @@ class HomeFragment : Fragment() {
             ivMessage.setOnClickListener {
                 startActivity(Intent(requireContext(), StudentChatHomeActivity::class.java))
             }
+
+
 
             btnOpenCalendar.setOnClickListener {
                 /*MainActivity.instance.updateStatusBarColor("#ffffff")
@@ -206,68 +349,269 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun noticeDetails() {
-        myApi = ApiClient.getClient()?.create(MyApi::class.java)!!
+    private fun saveDetails() {
 
-        myApi.getNotice("Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelNotice>{
+        val scope = CoroutineScope(Dispatchers.IO)
+       // Toast.makeText(requireContext(),"User id"+db.getString("userId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+        scope.launch {
+            myApi.getClassUserId(db.getString("userId").toDouble().toInt(),"Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelClassUserId>{
+                override fun onResponse(call: Call<ModelClassUserId>, response: Response<ModelClassUserId>) {
+                    //Toast.makeText(requireContext(),"User id",Toast.LENGTH_LONG).show()
+                    if (response.isSuccessful) {
+
+                        dataUserId = response.body()?.data as ArrayList<DataUserId>
+                        for (i in dataUserId) {
+
+                            db.putString("classId",i.id.toString())
+                            db.putString("schoolId",i.schoolId.toString())
+                            //Toast.makeText(requireContext(),"School id"+db.getString("schoolId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+                            //Toast.makeText(requireContext(),"Class id"+db.getString("classId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+                           schoolId=i.schoolId.toString()
+                            classId=i.id.toString()
+                        }
+                        todayClassApiCall(classId)
+                        tomorrowLiveClass(classId)
+                        noticeDetails(schoolId)
+                    }
+                    else{
+                        Toast.makeText(requireContext(),"Error",Toast.LENGTH_LONG).show()
+                    }
+                }
+                override fun onFailure(call: Call<ModelClassUserId>, t: Throwable) {
+
+                    Toast.makeText(requireContext(),"EEE",Toast.LENGTH_LONG).show()
+                }
+
+
+            })
+
+        }
+
+        }
+
+    private fun todayClassApiCall(classId:String){
+        val scope = CoroutineScope(Dispatchers.IO)
+
+        scope.launch {
+
+            myApi.getPeriodByClassId(
+                classId.toDouble().toInt(),
+                "Bearer" + " " + db.getString("token")
+            ).enqueue(object : Callback<ModelUserPeriod> {
+                override fun onResponse(
+                    call: Call<ModelUserPeriod>,
+                    response: Response<ModelUserPeriod>
+                ) {
+                    if (response.isSuccessful) {
+
+                        Log.d("+++respose", response.body().toString())
+                        val test = response.body()?.data!!.period as ArrayList<Period>
+                        for (i in test) {
+                            periodDataTomorrow.add(i)
+                        }
+                        binding.viewPagerTodaysClasses.adapter = AdapterHomeTodaysClasses(
+                            requireContext(),
+                            periodDataTomorrow,
+                            R.drawable.back_todays_classes
+                        )
+                        binding.viewPagerTodaysClasses.setPageTransformer(true, ZoomOutPageTransformer())
+                        binding.dotsIndicator1.attachTo(binding.viewPagerTodaysClasses)
+                    } else {
+                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        }
+    }
+
+    private fun tomorrowLiveClass(classId:String){
+        val scope = CoroutineScope(Dispatchers.IO)
+        scope.launch {
+            myApi.getPeriodByClassId(
+                classId.toDouble().toInt(),
+                "Bearer" + " " + db.getString("token")
+            ).enqueue(object : Callback<ModelUserPeriod> {
+                override fun onResponse(
+                    call: Call<ModelUserPeriod>,
+                    response: Response<ModelUserPeriod>
+                ) {
+                    if (response.isSuccessful) {
+
+                        Log.d("+++respose", response.body().toString())
+                        val test = response.body()?.data!!.period as ArrayList<Period>
+                        for (i in test) {
+                            periodData.add(i)
+                        }
+                        binding.viewPagerTomorrowClasses.adapter = AdapterHomeTodaysClasses(
+                            requireContext(),
+                            periodData,
+                            R.drawable.back_todays_classes
+                        )
+                        binding.viewPagerTomorrowClasses.setPageTransformer(true, ZoomOutPageTransformer())
+                        binding.dotsIndicator2.attachTo(binding.viewPagerTomorrowClasses)
+                    } else {
+                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        }
+    }
+
+    private fun teacherNote() {
+
+
+        myApi.getAllTeacherNote("Bearer"+" "+db.getString("token")).enqueue(object:Callback<ModelTeacherNote>{
             @RequiresApi(Build.VERSION_CODES.O)
-            override fun onResponse(call: Call<ModelNotice>, response: Response<ModelNotice>) {
-                if (response.isSuccessful){
-
-                    val res: List<Data> = response.body()!!.data
-
-                    for(i in res){
-                        var date:Date
-                        val formatter = SimpleDateFormat("yyyy-MM-dd")
-                        try {
-                            date = formatter.parse(i.date)
-                            val timeInMilliseconds = date.time
-
-                            val calendar = Calendar.getInstance()
-
-                            if(timeInMilliseconds>=calendar.timeInMillis) {
-                                milliSecond.add(timeInMilliseconds)
-                            }
-
-                        }
-                        catch (e: ParseException) {
-                            e.printStackTrace()
-                        }
-                    }
-                    milliSecond.sort()
-
-                    val t= milliSecond[0]
-                    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-                    val dateString = simpleDateFormat.format(t)
+            override fun onResponse(
+                call: Call<ModelTeacherNote>,
+                response: Response<ModelTeacherNote>
+            ) {
+                val t= response.body()?.data?.teacherNotes
+                if (t != null) {
+                    for(i in t){
+                        val formatter = DateTimeFormatter.ISO_DATE_TIME
+                        val dateTime = LocalDateTime.parse(i.createDateTime, formatter)
+                        val date = Date.from(dateTime.toInstant(ZoneOffset.UTC))
+                        val formatterString = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                        val dateString = formatterString.format(date)
+                        val dateFormatterString=formatterString.parse(dateString)
 
 
-                    for(i in res){
-                        if(dateString.equals(i.date)){
-                            binding.layoutNotices.noticeDate.text=i.date
-                        binding.layoutNotices.noticeTitle.text=i.heading
+
+                        val timeInMillisFromDateNumber = dateFormatterString.time
+
+
+                        if(System.currentTimeMillis()>=timeInMillisFromDateNumber) {
+                            milliSecondHashmap.put(System.currentTimeMillis()-timeInMillisFromDateNumber,timeInMillisFromDateNumber)
+                            //teacherNote.add(timeInMillisFromDateNumber)
                         }
                     }
+                    var t1:Long=0L
+                    val sortedMap: MutableMap<Long, Long> = TreeMap(milliSecondHashmap)
+                    for ((key, value) in sortedMap) {
+                        t1=value
+                        break
+                    }
+                    //Toast.makeText(requireContext(),""+teacherNote.toString(),Toast.LENGTH_LONG).show()
 
-                    Toast.makeText(context,""+dateString.toString(),Toast.LENGTH_LONG).show()
+
+                   // Toast.makeText(requireContext(),""+t1.toString(),Toast.LENGTH_LONG).show()
+                    val date=Date(t1)
+
+                   // Toast.makeText(requireContext(),""+date.toString(),Toast.LENGTH_LONG).show()
+
+                    val simpleDateFormat1 = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                    val dateStringFormat1 = simpleDateFormat1.format(date)
+                    val dateFormatterString=simpleDateFormat1.parse(dateStringFormat1)
+
+
+                    val timeInMilli = dateFormatterString.time
+
+                    val timeDifferenceMillis = System.currentTimeMillis() - timeInMilli
+                    val timeDifferenceHours = TimeUnit.MILLISECONDS.toHours(timeDifferenceMillis)
+                    val formattedDuration = formatDuration(timeDifferenceHours)
+                    binding.itemTeacher.itemTeacherTime.text=formattedDuration
+
+                    for(i in t){
+                        if(sortedMap.containsValue(t1)){
+                            binding.itemTeacher.itemTeacherName.text=i.teacher.name
+                            binding.itemTeacher.itemTeacherSubject.text="Science"  //This has to be changed
+                            binding.itemTeacher.itemTeacherDesc.text=i.teacherNote
+                        }
+                    }
                 }
                 else{
+                    Toast.makeText(requireContext(),"dateString",Toast.LENGTH_LONG).show()
+                }
+
+
+
+            }
+
+            override fun onFailure(call: Call<ModelTeacherNote>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun noticeDetails(schoolId: String) {
+
+
+        val scope = CoroutineScope(Dispatchers.IO)
+        scope.launch {
+            myApi.getNotice(
+                schoolId.toDouble().toInt(),
+                "Bearer" + " " + db.getString("token")
+            ).enqueue(object : Callback<ModelNotice> {
+                @RequiresApi(Build.VERSION_CODES.O)
+                override fun onResponse(call: Call<ModelNotice>, response: Response<ModelNotice>) {
+                    if (response.isSuccessful) {
+
+                        val res: List<Data> = response.body()!!.data
+
+                        for (i in res) {
+                            var date: Date
+                            val formatter = SimpleDateFormat("yyyy-MM-dd")
+                            try {
+                                date = formatter.parse(i.date)
+                                val timeInMilliseconds = date.time
+
+                                val calendar = Calendar.getInstance()
+
+                                if (timeInMilliseconds >= calendar.timeInMillis) {
+                                    milliSecond.add(timeInMilliseconds)
+                                }
+                            } catch (e: ParseException) {
+                                e.printStackTrace()
+                            }
+                        }
+
+                        milliSecond.sort()
+
+                        val t = milliSecond[0]
+                        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+                        val dateString = simpleDateFormat.format(t)
+
+
+                        for (i in res) {
+                            if (dateString.equals(i.date)) {
+                                binding.layoutNotices.noticeDate.text = i.date
+                                binding.layoutNotices.noticeTitle.text = i.heading
+                            }
+                        }
+                        //Toast.makeText(context,""+dateString.toString(),Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Something went wrong",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+
+                override fun onFailure(call: Call<ModelNotice>, t: Throwable) {
                     Toast.makeText(
                         context,
-                        "Something went wrong",
+                        "Internal server error occurred",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            }
-
-            override fun onFailure(call: Call<ModelNotice>, t: Throwable) {
-                Toast.makeText(
-                    context,
-                    "Internal server error occurred",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+            })
+        }
     }
+
 
     fun getLiveClasses() {
        /* return ArrayList<ModelLiveClasses>().apply{
@@ -345,5 +689,14 @@ class HomeFragment : Fragment() {
         val top = view.y
         val bottom = top + view.height
         return scrollBounds.top <= top && scrollBounds.bottom >= bottom
+    }
+
+    fun formatDuration(duration: Long): String {
+        val days = TimeUnit.HOURS.toDays(duration)
+        val hours = duration - TimeUnit.DAYS.toHours(days)
+        return when {
+            days >= 1 -> "$days days ago"
+            else -> "$hours hours ago"
+        }
     }
 }

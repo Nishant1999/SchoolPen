@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +23,7 @@ import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelCourse
 import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseViewModelFactory
 import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHome
 import com.asmanmirza.schoolpen.UI.Student.models.HomeViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.models.ModelUserPeriod
 import com.asmanmirza.schoolpen.UI.Student.models.Period
 import com.asmanmirza.schoolpen.UI.Student.repository.CourseRepo
 import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
@@ -29,6 +31,9 @@ import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.asmanmirza.schoolpen.databinding.ActivityParentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 class ParentHomeActivity : AppCompatActivity() {
@@ -70,7 +75,7 @@ class ParentHomeActivity : AppCompatActivity() {
         homeViewModel =
             ViewModelProvider(this, homeViewModelFactory)[ViewModelHome::class.java]
 
-        homeViewModel.getPeriodClassId("Bearer $token")
+        //homeViewModel.getPeriodClassId(1,"Bearer $token")
 
         updateData()
     }
@@ -78,16 +83,32 @@ class ParentHomeActivity : AppCompatActivity() {
     private fun updateData(){
         binding.apply {
             with(viewPagerHerClasses){
-                homeViewModel.todayPeriodData.observe(this@ParentHomeActivity) {
-                    periodData.addAll(it)
-                    adapter = AdapterHomeTodaysClasses(
-                        this@ParentHomeActivity,
-                        periodData,
-                        R.drawable.back_todays_classes_parent
-                    )
-                    setPageTransformer(true, ZoomOutPageTransformer())
-                    dotsIndicator1.attachTo(this)
-                }
+                myApi.getPeriodByClassId(db.getString("classId").toDouble().toInt(),"Bearer"+" "+db.getString("token")).enqueue(object:
+                    Callback<ModelUserPeriod> {
+                    override fun onResponse(
+                        call: Call<ModelUserPeriod>,
+                        response: Response<ModelUserPeriod>
+                    ) {
+                        if(response.isSuccessful) {
+
+                            Log.d("+++respose",response.body().toString())
+                            val test = response.body()?.data!!.period as ArrayList<Period>
+                            for(i in test)
+                            {
+                                periodData.add(i)
+                            }
+                            adapter = AdapterHomeTodaysClasses(this@ParentHomeActivity, periodData, R.drawable.back_todays_classes)
+                            setPageTransformer(true, ZoomOutPageTransformer())
+                            binding.dotsIndicator1.attachTo(viewPagerHerClasses)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+
             }
 
             getClass()
