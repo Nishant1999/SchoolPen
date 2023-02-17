@@ -36,7 +36,7 @@ class ActivityStudentProfile : AppCompatActivity(), View.OnClickListener {
         binding?.backButton?.setOnClickListener(this)
         val token = db.getString("token")
         userDetailViewModel.getUserDetails(
-            5, "Bearer $token"
+            db.getString("userId").toDouble().toInt(), "Bearer $token"
         )
 
         userDetailViewModel.userData.observe(this) {

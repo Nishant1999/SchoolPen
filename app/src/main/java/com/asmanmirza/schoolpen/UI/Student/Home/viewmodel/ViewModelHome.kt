@@ -47,9 +47,9 @@ class ViewModelHome @Inject constructor(private val repo: HomeRepository) : View
         }
     }
 
-    fun getPeriodClassId(token: String) {
+/*    fun getPeriodClassId(classId:Int,token: String) {
         viewModelScope.launch {
-            repo.getPeriodClassId(token).collectLatest {
+            repo.getPeriodClassId(classId,token).collectLatest {
                 when (it) {
                     is ResultWrapper.GenericError -> {
                         val error = it.error?.message ?: "Error"
@@ -65,5 +65,5 @@ class ViewModelHome @Inject constructor(private val repo: HomeRepository) : View
                 }
             }
         }
-    }
+    }*/
 }

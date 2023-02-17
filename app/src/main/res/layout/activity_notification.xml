@@ -84,6 +84,12 @@
                 android:text="Exams" />
         </com.google.android.material.tabs.TabLayout>
 
+    <LinearLayout
+        android:id="@+id/layoutAllNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rec_notifications"
             android:layout_width="match_parent"
@@ -94,5 +100,49 @@
             android:paddingVertical="@dimen/_10sdp"/>
 
     </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTaskNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_notifications_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="3"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_notification_student"
+                android:paddingVertical="@dimen/_10sdp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutExamNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_notifications_exam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="3"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_notification_student"
+                android:paddingVertical="@dimen/_10sdp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
 
 </FrameLayout>

@@ -11,7 +11,10 @@ import com.asmanmirza.schoolpen.Helpers.ApiClient
 import com.asmanmirza.schoolpen.Helpers.ApiInterface
 import com.asmanmirza.schoolpen.Helpers.TinyDB
 import com.asmanmirza.schoolpen.UI.Parent.ParentHomeActivity
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.DataUserId
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.ModelClassUserId
 import com.asmanmirza.schoolpen.UI.Student.StudentHome
+import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.asmanmirza.schoolpen.UI.Teacher.TeachersHome
 import com.asmanmirza.schoolpen.databinding.ActivityLoginBinding
 import com.google.gson.Gson
@@ -25,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var apiInterface: ApiInterface;
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +63,7 @@ class LoginActivity : AppCompatActivity() {
                         binding.inPassword.isEnabled = false
                         binding.btnLogin.isEnabled = false
                         login(it)
+
                     }
                 else
                     Toast.makeText(
@@ -68,6 +75,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+
+
+
 
     fun ProgressBar.show() {
         binding.layoutLoading.visibility = View.VISIBLE
@@ -166,6 +177,10 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
         })
+
     }
+
+
+
 
 }

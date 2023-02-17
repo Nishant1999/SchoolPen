@@ -69,7 +69,7 @@ class NoticeActivity : AppCompatActivity() {
           data=ArrayList()
           val db = TinyDB(this@NoticeActivity)
 
-            myApi.getNotice("Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelNotice>{
+            myApi.getNotice(db.getString("schoolId").toDouble().toInt(),"Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelNotice>{
                 override fun onResponse(call: Call<ModelNotice>, response: Response<ModelNotice>) {
                     if (response.isSuccessful){
 

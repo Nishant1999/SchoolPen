@@ -17,7 +17,7 @@ import java.text.Format
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AdapterHomeDates(var context: Context, var dates:ArrayList<ModelDates>, dayColor: String):RecyclerView.Adapter<AdapterHomeDates.ViewHolder>() {
+class AdapterHomeDates(var context: Context, var dates: MutableList<String>, dayColor: String):RecyclerView.Adapter<AdapterHomeDates.ViewHolder>() {
 
     private val dayColor = dayColor
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
@@ -54,15 +54,23 @@ class AdapterHomeDates(var context: Context, var dates:ArrayList<ModelDates>, da
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val md = dates[position];
-        holder.number.text = md.date.toString();
-        val c = Calendar.getInstance()
+
         val format1 = SimpleDateFormat("dd/MM/yyyy")
-        val dt1: Date = format1.parse(md.fullDate) as Date
+        val dayOfMonth = format1.parse(md)
+        val c = Calendar.getInstance()
+        c.time=dayOfMonth
+
+        val dayOfMonthText = c.get(Calendar.DAY_OF_MONTH)
+
+        holder.number.text = dayOfMonthText.toString()
+
+
+        val dt1: Date = format1.parse(md) as Date
         val dateFormat: Format = SimpleDateFormat("EEE")
         val res: String = dateFormat.format(dt1)
         holder.weekDay.text = res;
 
-        if(getCurrentDate() == md.fullDate){
+        if(getCurrentDate() == md){
             holder.back.background.setColorFilter(Color.parseColor(dayColor), PorterDuff.Mode.SRC_IN)
             holder.number.setTextColor(Color.parseColor("#ffffff"))
             holder.weekDay.setTextColor(Color.parseColor("#ffffff"))
@@ -72,6 +80,7 @@ class AdapterHomeDates(var context: Context, var dates:ArrayList<ModelDates>, da
             holder.weekDay.setTextColor(Color.parseColor("#707070"))
         }
 
+/*
         if(md.fullDate == "19/12/2022"|| md.fullDate == "29/12/2022"){
             holder.showEvents(1, 0, 0)
         }
@@ -82,7 +91,7 @@ class AdapterHomeDates(var context: Context, var dates:ArrayList<ModelDates>, da
 
         if(md.fullDate == "23/12/2022" || md.fullDate == "27/12/2022"){
             holder.showEvents(0, 0, 1)
-        }
+        }*/
 
     }
     override fun getItemCount(): Int {
