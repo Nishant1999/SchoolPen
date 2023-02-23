@@ -48,7 +48,7 @@ class AdapterHomeTodaysClasses (var context: Context, var data:ArrayList<Period>
         var teacherName: TextView = itemView.findViewById(R.id.teacherName);
         val md = data[position]
 
-        period.text = "Period ${md.periodName}"
+        period.text = " ${md.periodName}"
         stream.text = md.conductedTopic.subject.subjectName
         chapter.text = md.conductedTopic.name
         teacherName.text = md.assignedTeacher.name

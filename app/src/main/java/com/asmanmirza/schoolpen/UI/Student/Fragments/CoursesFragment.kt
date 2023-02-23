@@ -25,6 +25,7 @@ import com.asmanmirza.schoolpen.UI.Student.repository.CourseRepo
 import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 
@@ -39,6 +40,7 @@ class CoursesFragment : Fragment() {
     lateinit var courseViewModel: ViewModelCourse
 
     var courseId:Int=0
+
 
     @Inject
     lateinit var courseViewModelFactory: CourseViewModelFactory
@@ -59,6 +61,8 @@ class CoursesFragment : Fragment() {
         db = TinyDB(requireContext())
         data=ArrayList()
 
+        val scope = CoroutineScope(Dispatchers.IO)
+
 
         courseViewModel =
             ViewModelProvider(this, courseViewModelFactory)[ViewModelCourse::class.java]
@@ -73,13 +77,17 @@ class CoursesFragment : Fragment() {
             recTopCourses.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             recFriendCourses.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-            courseViewModel.courseData.observe(viewLifecycleOwner) {
-                data.addAll(it)
 
-                recResumeCourses.adapter = AdapterCourses(requireContext(), data,1)
+            CoroutineScope(Dispatchers.Main).launch {
 
-                recTopCourses.adapter = AdapterCourses(requireContext(), data,2)
-                recFriendCourses.adapter = AdapterCourses(requireContext(), data,3)
+                courseViewModel.courseData.observe(viewLifecycleOwner) {
+                    data.addAll(it)
+
+                    recResumeCourses.adapter = AdapterCourses(requireContext(), data, 1)
+
+                    recTopCourses.adapter = AdapterCourses(requireContext(), data, 2)
+                    recFriendCourses.adapter = AdapterCourses(requireContext(), data, 3)
+                }
             }
 
             scrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->

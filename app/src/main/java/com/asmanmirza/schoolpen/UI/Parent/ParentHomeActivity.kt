@@ -5,11 +5,15 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asmanmirza.schoolpen.Adapters.AdapterHomeTodaysClasses
+import com.asmanmirza.schoolpen.Helpers.ApiClient
 import com.asmanmirza.schoolpen.Helpers.TinyDB
 import com.asmanmirza.schoolpen.Helpers.ZoomOutPageTransformer
 import com.asmanmirza.schoolpen.Models.ModelClasses
@@ -20,8 +24,11 @@ import com.asmanmirza.schoolpen.UI.Student.Courses.Adapters.AdapterCourses
 import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseDTO
 import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelCourse
 import com.asmanmirza.schoolpen.UI.Student.Courses.Models.CourseViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.DataUserId
+import com.asmanmirza.schoolpen.UI.Student.Home.Models.ModelClassUserId
 import com.asmanmirza.schoolpen.UI.Student.Home.viewmodel.ViewModelHome
 import com.asmanmirza.schoolpen.UI.Student.models.HomeViewModelFactory
+import com.asmanmirza.schoolpen.UI.Student.models.ModelUserPeriod
 import com.asmanmirza.schoolpen.UI.Student.models.Period
 import com.asmanmirza.schoolpen.UI.Student.repository.CourseRepo
 import com.asmanmirza.schoolpen.UI.Student.repository.HomeRepository
@@ -29,6 +36,12 @@ import com.asmanmirza.schoolpen.UI.Student.retrofit.MyApi
 import com.asmanmirza.schoolpen.databinding.ActivityParentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 class ParentHomeActivity : AppCompatActivity() {
@@ -38,7 +51,7 @@ class ParentHomeActivity : AppCompatActivity() {
     lateinit var myApi: MyApi
     lateinit var data: ArrayList<CourseDTO>
     lateinit var courseViewModel: ViewModelCourse
-
+    private var classId:String=" "
     lateinit var periodData: ArrayList<Period>
     lateinit var homeViewModel: ViewModelHome
 
@@ -57,7 +70,7 @@ class ParentHomeActivity : AppCompatActivity() {
         db = TinyDB(this)
         data=ArrayList()
         periodData=ArrayList()
-
+        myApi= ApiClient.getClient()?.create(MyApi::class.java)!!
         courseViewModel =
             ViewModelProvider(this, courseViewModelFactory)[ViewModelCourse::class.java]
         val token = db.getString("token")
@@ -70,26 +83,55 @@ class ParentHomeActivity : AppCompatActivity() {
         homeViewModel =
             ViewModelProvider(this, homeViewModelFactory)[ViewModelHome::class.java]
 
-        homeViewModel.getPeriodClassId("Bearer $token")
+        //homeViewModel.getPeriodClassId(1,"Bearer $token")
 
         updateData()
     }
 
     private fun updateData(){
         binding.apply {
-            with(viewPagerHerClasses){
-                homeViewModel.todayPeriodData.observe(this@ParentHomeActivity) {
-                    periodData.addAll(it)
-                    adapter = AdapterHomeTodaysClasses(
-                        this@ParentHomeActivity,
-                        periodData,
-                        R.drawable.back_todays_classes_parent
-                    )
-                    setPageTransformer(true, ZoomOutPageTransformer())
-                    dotsIndicator1.attachTo(this)
-                }
-            }
+            with(viewPagerHerClasses) {
 
+                val scope = CoroutineScope(Dispatchers.Main)
+                 Toast.makeText(this@ParentHomeActivity,"User id"+db.getString("userId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+                scope.launch {
+                    myApi.getClassUserId(4,"Bearer"+" "+db.getString("token")).enqueue(object : Callback<ModelClassUserId>{
+                        override fun onResponse(call: Call<ModelClassUserId>, response: Response<ModelClassUserId>) {
+                            //Toast.makeText(requireContext(),"User id",Toast.LENGTH_LONG).show()
+                            if (response.isSuccessful) {
+
+                                val d = response.body()?.data as ArrayList<DataUserId>
+                                for (i in d) {
+
+                                    db.putString("classId",i.id.toString())
+                                    db.putString("schoolId",i.schoolId.toString())
+                                    //Toast.makeText(requireContext(),"School id"+db.getString("schoolId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+                                    //Toast.makeText(requireContext(),"Class id"+db.getString("classId").toDouble().toInt(),Toast.LENGTH_LONG).show()
+                                  //  schoolId=i.schoolId.toString()
+                                    classId=i.id.toString()
+                                }
+
+                                viewPagerHerlper(classId)
+                                //todayClassApiCall(classId)
+                                //tomorrowLiveClass(classId)
+                                //noticeDetails(schoolId)
+                            }
+                            else{
+                              //  Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
+                            }
+                        }
+                        override fun onFailure(call: Call<ModelClassUserId>, t: Throwable) {
+
+                            //Toast.makeText(this,"EEE",Toast.LENGTH_LONG).show()
+                        }
+
+
+                    })
+
+                }
+
+
+            }
             getClass()
             recResumeCourses.layoutManager = LinearLayoutManager(this@ParentHomeActivity, LinearLayoutManager.HORIZONTAL, false)
             recTopCourses.layoutManager = LinearLayoutManager(this@ParentHomeActivity, LinearLayoutManager.HORIZONTAL, false)
@@ -126,6 +168,47 @@ class ParentHomeActivity : AppCompatActivity() {
 
                 override fun onTabReselected(tab: TabLayout.Tab?) {
 
+                }
+
+            })
+        }
+    }
+
+    private fun viewPagerHerlper(classId:String) {
+        val scope = CoroutineScope(Dispatchers.IO)
+
+        scope.launch {
+            myApi.getPeriodByClassId(
+                classId.toDouble().toInt(),
+                "Bearer" + " " + db.getString("token")
+            ).enqueue(object :
+                Callback<ModelUserPeriod> {
+                override fun onResponse(
+                    call: Call<ModelUserPeriod>,
+                    response: Response<ModelUserPeriod>
+                ) {
+                    if (response.isSuccessful) {
+
+                        Log.d("+++respose", response.body().toString())
+                        val test = response.body()?.data!!.period as ArrayList<Period>
+                        for (i in test) {
+                            periodData.add(i)
+                        }
+                        binding.viewPagerHerClasses.adapter = AdapterHomeTodaysClasses(
+                            this@ParentHomeActivity,
+                            periodData,
+                            R.drawable.back_todays_classes
+                        )
+                        binding.viewPagerHerClasses.setPageTransformer(
+                            true,
+                            ZoomOutPageTransformer()
+                        )
+                        binding.dotsIndicator1.attachTo(binding.viewPagerHerClasses)
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
+                    TODO("Not yet implemented")
                 }
 
             })

@@ -43,12 +43,11 @@ class HomeRepository @Inject constructor(private val application: Application) {
         }
     }
 
-    fun getPeriodClassId(token: String
+/*    fun getPeriodClassId(classId:Int,token: String
     ): kotlinx.coroutines.flow.Flow<ResultWrapper<ModelUserPeriod>> {
         return flow {
 
-
-            val response = myApi.getPeriodByClassId(token)
+            val response = myApi.getPeriodByClassId(classId,token)
             if (response.isSuccessful) {
                 response.body()?.let {
 
@@ -61,7 +60,6 @@ class HomeRepository @Inject constructor(private val application: Application) {
                 emit(ResultWrapper.GenericError(error = error))
             }
         }
-    }
-
+    }*/
 
 }

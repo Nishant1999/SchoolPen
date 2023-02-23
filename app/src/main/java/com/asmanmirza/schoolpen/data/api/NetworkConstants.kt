@@ -21,7 +21,7 @@ object NetworkConstants {
                 const val GET_USER_DETAILS = "$API/user/{userId}"
                 const val GET_TODAY_LIVE_CLASS="$API/todayLiveClass"
                 //Changes for School ID
-                const val GET_NOTICE_DETAILS="$API/viewNoticeBySchoolId/1"
+                const val GET_NOTICE_DETAILS="$API/viewNoticeBySchoolId/{id}"
 
                 const val GET_HOMEWORK_DETAILS="$API/getAllHomeWorkBySchoolsClass"
 
@@ -32,9 +32,19 @@ object NetworkConstants {
                 const val GET_COURSE_REVIEW_BY_COURSE_ID="$API/readCourseReviewByCourseId/{id}"
 
                 //changes for Class Id
-                const val GET_PERIOD_CLASS_ID="$API/getPeriodByClassId/1"
+                const val GET_PERIOD_CLASS_ID="$API/getPeriodByClassId/{id}"
 
                 const val GET_PERIOD_BY_ID="$API/getPeriod/{id}"
+
+                const val GET_FEEDBACK_BY_STUDENT_ID="$API/readFeedBackByStudentId/{id}"
+
+                const val GET_NOTIFICATION_DETAILS="$API/readAllNotification"
+
+                const val GET_CLASS_BY_USER_ID="$API/getClassByUserId/{userId}"
+
+                const val GET_TEACHER_NOTE="$API/readAllTeacherNote"
+
+                const val GET_TEST_BY_CLASS_ID="$API/readTestByClassId/{id}"
 
             }
         }

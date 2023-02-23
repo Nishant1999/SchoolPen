@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.asmanmirza.schoolpen.R
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.ModelTest
+import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.TestData
 
-class AdapterTest (var context: Context,var data:ArrayList<ModelTest>) : RecyclerView.Adapter<AdapterTest.ViewHolder>() {
+class AdapterTest (var context: Context,var data:ArrayList<TestData>) : RecyclerView.Adapter<AdapterTest.ViewHolder>() {
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
 
         val subject:TextView = itemView.findViewById(R.id.testSubject);
@@ -29,14 +31,16 @@ class AdapterTest (var context: Context,var data:ArrayList<ModelTest>) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val md = data[position];
-        if(md.upcoming){
+   /*     if(md.upcoming){
             holder.date.text = "Upcoming ${md.date}"
         }else{
             holder.date.text = "Submit today by ${md.date}"
-        }
-        holder.image.setImageDrawable(context.resources.getDrawable(md.imageID))
+        }*/
+
+//        holder.image.setImageDrawable(context.resources.getDrawable(md.imgURL))
+
         holder.title.text = md.title
-        holder.subject.text = md.subject
+        holder.subject.text = md.description
 
     }
 

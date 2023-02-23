@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.asmanmirza.schoolpen.R
+import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.HomeWork
 import com.asmanmirza.schoolpen.UI.Student.Classwork.Models.ModelCompleteWork
 
-class AdapterCompleteWork (var context: Context, var data:ArrayList<ModelCompleteWork>) : RecyclerView.Adapter<AdapterCompleteWork.ViewHolder>() {
+class AdapterCompleteWork (var context: Context, var data:ArrayList<HomeWork>) : RecyclerView.Adapter<AdapterCompleteWork.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     }

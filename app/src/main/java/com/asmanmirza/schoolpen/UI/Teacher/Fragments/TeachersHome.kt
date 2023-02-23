@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,17 +15,23 @@ import com.asmanmirza.schoolpen.Models.ModelDates
 import com.asmanmirza.schoolpen.Models.ModelEvents
 import com.asmanmirza.schoolpen.Adapters.AdapterHomeDates
 import com.asmanmirza.schoolpen.Helpers.TinyDB
+import com.asmanmirza.schoolpen.R
 import com.asmanmirza.schoolpen.UI.Teacher.Home.*
 import com.asmanmirza.schoolpen.UI.Teacher.Home.AssignedClasses.AssignedClassActivity
 import com.asmanmirza.schoolpen.UI.Teacher.Profile.ProfileTeacherActivity
 import com.asmanmirza.schoolpen.databinding.FragmentTeacherHomeBinding
 import com.google.android.material.tabs.TabLayout
+import java.text.DateFormatSymbols
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TeachersHome : Fragment() {
 
     private var _binding: FragmentTeacherHomeBinding? = null
     private val binding get() = _binding!!
+    lateinit var db:TinyDB
     lateinit var adapterHomeDates: AdapterHomeDates;
 
 
@@ -40,6 +47,11 @@ class TeachersHome : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        db = TinyDB(requireContext())
+
+        view.findViewById<TextView>(R.id.tv_user).text = db.getString("username")
+
         binding.startClass.btnStartClass.setOnClickListener {
             navigateToAttendance()
         }
@@ -76,8 +88,29 @@ class TeachersHome : Fragment() {
         binding.assignedClass2.setOnClickListener {
             Toast.makeText(requireContext(), "You only can view first class.", Toast.LENGTH_SHORT).show()
         }
+
+        val calendar = Calendar.getInstance()
+
+        val monthText = DateFormatSymbols().months[calendar.get(Calendar.MONTH)]
+        val yearText = calendar.get(Calendar.YEAR).toString()
+
+        val monthYearText = "$monthText $yearText"
+
+        binding.btnOpenCalendar.text=monthYearText
+
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+
+        val latestDates = mutableListOf<String>()
+        for (i in -5..6) {
+            calendar.add(Calendar.DATE, i)
+            if(i in 0..4) {
+                latestDates.add(formatter.format(calendar.time))
+            }
+            calendar.add(Calendar.DATE, -i)
+        }
+
         binding.recDates.layoutManager = GridLayoutManager(requireContext(), 5)
-        adapterHomeDates =  AdapterHomeDates(requireContext(), getDates(),"#C45162");
+        adapterHomeDates =  AdapterHomeDates(requireContext(), latestDates,"#C45162");
         binding.recDates.adapter = adapterHomeDates
 
         addEvents()

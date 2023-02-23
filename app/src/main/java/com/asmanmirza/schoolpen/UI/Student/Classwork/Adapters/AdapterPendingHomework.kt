@@ -23,9 +23,9 @@ import kotlin.collections.ArrayList
 class AdapterPendingHomework(var context: Context, var data:ArrayList<HomeWork>) : RecyclerView.Adapter<AdapterPendingHomework.ViewHolder>() {
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val date: TextView = itemView.findViewById(R.id.date)
-        val title: TextView = itemView.findViewById(R.id.title);
+        val title: TextView = itemView.findViewById(R.id.title)
         val subject: TextView = itemView.findViewById(R.id.subject)
-        val des: TextView = itemView.findViewById(R.id.des);
+        val des: TextView = itemView.findViewById(R.id.des)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
