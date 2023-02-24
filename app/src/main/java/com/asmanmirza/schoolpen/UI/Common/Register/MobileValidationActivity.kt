@@ -145,7 +145,7 @@ class MobileValidationActivity : AppCompatActivity() {
                 Log.e("Error//", "$t")
                 binding.layoutLoading.dismiss()
                 Toast.makeText(
-                   this@MobileValidationActivity,
+                    this@MobileValidationActivity,
                     "There was an issue while connecting to the server",
                     Toast.LENGTH_SHORT
                 ).show()

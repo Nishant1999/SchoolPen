@@ -109,7 +109,7 @@ class HomeFragment : Fragment() {
         db = TinyDB(requireContext())
         myApi = ApiClient.getClient()?.create(MyApi::class.java)!!
         dataUserId = ArrayList()
-        val coroutineScope = CoroutineScope(Dispatchers.Main)
+       /* val coroutineScope = CoroutineScope(Dispatchers.Main)
         coroutineScope.launch {
           delay(5000)
             Toast.makeText(
@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
                 "classIDDD" + db.getString("classId").toDouble().toInt(),
                 Toast.LENGTH_LONG
             ).show()
-        }
+        }*/
         /*Toast.makeText(
             requireContext(),
             "classIdOutside" + db.getString("classId").toDouble().toInt(),
@@ -177,16 +177,9 @@ class HomeFragment : Fragment() {
 
 
             with(viewPagerTodaysClasses) {
-                    coroutineScope.launch {
-                   //  delay(10000)
 
-                        Toast.makeText(
-                            requireContext(),
-                            "classIdToday" + db.getString("classId").toDouble().toInt(),
-                            Toast.LENGTH_LONG
-                        ).show()
                         myApi.getPeriodByClassId(
-                            db.getString("classId").toDouble().toInt(),
+                            6,
                             "Bearer" + " " + db.getString("token")
                         ).enqueue(object : Callback<ModelUserPeriod> {
                             override fun onResponse(
@@ -220,20 +213,16 @@ class HomeFragment : Fragment() {
                         })
                     }
 
-            }
+
 
             with(viewPagerTomorrowClasses) {
-                coroutineScope.launch {
+
 
                   // delay(10000)
 
-                    Toast.makeText(
-                        requireContext(),
-                        "classIDTommoroow" + db.getString("classId").toDouble().toInt(),
-                        Toast.LENGTH_LONG
-                    ).show()
+
                     myApi.getPeriodByClassId(
-                        db.getString("classId").toDouble().toInt(),
+                        6,
                         "Bearer" + " " + db.getString("token")
                     ).enqueue(object : Callback<ModelUserPeriod> {
                         override fun onResponse(
@@ -266,10 +255,11 @@ class HomeFragment : Fragment() {
                     })
                 }
 
-            }
+
 
 
             noticeDetails()
+
             teacherNote()
 
 
@@ -432,9 +422,6 @@ class HomeFragment : Fragment() {
                 else{
                     Toast.makeText(requireContext(),"dateString",Toast.LENGTH_LONG).show()
                 }
-
-
-
             }
 
             override fun onFailure(call: Call<ModelTeacherNote>, t: Throwable) {
@@ -449,7 +436,7 @@ class HomeFragment : Fragment() {
 
 
             myApi.getNotice(
-                db.getString("schoolId").toDouble().toInt(),
+                8,
                 "Bearer" + " " + db.getString("token")
             ).enqueue(object : Callback<ModelNotice> {
                 @RequiresApi(Build.VERSION_CODES.O)
