@@ -179,7 +179,7 @@ class ParentHomeActivity : AppCompatActivity() {
 
         scope.launch {
             myApi.getPeriodByClassId(
-                classId.toDouble().toInt(),
+                6,
                 "Bearer" + " " + db.getString("token")
             ).enqueue(object :
                 Callback<ModelUserPeriod> {

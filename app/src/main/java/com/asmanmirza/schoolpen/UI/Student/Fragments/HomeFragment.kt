@@ -249,7 +249,7 @@ class HomeFragment : Fragment() {
                         }
 
                         override fun onFailure(call: Call<ModelUserPeriod>, t: Throwable) {
-                            TODO("Not yet implemented")
+
                         }
 
                     })
